@@ -1,0 +1,9 @@
+D:\Du An C#\QLNhiemVu\QLNhiemVu\bin\Debug\QLNhiemVu.exe.config
+D:\Du An C#\QLNhiemVu\QLNhiemVu\bin\Debug\QLNhiemVu.exe
+D:\Du An C#\QLNhiemVu\QLNhiemVu\bin\Debug\QLNhiemVu.pdb
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.csprojResolveAssemblyReference.cache
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.Form1.resources
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.Properties.Resources.resources
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.csproj.GenerateResource.Cache
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.exe
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.pdb
