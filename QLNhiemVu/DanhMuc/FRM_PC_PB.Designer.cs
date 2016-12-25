@@ -74,6 +74,8 @@
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.lookUpEdit10 = new DevExpress.XtraEditors.LookUpEdit();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.panel1.SuspendLayout();
             this.panelHeader1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -100,14 +102,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit10.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Size = new System.Drawing.Size(1175, 184);
+            this.panel1.Size = new System.Drawing.Size(1175, 200);
             // 
             // panelHeader1
             // 
+            this.panelHeader1.Controls.Add(this.textEdit1);
+            this.panelHeader1.Controls.Add(this.label13);
             this.panelHeader1.Controls.Add(this.simpleButton1);
             this.panelHeader1.Controls.Add(this.simpleButton2);
             this.panelHeader1.Controls.Add(this.lookUpEdit6);
@@ -125,7 +130,7 @@
             this.panelHeader1.Controls.Add(this.label1);
             this.panelHeader1.Controls.Add(this.label3);
             this.panelHeader1.Location = new System.Drawing.Point(92, 0);
-            this.panelHeader1.Size = new System.Drawing.Size(955, 175);
+            this.panelHeader1.Size = new System.Drawing.Size(955, 193);
             this.panelHeader1.Controls.SetChildIndex(this.lblHeadTitle1, 0);
             this.panelHeader1.Controls.SetChildIndex(this.label3, 0);
             this.panelHeader1.Controls.SetChildIndex(this.label1, 0);
@@ -143,6 +148,8 @@
             this.panelHeader1.Controls.SetChildIndex(this.lookUpEdit6, 0);
             this.panelHeader1.Controls.SetChildIndex(this.simpleButton2, 0);
             this.panelHeader1.Controls.SetChildIndex(this.simpleButton1, 0);
+            this.panelHeader1.Controls.SetChildIndex(this.label13, 0);
+            this.panelHeader1.Controls.SetChildIndex(this.textEdit1, 0);
             // 
             // groupControl1
             // 
@@ -150,8 +157,8 @@
             this.groupControl1.AppearanceCaption.ForeColor = System.Drawing.Color.Blue;
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.Options.UseForeColor = true;
-            this.groupControl1.Location = new System.Drawing.Point(0, 301);
-            this.groupControl1.Size = new System.Drawing.Size(1175, 238);
+            this.groupControl1.Location = new System.Drawing.Point(0, 309);
+            this.groupControl1.Size = new System.Drawing.Size(1175, 230);
             this.groupControl1.Text = "Chi tiết phân công trong phòng ban";
             // 
             // lblHeadTitle1
@@ -168,7 +175,8 @@
             this.groupControl2.AppearanceCaption.Options.UseForeColor = true;
             this.groupControl2.Controls.Add(this.checkEdit1);
             this.groupControl2.Controls.Add(this.gridControl1);
-            this.groupControl2.Size = new System.Drawing.Size(1175, 117);
+            this.groupControl2.Location = new System.Drawing.Point(0, 200);
+            this.groupControl2.Size = new System.Drawing.Size(1175, 109);
             // 
             // panelHeader2
             // 
@@ -185,7 +193,7 @@
             this.panelHeader2.Controls.Add(this.label9);
             this.panelHeader2.Controls.Add(this.label8);
             this.panelHeader2.Location = new System.Drawing.Point(39, 30);
-            this.panelHeader2.Size = new System.Drawing.Size(989, 196);
+            this.panelHeader2.Size = new System.Drawing.Size(989, 183);
             // 
             // gridControl1
             // 
@@ -195,7 +203,7 @@
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemImageComboBox1});
-            this.gridControl1.Size = new System.Drawing.Size(1171, 88);
+            this.gridControl1.Size = new System.Drawing.Size(1171, 80);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -709,6 +717,26 @@
             this.lookUpEdit10.Size = new System.Drawing.Size(269, 26);
             this.lookUpEdit10.TabIndex = 34;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(40, 165);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(79, 19);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "Phòng ban";
+            // 
+            // textEdit1
+            // 
+            this.textEdit1.Enabled = false;
+            this.textEdit1.Location = new System.Drawing.Point(198, 162);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit1.Properties.Appearance.Options.UseFont = true;
+            this.textEdit1.Size = new System.Drawing.Size(269, 26);
+            this.textEdit1.TabIndex = 37;
+            // 
             // FRM_PC_PB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -744,6 +772,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit10.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -796,6 +825,8 @@
         private DevExpress.XtraEditors.MemoEdit memoEdit1;
         private DevExpress.XtraEditors.CheckEdit checkEdit1;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit10;
+        private System.Windows.Forms.Label label13;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
 
     }
 }
