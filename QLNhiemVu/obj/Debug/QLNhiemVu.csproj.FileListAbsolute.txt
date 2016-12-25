@@ -1,9 +1,16 @@
 D:\Du An C#\QLNhiemVu\QLNhiemVu\bin\Debug\QLNhiemVu.exe.config
 D:\Du An C#\QLNhiemVu\QLNhiemVu\bin\Debug\QLNhiemVu.exe
 D:\Du An C#\QLNhiemVu\QLNhiemVu\bin\Debug\QLNhiemVu.pdb
-D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.csprojResolveAssemblyReference.cache
 D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.Form1.resources
 D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.Properties.Resources.resources
 D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.csproj.GenerateResource.Cache
 D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.exe
 D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.pdb
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.FRMModel.FRM_Model1.resources
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.User_Control.UC_MenuBtn.resources
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.DanhMuc.FRM_TDTHNV.resources
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.exe.licenses
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.FRMModel.FRM_Model2.resources
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.DanhMuc.FRM_PC_CQ.resources
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.DanhMuc.FRM_PC_PB.resources
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.csprojResolveAssemblyReference.cache

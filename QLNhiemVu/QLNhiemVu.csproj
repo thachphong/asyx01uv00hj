@@ -32,8 +32,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,17 +55,76 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DanhMuc\FRM_PC_PB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_PC_PB.Designer.cs">
+      <DependentUpon>FRM_PC_PB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_PC_CQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_PC_CQ.Designer.cs">
+      <DependentUpon>FRM_PC_CQ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TDTHNV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TDTHNV.Designer.cs">
+      <DependentUpon>FRM_TDTHNV.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMModel\FRM_Model1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMModel\FRM_Model1.Designer.cs">
+      <DependentUpon>FRM_Model1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMModel\FRM_Model2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMModel\FRM_Model2.Designer.cs">
+      <DependentUpon>FRM_Model2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User_Control\lblHeadTitle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="User_Control\panelHeader.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="User_Control\UC_MenuBtn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Control\UC_MenuBtn.Designer.cs">
+      <DependentUpon>UC_MenuBtn.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DanhMuc\FRM_PC_PB.resx">
+      <DependentUpon>FRM_PC_PB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_PC_CQ.resx">
+      <DependentUpon>FRM_PC_CQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_TDTHNV.resx">
+      <DependentUpon>FRM_TDTHNV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FRMModel\FRM_Model1.resx">
+      <DependentUpon>FRM_Model1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMModel\FRM_Model2.resx">
+      <DependentUpon>FRM_Model2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -64,6 +134,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="User_Control\UC_MenuBtn.resx">
+      <DependentUpon>UC_MenuBtn.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -77,6 +150,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using QLNhiemVu.DanhMuc;
 namespace QLNhiemVu
 {
     public partial class Form1 : Form
@@ -15,6 +15,24 @@ namespace QLNhiemVu
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            FRM_TDTHNV frm = new FRM_TDTHNV();
+            frm.Show();
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            FRM_PC_CQ frm = new FRM_PC_CQ();
+            frm.Show();
+        }
+
+        private void simpleButton3_Click(object sender, EventArgs e)
+        {
+            FRM_PC_PB frm = new FRM_PC_PB();
+            frm.Show();
         }
     }
 }
