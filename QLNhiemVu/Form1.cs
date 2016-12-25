@@ -34,5 +34,11 @@ namespace QLNhiemVu
             FRM_PC_PB frm = new FRM_PC_PB();
             frm.Show();
         }
+
+        private void simpleButton4_Click(object sender, EventArgs e)
+        {
+            FRM_ThamDinh frm = new FRM_ThamDinh();
+            frm.Show();
+        }
     }
 }

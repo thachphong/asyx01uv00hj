@@ -78,6 +78,7 @@
             this.simpleButton4.Size = new System.Drawing.Size(238, 34);
             this.simpleButton4.TabIndex = 3;
             this.simpleButton4.Text = "Thẩm Định";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
             // simpleButton5
             // 
