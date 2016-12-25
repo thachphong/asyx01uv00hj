@@ -14,3 +14,5 @@ D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.FRMModel.FRM_Model2.resource
 D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.DanhMuc.FRM_PC_CQ.resources
 D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.DanhMuc.FRM_PC_PB.resources
 D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.csprojResolveAssemblyReference.cache
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.DanhMuc.FRM_ThamDinh.resources
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.DanhMuc.FRM_ThamDinh_Duyet.resources
