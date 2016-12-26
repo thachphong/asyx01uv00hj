@@ -33,7 +33,7 @@ namespace QLNhiemVu.DanhMuc
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             FRM_ThamDinh_Duyet frm = new FRM_ThamDinh_Duyet();
-            frm.Show();
+            frm.Show();            
         }
     }
 }
