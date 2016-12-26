@@ -35,7 +35,6 @@
             this.btn_boqua = new DevExpress.XtraEditors.SimpleButton();
             this.btn_sua = new DevExpress.XtraEditors.SimpleButton();
             this.btn_them = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_tim = new DevExpress.XtraEditors.SimpleButton();
             this.btn_in = new DevExpress.XtraEditors.SimpleButton();
             this.btn_capnhat = new DevExpress.XtraEditors.SimpleButton();
             this.btn_thoat = new DevExpress.XtraEditors.SimpleButton();
@@ -62,14 +61,13 @@
             this.groupBox1.Controls.Add(this.btn_boqua);
             this.groupBox1.Controls.Add(this.btn_sua);
             this.groupBox1.Controls.Add(this.btn_them);
-            this.groupBox1.Controls.Add(this.btn_tim);
             this.groupBox1.Controls.Add(this.btn_in);
             this.groupBox1.Controls.Add(this.btn_capnhat);
             this.groupBox1.Controls.Add(this.btn_thoat);
             this.groupBox1.Controls.Add(this.btn_xoa);
             this.groupBox1.Location = new System.Drawing.Point(2, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(722, 52);
+            this.groupBox1.Size = new System.Drawing.Size(648, 52);
             this.groupBox1.TabIndex = 87;
             this.groupBox1.TabStop = false;
             // 
@@ -79,7 +77,7 @@
             this.btn_boqua.Appearance.Options.UseFont = true;
             this.btn_boqua.ImageIndex = 1;
             this.btn_boqua.ImageList = this.imageCollection1;
-            this.btn_boqua.Location = new System.Drawing.Point(265, 15);
+            this.btn_boqua.Location = new System.Drawing.Point(268, 15);
             this.btn_boqua.Name = "btn_boqua";
             this.btn_boqua.Size = new System.Drawing.Size(85, 29);
             this.btn_boqua.TabIndex = 93;
@@ -92,7 +90,7 @@
             this.btn_sua.Appearance.Options.UseFont = true;
             this.btn_sua.ImageIndex = 3;
             this.btn_sua.ImageList = this.imageCollection1;
-            this.btn_sua.Location = new System.Drawing.Point(97, 15);
+            this.btn_sua.Location = new System.Drawing.Point(98, 15);
             this.btn_sua.Name = "btn_sua";
             this.btn_sua.Size = new System.Drawing.Size(75, 29);
             this.btn_sua.TabIndex = 87;
@@ -112,31 +110,18 @@
             this.btn_them.Text = "Thêm";
             this.btn_them.ToolTip = "Ctrl+N";
             // 
-            // btn_tim
-            // 
-            this.btn_tim.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_tim.Appearance.Options.UseFont = true;
-            this.btn_tim.ImageIndex = 5;
-            this.btn_tim.ImageList = this.imageCollection1;
-            this.btn_tim.Location = new System.Drawing.Point(547, 15);
-            this.btn_tim.Name = "btn_tim";
-            this.btn_tim.Size = new System.Drawing.Size(77, 29);
-            this.btn_tim.TabIndex = 92;
-            this.btn_tim.Text = "Tìm";
-            this.btn_tim.ToolTip = "Ctrl+F";
-            // 
             // btn_in
             // 
             this.btn_in.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_in.Appearance.Options.UseFont = true;
             this.btn_in.ImageIndex = 6;
             this.btn_in.ImageList = this.imageCollection1;
-            this.btn_in.Location = new System.Drawing.Point(463, 15);
+            this.btn_in.Location = new System.Drawing.Point(468, 15);
             this.btn_in.Name = "btn_in";
-            this.btn_in.Size = new System.Drawing.Size(75, 29);
-            this.btn_in.TabIndex = 91;
+            this.btn_in.Size = new System.Drawing.Size(77, 29);
+            this.btn_in.TabIndex = 92;
             this.btn_in.Text = "In";
-            this.btn_in.ToolTip = "Ctrl+P";
+            this.btn_in.ToolTip = "Ctrl+F";
             // 
             // btn_capnhat
             // 
@@ -144,7 +129,7 @@
             this.btn_capnhat.Appearance.Options.UseFont = true;
             this.btn_capnhat.ImageIndex = 7;
             this.btn_capnhat.ImageList = this.imageCollection1;
-            this.btn_capnhat.Location = new System.Drawing.Point(359, 15);
+            this.btn_capnhat.Location = new System.Drawing.Point(363, 15);
             this.btn_capnhat.Name = "btn_capnhat";
             this.btn_capnhat.Size = new System.Drawing.Size(95, 29);
             this.btn_capnhat.TabIndex = 88;
@@ -157,7 +142,7 @@
             this.btn_thoat.Appearance.Options.UseFont = true;
             this.btn_thoat.ImageIndex = 4;
             this.btn_thoat.ImageList = this.imageCollection1;
-            this.btn_thoat.Location = new System.Drawing.Point(633, 15);
+            this.btn_thoat.Location = new System.Drawing.Point(555, 15);
             this.btn_thoat.Name = "btn_thoat";
             this.btn_thoat.Size = new System.Drawing.Size(80, 29);
             this.btn_thoat.TabIndex = 90;
@@ -170,7 +155,7 @@
             this.btn_xoa.Appearance.Options.UseFont = true;
             this.btn_xoa.ImageIndex = 2;
             this.btn_xoa.ImageList = this.imageCollection1;
-            this.btn_xoa.Location = new System.Drawing.Point(181, 15);
+            this.btn_xoa.Location = new System.Drawing.Point(183, 15);
             this.btn_xoa.Name = "btn_xoa";
             this.btn_xoa.Size = new System.Drawing.Size(75, 29);
             this.btn_xoa.TabIndex = 89;
@@ -183,7 +168,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Name = "UC_MenuBtn";
-            this.Size = new System.Drawing.Size(731, 61);
+            this.Size = new System.Drawing.Size(656, 61);
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -197,7 +182,6 @@
         public DevExpress.XtraEditors.SimpleButton btn_boqua;
         public DevExpress.XtraEditors.SimpleButton btn_sua;
         public DevExpress.XtraEditors.SimpleButton btn_them;
-        public DevExpress.XtraEditors.SimpleButton btn_tim;
         public DevExpress.XtraEditors.SimpleButton btn_in;
         public DevExpress.XtraEditors.SimpleButton btn_capnhat;
         public DevExpress.XtraEditors.SimpleButton btn_thoat;
