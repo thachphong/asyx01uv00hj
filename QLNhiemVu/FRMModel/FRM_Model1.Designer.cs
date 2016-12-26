@@ -36,7 +36,9 @@
             this.panelHeader2 = new QLNhiemVu.panelHeader();
             this.uC_MenuBtn1 = new QLNhiemVu.User_Control.UC_MenuBtn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelHeader1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -50,6 +52,7 @@
             this.groupControl1.AppearanceCaption.ForeColor = System.Drawing.Color.Blue;
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.Options.UseForeColor = true;
+            this.groupControl1.Controls.Add(this.panel3);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
@@ -123,6 +126,14 @@
             this.groupControl2.TabIndex = 3;
             this.groupControl2.Text = "Dữ liệu chi tiết";
             // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(2, 310);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(253, 170);
+            this.panel3.TabIndex = 0;
+            // 
             // FRM_Model1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -138,6 +149,7 @@
             this.Load += new System.EventHandler(this.FRM_Model1_Load_1);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FRM_Model1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelHeader1.ResumeLayout(false);
             this.panelHeader1.PerformLayout();
@@ -158,5 +170,6 @@
         public lblHeadTitle lblHeadTitle1;
         public User_Control.UC_MenuBtn uC_MenuBtn1;
         public panelHeader panelHeader2;
+        public System.Windows.Forms.Panel panel3;
     }
 }

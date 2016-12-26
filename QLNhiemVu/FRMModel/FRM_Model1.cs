@@ -92,8 +92,8 @@ namespace QLNhiemVu.FRMModel
             uC_MenuBtn1.btn_sua.Click += new EventHandler(sua_click);
             uC_MenuBtn1.btn_xoa.Click += new EventHandler(xoa_click);
             uC_MenuBtn1.btn_capnhat.Click += new EventHandler(capnhat_click);
-            uC_MenuBtn1.btn_in.Click += new EventHandler(in_click);
-            uC_MenuBtn1.btn_tim.Click += new EventHandler(tim_click);
+           // uC_MenuBtn1.btn_in.Click += new EventHandler(in_click);
+            uC_MenuBtn1.btn_in.Click += new EventHandler(tim_click);
             uC_MenuBtn1.btn_thoat.Click += new EventHandler(thoat_click);
             uC_MenuBtn1.btn_boqua.Click += new EventHandler(boqua_click);
             //uC_MenuBtn1.btn_congnhan.Click += new EventHandler(congnhan_huy_click);
