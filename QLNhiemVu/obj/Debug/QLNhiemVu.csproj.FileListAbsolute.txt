@@ -13,6 +13,10 @@ D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.exe.licenses
 D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.FRMModel.FRM_Model2.resources
 D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.DanhMuc.FRM_PC_CQ.resources
 D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.DanhMuc.FRM_PC_PB.resources
-D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.csprojResolveAssemblyReference.cache
 D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.DanhMuc.FRM_ThamDinh.resources
 D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.DanhMuc.FRM_ThamDinh_Duyet.resources
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.DanhMuc.FRM_CN_TVB.resources
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.User_Control.UC_Find.resources
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.User_Control.UC_AttachFile.resources
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.User_Control.UC_Help.resources
+D:\Du An C#\QLNhiemVu\QLNhiemVu\obj\Debug\QLNhiemVu.csprojResolveAssemblyReference.cache

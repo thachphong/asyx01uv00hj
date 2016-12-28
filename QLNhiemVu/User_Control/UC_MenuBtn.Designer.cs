@@ -48,13 +48,17 @@
             this.imageCollection1.ImageSize = new System.Drawing.Size(24, 24);
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
             this.imageCollection1.Images.SetKeyName(0, "add2.png");
-            this.imageCollection1.Images.SetKeyName(1, "Cancel.png");
+            this.imageCollection1.InsertGalleryImage("undo_32x32.png", "office2013/history/undo_32x32.png", DevExpress.Images.ImageResourceCache.Default.GetImage("office2013/history/undo_32x32.png"), 1);
+            this.imageCollection1.Images.SetKeyName(1, "undo_32x32.png");
             this.imageCollection1.Images.SetKeyName(2, "delete.png");
-            this.imageCollection1.Images.SetKeyName(3, "edit.png");
+            this.imageCollection1.InsertGalleryImage("edit_32x32.png", "images/edit/edit_32x32.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/edit/edit_32x32.png"), 3);
+            this.imageCollection1.Images.SetKeyName(3, "edit_32x32.png");
             this.imageCollection1.Images.SetKeyName(4, "Exit.png");
             this.imageCollection1.Images.SetKeyName(5, "Find.png");
-            this.imageCollection1.Images.SetKeyName(6, "Print.png");
-            this.imageCollection1.Images.SetKeyName(7, "Save.png");
+            this.imageCollection1.InsertGalleryImage("print_32x32.png", "images/print/print_32x32.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/print/print_32x32.png"), 6);
+            this.imageCollection1.Images.SetKeyName(6, "print_32x32.png");
+            this.imageCollection1.InsertGalleryImage("saveto_32x32.png", "images/save/saveto_32x32.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/save/saveto_32x32.png"), 7);
+            this.imageCollection1.Images.SetKeyName(7, "saveto_32x32.png");
             // 
             // groupBox1
             // 

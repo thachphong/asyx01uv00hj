@@ -59,8 +59,6 @@
             this.lookUpEdit4 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit5 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit6 = new DevExpress.XtraEditors.LookUpEdit();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -74,6 +72,8 @@
             this.lookUpEdit9 = new DevExpress.XtraEditors.LookUpEdit();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.uC_AttachFile1 = new QLNhiemVu.User_Control.UC_AttachFile();
+            this.uC_Help1 = new QLNhiemVu.User_Control.UC_Help();
             this.panel1.SuspendLayout();
             this.panelHeader1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -108,8 +108,8 @@
             // 
             // panelHeader1
             // 
-            this.panelHeader1.Controls.Add(this.simpleButton1);
-            this.panelHeader1.Controls.Add(this.simpleButton2);
+            this.panelHeader1.Controls.Add(this.uC_Help1);
+            this.panelHeader1.Controls.Add(this.uC_AttachFile1);
             this.panelHeader1.Controls.Add(this.lookUpEdit6);
             this.panelHeader1.Controls.Add(this.lookUpEdit5);
             this.panelHeader1.Controls.Add(this.lookUpEdit4);
@@ -141,8 +141,8 @@
             this.panelHeader1.Controls.SetChildIndex(this.lookUpEdit4, 0);
             this.panelHeader1.Controls.SetChildIndex(this.lookUpEdit5, 0);
             this.panelHeader1.Controls.SetChildIndex(this.lookUpEdit6, 0);
-            this.panelHeader1.Controls.SetChildIndex(this.simpleButton2, 0);
-            this.panelHeader1.Controls.SetChildIndex(this.simpleButton1, 0);
+            this.panelHeader1.Controls.SetChildIndex(this.uC_AttachFile1, 0);
+            this.panelHeader1.Controls.SetChildIndex(this.uC_Help1, 0);
             // 
             // groupControl1
             // 
@@ -530,30 +530,6 @@
             this.lookUpEdit6.Size = new System.Drawing.Size(269, 26);
             this.lookUpEdit6.TabIndex = 33;
             // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.Appearance.Options.UseForeColor = true;
-            this.simpleButton2.Location = new System.Drawing.Point(647, 133);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(111, 32);
-            this.simpleButton2.TabIndex = 34;
-            this.simpleButton2.Text = "Kèm theo file";
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.Location = new System.Drawing.Point(797, 132);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(111, 32);
-            this.simpleButton1.TabIndex = 35;
-            this.simpleButton1.Text = "Hướng dẫn";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -708,6 +684,20 @@
             this.checkEdit1.Size = new System.Drawing.Size(16, 19);
             this.checkEdit1.TabIndex = 4;
             // 
+            // uC_AttachFile1
+            // 
+            this.uC_AttachFile1.Location = new System.Drawing.Point(605, 132);
+            this.uC_AttachFile1.Name = "uC_AttachFile1";
+            this.uC_AttachFile1.Size = new System.Drawing.Size(136, 32);
+            this.uC_AttachFile1.TabIndex = 34;
+            // 
+            // uC_Help1
+            // 
+            this.uC_Help1.Location = new System.Drawing.Point(772, 132);
+            this.uC_Help1.Name = "uC_Help1";
+            this.uC_Help1.Size = new System.Drawing.Size(136, 32);
+            this.uC_Help1.TabIndex = 35;
+            // 
             // FRM_PC_CQ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -780,8 +770,6 @@
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit5;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit4;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit9;
         private DevExpress.XtraEditors.DateEdit dateEdit1;
         private DevExpress.XtraEditors.DateEdit db_ngay_hieuluc;
@@ -795,6 +783,8 @@
         private System.Windows.Forms.Label label8;
         private DevExpress.XtraEditors.MemoEdit memoEdit1;
         private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private User_Control.UC_Help uC_Help1;
+        private User_Control.UC_AttachFile uC_AttachFile1;
 
     }
 }

@@ -8,17 +8,13 @@ using System.Windows.Forms;
 
 namespace QLNhiemVu.DanhMuc
 {
-    public partial class FRM_ThamDinh_Duyet : QLNhiemVu.FRMModel.FRM_Model1
+    public partial class FRM_CN_TVB : QLNhiemVu.FRMModel.FRM_Model1
     {
-        public FRM_ThamDinh_Duyet()
+        public FRM_CN_TVB()
         {
             InitializeComponent();
-            gs_title_from = "Phê Duyệt";
         }
 
-        private void FRM_ThamDinh_Duyet_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

@@ -52,6 +52,19 @@
             this.db_taingay = new DevExpress.XtraEditors.DateEdit();
             this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
             this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
+            this.lookUpEdit7 = new DevExpress.XtraEditors.LookUpEdit();
+            this.lookUpEdit6 = new DevExpress.XtraEditors.LookUpEdit();
+            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.comboBoxEdit2 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.uC_Find1 = new QLNhiemVu.User_Control.UC_Find();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -59,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.panelHeader1.SuspendLayout();
             this.panelHeader2.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit5.Properties)).BeginInit();
@@ -72,6 +86,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.db_taingay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -81,15 +103,19 @@
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.Options.UseForeColor = true;
             this.groupControl1.Controls.Add(this.gridControl1);
-            this.groupControl1.Size = new System.Drawing.Size(257, 741);
+            this.groupControl1.Size = new System.Drawing.Size(320, 741);
+            this.groupControl1.Controls.SetChildIndex(this.gridControl1, 0);
+            this.groupControl1.Controls.SetChildIndex(this.panel3, 0);
             // 
             // panel1
             // 
-            this.panel1.Size = new System.Drawing.Size(986, 310);
+            this.panel1.Location = new System.Drawing.Point(320, 0);
+            this.panel1.Size = new System.Drawing.Size(923, 310);
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(257, 660);
+            this.panel2.Location = new System.Drawing.Point(320, 660);
+            this.panel2.Size = new System.Drawing.Size(923, 81);
             // 
             // groupControl2
             // 
@@ -97,8 +123,8 @@
             this.groupControl2.AppearanceCaption.ForeColor = System.Drawing.Color.Blue;
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.AppearanceCaption.Options.UseForeColor = true;
-            this.groupControl2.Location = new System.Drawing.Point(257, 310);
-            this.groupControl2.Size = new System.Drawing.Size(986, 350);
+            this.groupControl2.Location = new System.Drawing.Point(320, 310);
+            this.groupControl2.Size = new System.Drawing.Size(923, 350);
             // 
             // panelHeader1
             // 
@@ -156,13 +182,31 @@
             // 
             this.panelHeader2.Location = new System.Drawing.Point(82, 0);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.uC_Find1);
+            this.panel3.Controls.Add(this.lookUpEdit7);
+            this.panel3.Controls.Add(this.lookUpEdit6);
+            this.panel3.Controls.Add(this.textEdit5);
+            this.panel3.Controls.Add(this.dateEdit2);
+            this.panel3.Controls.Add(this.dateEdit1);
+            this.panel3.Controls.Add(this.comboBoxEdit2);
+            this.panel3.Controls.Add(this.label20);
+            this.panel3.Controls.Add(this.label19);
+            this.panel3.Controls.Add(this.label18);
+            this.panel3.Controls.Add(this.label17);
+            this.panel3.Controls.Add(this.label16);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Location = new System.Drawing.Point(2, 539);
+            this.panel3.Size = new System.Drawing.Size(316, 200);
+            // 
             // gridControl1
             // 
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl1.Location = new System.Drawing.Point(2, 27);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(253, 712);
+            this.gridControl1.Size = new System.Drawing.Size(316, 712);
             this.gridControl1.TabIndex = 1;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -435,6 +479,155 @@
             this.radioGroup1.Size = new System.Drawing.Size(809, 41);
             this.radioGroup1.TabIndex = 55;
             // 
+            // lookUpEdit7
+            // 
+            this.lookUpEdit7.Location = new System.Drawing.Point(121, 161);
+            this.lookUpEdit7.Name = "lookUpEdit7";
+            this.lookUpEdit7.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit7.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit7.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit7.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lookUpEdit7.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit7.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DM020703", "Tên đối tượng")});
+            this.lookUpEdit7.Properties.NullText = "";
+            this.lookUpEdit7.Properties.ShowHeader = false;
+            this.lookUpEdit7.Size = new System.Drawing.Size(184, 26);
+            this.lookUpEdit7.TabIndex = 118;
+            // 
+            // lookUpEdit6
+            // 
+            this.lookUpEdit6.Location = new System.Drawing.Point(121, 132);
+            this.lookUpEdit6.Name = "lookUpEdit6";
+            this.lookUpEdit6.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit6.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit6.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit6.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lookUpEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit6.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DM020703", "Tên đối tượng")});
+            this.lookUpEdit6.Properties.NullText = "";
+            this.lookUpEdit6.Properties.ShowHeader = false;
+            this.lookUpEdit6.Size = new System.Drawing.Size(184, 26);
+            this.lookUpEdit6.TabIndex = 117;
+            // 
+            // textEdit5
+            // 
+            this.textEdit5.Location = new System.Drawing.Point(121, 45);
+            this.textEdit5.Name = "textEdit5";
+            this.textEdit5.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit5.Properties.Appearance.Options.UseFont = true;
+            this.textEdit5.Size = new System.Drawing.Size(184, 26);
+            this.textEdit5.TabIndex = 116;
+            // 
+            // dateEdit2
+            // 
+            this.dateEdit2.EditValue = null;
+            this.dateEdit2.Location = new System.Drawing.Point(121, 103);
+            this.dateEdit2.Name = "dateEdit2";
+            this.dateEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateEdit2.Properties.Appearance.Options.UseFont = true;
+            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit2.Size = new System.Drawing.Size(184, 26);
+            this.dateEdit2.TabIndex = 115;
+            // 
+            // dateEdit1
+            // 
+            this.dateEdit1.EditValue = null;
+            this.dateEdit1.Location = new System.Drawing.Point(121, 74);
+            this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateEdit1.Properties.Appearance.Options.UseFont = true;
+            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Size = new System.Drawing.Size(184, 26);
+            this.dateEdit1.TabIndex = 114;
+            // 
+            // comboBoxEdit2
+            // 
+            this.comboBoxEdit2.Location = new System.Drawing.Point(121, 16);
+            this.comboBoxEdit2.Name = "comboBoxEdit2";
+            this.comboBoxEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxEdit2.Properties.Appearance.Options.UseFont = true;
+            this.comboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit2.Size = new System.Drawing.Size(100, 26);
+            this.comboBoxEdit2.TabIndex = 113;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(3, 163);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(119, 19);
+            this.label20.TabIndex = 112;
+            this.label20.Text = "Thuộc danh mục";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(17, 134);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(105, 19);
+            this.label19.TabIndex = 111;
+            this.label19.Text = "Loại nhiệm vụ";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(50, 105);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(72, 19);
+            this.label18.TabIndex = 110;
+            this.label18.Text = "Đên ngày";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(95, 47);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(27, 19);
+            this.label17.TabIndex = 109;
+            this.label17.Text = "Số";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(60, 76);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(62, 19);
+            this.label16.TabIndex = 108;
+            this.label16.Text = "Từ ngày";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(81, 18);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(41, 19);
+            this.label8.TabIndex = 107;
+            this.label8.Text = "Năm";
+            // 
+            // uC_Find1
+            // 
+            this.uC_Find1.Location = new System.Drawing.Point(227, 13);
+            this.uC_Find1.Name = "uC_Find1";
+            this.uC_Find1.Size = new System.Drawing.Size(79, 29);
+            this.uC_Find1.TabIndex = 119;
+            // 
             // FRM_ThamDinh_Duyet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,6 +635,7 @@
             this.KeyPreview = true;
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "FRM_ThamDinh_Duyet";
+            this.Load += new System.EventHandler(this.FRM_ThamDinh_Duyet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -450,6 +644,8 @@
             this.panelHeader1.ResumeLayout(false);
             this.panelHeader1.PerformLayout();
             this.panelHeader2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit5.Properties)).EndInit();
@@ -463,6 +659,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.db_taingay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -493,5 +697,18 @@
         private DevExpress.XtraEditors.TextEdit textEdit3;
         private DevExpress.XtraEditors.DateEdit db_taingay;
         private DevExpress.XtraEditors.RadioGroup radioGroup1;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit7;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit6;
+        private DevExpress.XtraEditors.TextEdit textEdit5;
+        private DevExpress.XtraEditors.DateEdit dateEdit2;
+        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit2;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label8;
+        private User_Control.UC_Find uC_Find1;
     }
 }

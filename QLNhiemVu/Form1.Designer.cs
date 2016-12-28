@@ -89,6 +89,7 @@
             this.simpleButton5.Size = new System.Drawing.Size(238, 34);
             this.simpleButton5.TabIndex = 4;
             this.simpleButton5.Text = "Cập nhật từ văn bản có sẵn";
+            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
             // 
             // simpleButton6
             // 

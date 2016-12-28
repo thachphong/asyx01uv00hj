@@ -47,9 +47,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
@@ -61,7 +59,6 @@
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit3 = new DevExpress.XtraEditors.LookUpEdit();
             this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.lookUpEdit4 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit5 = new DevExpress.XtraEditors.LookUpEdit();
@@ -77,8 +74,9 @@
             this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
             this.lookUpEdit6 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit7 = new DevExpress.XtraEditors.LookUpEdit();
-            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
-            this.btn_tim = new DevExpress.XtraEditors.SimpleButton();
+            this.uC_Find1 = new QLNhiemVu.User_Control.UC_Find();
+            this.uC_AttachFile1 = new QLNhiemVu.User_Control.UC_AttachFile();
+            this.uC_Help1 = new QLNhiemVu.User_Control.UC_Help();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -89,7 +87,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
@@ -112,7 +110,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit6.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit7.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -147,6 +144,8 @@
             // 
             // panelHeader1
             // 
+            this.panelHeader1.Controls.Add(this.uC_Help1);
+            this.panelHeader1.Controls.Add(this.uC_AttachFile1);
             this.panelHeader1.Controls.Add(this.lookUpEdit5);
             this.panelHeader1.Controls.Add(this.lookUpEdit4);
             this.panelHeader1.Controls.Add(this.memoEdit1);
@@ -161,8 +160,6 @@
             this.panelHeader1.Controls.Add(this.textEdit2);
             this.panelHeader1.Controls.Add(this.textEdit1);
             this.panelHeader1.Controls.Add(this.comboBoxEdit1);
-            this.panelHeader1.Controls.Add(this.simpleButton2);
-            this.panelHeader1.Controls.Add(this.simpleButton1);
             this.panelHeader1.Controls.Add(this.label14);
             this.panelHeader1.Controls.Add(this.label13);
             this.panelHeader1.Controls.Add(this.label12);
@@ -192,8 +189,6 @@
             this.panelHeader1.Controls.SetChildIndex(this.label12, 0);
             this.panelHeader1.Controls.SetChildIndex(this.label13, 0);
             this.panelHeader1.Controls.SetChildIndex(this.label14, 0);
-            this.panelHeader1.Controls.SetChildIndex(this.simpleButton1, 0);
-            this.panelHeader1.Controls.SetChildIndex(this.simpleButton2, 0);
             this.panelHeader1.Controls.SetChildIndex(this.comboBoxEdit1, 0);
             this.panelHeader1.Controls.SetChildIndex(this.textEdit1, 0);
             this.panelHeader1.Controls.SetChildIndex(this.textEdit2, 0);
@@ -208,6 +203,8 @@
             this.panelHeader1.Controls.SetChildIndex(this.memoEdit1, 0);
             this.panelHeader1.Controls.SetChildIndex(this.lookUpEdit4, 0);
             this.panelHeader1.Controls.SetChildIndex(this.lookUpEdit5, 0);
+            this.panelHeader1.Controls.SetChildIndex(this.uC_AttachFile1, 0);
+            this.panelHeader1.Controls.SetChildIndex(this.uC_Help1, 0);
             // 
             // lblHeadTitle1
             // 
@@ -221,7 +218,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.btn_tim);
+            this.panel3.Controls.Add(this.uC_Find1);
             this.panel3.Controls.Add(this.lookUpEdit7);
             this.panel3.Controls.Add(this.lookUpEdit6);
             this.panel3.Controls.Add(this.textEdit5);
@@ -405,34 +402,24 @@
             this.label14.TabIndex = 15;
             this.label14.Text = "Chọn nội dung nhập chi tiết";
             // 
-            // simpleButton1
+            // imageCollection1
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.Location = new System.Drawing.Point(619, 332);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(111, 32);
-            this.simpleButton1.TabIndex = 16;
-            this.simpleButton1.Text = "Hướng dẫn";
-            // 
-            // fileSystemWatcher1
-            // 
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
-            this.fileSystemWatcher1.SynchronizingObject = this;
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.Appearance.Options.UseForeColor = true;
-            this.simpleButton2.Location = new System.Drawing.Point(619, 221);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(111, 32);
-            this.simpleButton2.TabIndex = 17;
-            this.simpleButton2.Text = "Kèm theo file";
+            this.imageCollection1.ImageSize = new System.Drawing.Size(24, 24);
+            this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
+            this.imageCollection1.Images.SetKeyName(0, "add2.png");
+            this.imageCollection1.Images.SetKeyName(1, "Cancel.png");
+            this.imageCollection1.Images.SetKeyName(2, "delete.png");
+            this.imageCollection1.Images.SetKeyName(3, "edit.png");
+            this.imageCollection1.Images.SetKeyName(4, "Exit.png");
+            this.imageCollection1.Images.SetKeyName(5, "Find.png");
+            this.imageCollection1.Images.SetKeyName(6, "Print.png");
+            this.imageCollection1.Images.SetKeyName(7, "Save.png");
+            this.imageCollection1.InsertGalleryImage("addfile_32x32.png", "images/actions/addfile_32x32.png", DevExpress.Images.ImageResourceCache.Default.GetImage("images/actions/addfile_32x32.png"), 8);
+            this.imageCollection1.Images.SetKeyName(8, "addfile_32x32.png");
+            this.imageCollection1.InsertGalleryImage("index_32x32.png", "office2013/support/index_32x32.png", DevExpress.Images.ImageResourceCache.Default.GetImage("office2013/support/index_32x32.png"), 9);
+            this.imageCollection1.Images.SetKeyName(9, "index_32x32.png");
+            this.imageCollection1.InsertGalleryImage("knowledgebasearticle_32x32.png", "office2013/support/knowledgebasearticle_32x32.png", DevExpress.Images.ImageResourceCache.Default.GetImage("office2013/support/knowledgebasearticle_32x32.png"), 10);
+            this.imageCollection1.Images.SetKeyName(10, "knowledgebasearticle_32x32.png");
             // 
             // comboBoxEdit1
             // 
@@ -756,31 +743,26 @@
             this.lookUpEdit7.Size = new System.Drawing.Size(184, 26);
             this.lookUpEdit7.TabIndex = 34;
             // 
-            // imageCollection1
+            // uC_Find1
             // 
-            this.imageCollection1.ImageSize = new System.Drawing.Size(24, 24);
-            this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
-            this.imageCollection1.Images.SetKeyName(0, "add2.png");
-            this.imageCollection1.Images.SetKeyName(1, "Cancel.png");
-            this.imageCollection1.Images.SetKeyName(2, "delete.png");
-            this.imageCollection1.Images.SetKeyName(3, "edit.png");
-            this.imageCollection1.Images.SetKeyName(4, "Exit.png");
-            this.imageCollection1.Images.SetKeyName(5, "Find.png");
-            this.imageCollection1.Images.SetKeyName(6, "Print.png");
-            this.imageCollection1.Images.SetKeyName(7, "Save.png");
+            this.uC_Find1.Location = new System.Drawing.Point(227, 6);
+            this.uC_Find1.Name = "uC_Find1";
+            this.uC_Find1.Size = new System.Drawing.Size(79, 29);
+            this.uC_Find1.TabIndex = 35;
             // 
-            // btn_tim
+            // uC_AttachFile1
             // 
-            this.btn_tim.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_tim.Appearance.Options.UseFont = true;
-            this.btn_tim.ImageIndex = 5;
-            this.btn_tim.ImageList = this.imageCollection1;
-            this.btn_tim.Location = new System.Drawing.Point(227, 6);
-            this.btn_tim.Name = "btn_tim";
-            this.btn_tim.Size = new System.Drawing.Size(77, 29);
-            this.btn_tim.TabIndex = 93;
-            this.btn_tim.Text = "Tìm";
-            this.btn_tim.ToolTip = "Ctrl+F";
+            this.uC_AttachFile1.Location = new System.Drawing.Point(619, 306);
+            this.uC_AttachFile1.Name = "uC_AttachFile1";
+            this.uC_AttachFile1.Size = new System.Drawing.Size(136, 32);
+            this.uC_AttachFile1.TabIndex = 33;
+            // 
+            // uC_Help1
+            // 
+            this.uC_Help1.Location = new System.Drawing.Point(619, 342);
+            this.uC_Help1.Name = "uC_Help1";
+            this.uC_Help1.Size = new System.Drawing.Size(136, 32);
+            this.uC_Help1.TabIndex = 34;
             // 
             // FRM_TDTHNV
             // 
@@ -802,7 +784,7 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
@@ -825,7 +807,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit6.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit7.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -850,8 +831,6 @@
         private DevExpress.XtraEditors.TextEdit textEdit2;
         private DevExpress.XtraEditors.TextEdit textEdit1;
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -865,8 +844,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.IO.FileSystemWatcher fileSystemWatcher1;
-        private System.DirectoryServices.DirectoryEntry directoryEntry1;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit7;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit6;
         private DevExpress.XtraEditors.TextEdit textEdit5;
@@ -880,6 +857,8 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label8;
         private DevExpress.Utils.ImageCollection imageCollection1;
-        public DevExpress.XtraEditors.SimpleButton btn_tim;
+        private User_Control.UC_Find uC_Find1;
+        private User_Control.UC_Help uC_Help1;
+        private User_Control.UC_AttachFile uC_AttachFile1;
     }
 }

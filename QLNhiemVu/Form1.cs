@@ -40,5 +40,11 @@ namespace QLNhiemVu
             FRM_ThamDinh frm = new FRM_ThamDinh();
             frm.Show();
         }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+            FRM_CN_TVB frm = new FRM_CN_TVB();
+            frm.Show();
+        }
     }
 }
