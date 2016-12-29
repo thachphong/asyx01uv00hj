@@ -173,6 +173,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "UC_MenuBtn";
             this.Size = new System.Drawing.Size(656, 61);
+            this.Load += new System.EventHandler(this.UC_MenuBtn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

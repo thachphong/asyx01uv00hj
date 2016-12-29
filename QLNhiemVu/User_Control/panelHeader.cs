@@ -22,7 +22,7 @@ namespace QLNhiemVu
         /// <param name="Y"></param>
         public void alignCenter(Control ctrl, params int[] Y)
         {
-            this.Location = new Point((ctrl.Width - this.Width) / 2, Y.Length > 0 ? Y[0] : 0);
+            this.Location = new Point((ctrl.Width - this.Width) / 2, Y.Length > 0 ? Y[0] : 30);
         }
     }
 }

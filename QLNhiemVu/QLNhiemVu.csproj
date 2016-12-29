@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Decided.Libs">
+      <HintPath>..\..\..\..\DesignBanner\Decided.Apps.DesignBanner\Decided.Libs\bin\Debug\Decided.Libs.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Data.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Images.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -41,6 +44,13 @@
     <Reference Include="DevExpress.XtraGrid.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v14.2, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="QLNhiemvu_DBEntities">
+      <HintPath>..\..\API\QLNhiemvu_DBEntities\bin\Debug\QLNhiemvu_DBEntities.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -61,6 +71,24 @@
     </Compile>
     <Compile Include="DanhMuc\FRM_CN_TVB.Designer.cs">
       <DependentUpon>FRM_CN_TVB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu.Designer.cs">
+      <DependentUpon>FRM_DM_LoaiThutucNhiemvu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_Huongdan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_Huongdan.Designer.cs">
+      <DependentUpon>FRM_DM_LoaiThutucNhiemvu_Huongdan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_Noidung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_Noidung.Designer.cs">
+      <DependentUpon>FRM_DM_LoaiThutucNhiemvu_Noidung.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhMuc\FRM_PC_PB.cs">
       <SubType>Form</SubType>
@@ -146,6 +174,15 @@
     <EmbeddedResource Include="DanhMuc\FRM_CN_TVB.resx">
       <DependentUpon>FRM_CN_TVB.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu.resx">
+      <DependentUpon>FRM_DM_LoaiThutucNhiemvu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_Huongdan.resx">
+      <DependentUpon>FRM_DM_LoaiThutucNhiemvu_Huongdan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_Noidung.resx">
+      <DependentUpon>FRM_DM_LoaiThutucNhiemvu_Noidung.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\FRM_PC_PB.resx">
       <DependentUpon>FRM_PC_PB.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,6 +229,7 @@
     <EmbeddedResource Include="User_Control\UC_MenuBtn.resx">
       <DependentUpon>UC_MenuBtn.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -205,7 +243,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DBAccess\DBAccess.csproj">
+      <Project>{b38f9235-22ee-41ef-b9c7-724c01060e0f}</Project>
+      <Name>DBAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

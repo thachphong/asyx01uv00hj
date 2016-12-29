@@ -38,7 +38,7 @@ namespace QLNhiemVu.User_Control
                     btn_capnhat.Enabled = false;
                     btn_in.Enabled = true;
                     btn_boqua.Enabled = false;
-                   // btn_congnhan.Enabled = false;
+                    // btn_congnhan.Enabled = false;
                 }
             }
             else if (ps_edit == "NEW")
@@ -61,6 +61,34 @@ namespace QLNhiemVu.User_Control
                 btn_in.Enabled = false;
                 btn_boqua.Enabled = true;
                 //btn_congnhan.Enabled = false;
+            }
+        }
+
+        private void UC_MenuBtn_Load(object sender, EventArgs e)
+        {
+            this.ParentForm.KeyPreview = true;
+            this.ParentForm.KeyDown += ParentForm_KeyDown;
+        }
+
+        void ParentForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape && btn_boqua.Enabled)
+            {
+                btn_boqua.PerformClick();
+                return;
+            }
+            else
+                if (!e.Control) return;
+
+            switch (e.KeyCode)
+            {
+                case Keys.N: btn_them.PerformClick(); break;
+                case Keys.M: btn_sua.PerformClick(); break;
+                case Keys.D: btn_xoa.PerformClick(); break;
+                case Keys.S: btn_capnhat.PerformClick(); break;
+                case Keys.P: btn_in.PerformClick(); break;
+                case Keys.E: btn_thoat.PerformClick(); break;
+                default: break;
             }
         }
     }
