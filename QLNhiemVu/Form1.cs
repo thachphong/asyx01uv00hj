@@ -64,5 +64,11 @@ namespace QLNhiemVu
             FRM_DM_LoaiThutucNhiemvu_Noidung frm = new FRM_DM_LoaiThutucNhiemvu_Noidung();
             frm.Show();
         }
+
+        private void simpleButton10_Click(object sender, EventArgs e)
+        {
+            FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu frm = new FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu();
+            frm.Show();
+        }
     }
 }

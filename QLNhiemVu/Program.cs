@@ -44,15 +44,33 @@ namespace QLNhiemVu
             new DM_LoaiThutucNhiemvu_Noidung_Cachnhap(){ ID='1', Description="Nhập đoạn văn"},
             new DM_LoaiThutucNhiemvu_Noidung_Cachnhap(){ ID='2', Description="Nhập các trường dữ liệu"}
         };
+        public static List<DM_LoaiThutucNhiemvu_Truongdulieu_Cachnhap> dm_loaithutuc_truongdulieu_cachnhap = new List<DM_LoaiThutucNhiemvu_Truongdulieu_Cachnhap>() { 
+            new DM_LoaiThutucNhiemvu_Truongdulieu_Cachnhap(){ ID="1", Description="Nhập từ bàn phím"},
+            new DM_LoaiThutucNhiemvu_Truongdulieu_Cachnhap(){ ID="2", Description="Nhập từ bảng dữ liệu có sẵn, tự tính"}
+        };
+        public static List<DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong> dm_loaithutuc_truongdulieu_kieutruong = new List<DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong>() { 
+            new DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong(){ ID="0", Description="NONE"},
+            new DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong(){ ID="1", Description="Text"},
+            new DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong(){ ID="2", Description="Number"},
+            new DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong(){ ID="3", Description="Yes/No"},
+            new DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong(){ ID="4", Description="Date"},
+            new DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong(){ ID="5", Description="Datetime"},
+            new DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong(){ ID="6", Description="Time"},
+            new DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong(){ ID="7", Description="Memo"},
+            new DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong(){ ID="8", Description="Lookup"},
+            new DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong(){ ID="9", Description="Tab"},
+            new DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong(){ ID="10", Description="Image"},
+        };
+
 
         #endregion
         public static int gi_Gridcontrol_width = 350;
-        public static Size gs_img_size = new Size(145, 164);        
-        public static Font Font_control = new Font("Times New Roman", (float)12.75);        
-        public static Guid gs_dv_quanly = Guid.Parse("e5b0f164ffb0e5119be8c8f73300b490");       
+        public static Size gs_img_size = new Size(145, 164);
+        public static Font Font_control = new Font("Times New Roman", (float)12.75);
+        public static Guid gs_dv_quanly = Guid.Parse("e5b0f164ffb0e5119be8c8f73300b490");
         public static Guid gs_user_id = Guid.Parse("D22B2275986F97489B0CE55EB5F163FA");
         public static string gs_user_name = "Nguyễn văn XXX";
-        public static string gs_ten_dv_quanly = "Cơ quan X";        
+        public static string gs_ten_dv_quanly = "Cơ quan X";
         public static string dateFormat = "dd/MM/yyyy";
         public static string datetimeFormat = "dd/MM/yyyy HH:mm:ss";
         public static string timeFormat = "HH:mm:ss";
@@ -61,13 +79,13 @@ namespace QLNhiemVu
         public static string QuanlityFormat = "###,###,###,##0.0";
         public static string PriceFormat = "###,###,###,##0.0000";
         public static string yyyyMMdd = "yyyyMMdd";
-        public static Font Font_GridRow = new Font("Tohoma", (float)9.75);        
+        public static Font Font_GridRow = new Font("Tohoma", (float)9.75);
         public static void Show_Exception(string Message)
         {
             MessageBox.Show(Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public static void Show_message(string message)
-        {            
+        {
             MessageBox.Show(message, "Thông báo");
         }
     }

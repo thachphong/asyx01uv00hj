@@ -35,9 +35,10 @@
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,6 +109,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.simpleButton10);
             this.groupBox1.Controls.Add(this.simpleButton9);
             this.groupBox1.Controls.Add(this.simpleButton8);
             this.groupBox1.Controls.Add(this.simpleButton7);
@@ -119,16 +121,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Linhnp";
             // 
-            // simpleButton7
+            // simpleButton9
             // 
-            this.simpleButton7.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton7.Appearance.Options.UseFont = true;
-            this.simpleButton7.Location = new System.Drawing.Point(68, 19);
-            this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.Size = new System.Drawing.Size(238, 34);
-            this.simpleButton7.TabIndex = 7;
-            this.simpleButton7.Text = "DM - Loại Thủ tục nhiệm vụ";
-            this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
+            this.simpleButton9.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton9.Appearance.Options.UseFont = true;
+            this.simpleButton9.Location = new System.Drawing.Point(68, 120);
+            this.simpleButton9.Name = "simpleButton9";
+            this.simpleButton9.Size = new System.Drawing.Size(238, 34);
+            this.simpleButton9.TabIndex = 9;
+            this.simpleButton9.Text = "DM - LTTNV - Nội dung";
+            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
             // 
             // simpleButton8
             // 
@@ -141,16 +143,27 @@
             this.simpleButton8.Text = "DM - LTTNV - Hướng dẫn";
             this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click);
             // 
-            // simpleButton9
+            // simpleButton7
             // 
-            this.simpleButton9.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton9.Appearance.Options.UseFont = true;
-            this.simpleButton9.Location = new System.Drawing.Point(68, 120);
-            this.simpleButton9.Name = "simpleButton9";
-            this.simpleButton9.Size = new System.Drawing.Size(238, 34);
-            this.simpleButton9.TabIndex = 9;
-            this.simpleButton9.Text = "DM - LTTNV - Nội dung";
-            this.simpleButton9.Click += new System.EventHandler(this.simpleButton9_Click);
+            this.simpleButton7.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton7.Appearance.Options.UseFont = true;
+            this.simpleButton7.Location = new System.Drawing.Point(68, 19);
+            this.simpleButton7.Name = "simpleButton7";
+            this.simpleButton7.Size = new System.Drawing.Size(238, 34);
+            this.simpleButton7.TabIndex = 7;
+            this.simpleButton7.Text = "DM - Loại Thủ tục nhiệm vụ";
+            this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
+            // 
+            // simpleButton10
+            // 
+            this.simpleButton10.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton10.Appearance.Options.UseFont = true;
+            this.simpleButton10.Location = new System.Drawing.Point(68, 169);
+            this.simpleButton10.Name = "simpleButton10";
+            this.simpleButton10.Size = new System.Drawing.Size(238, 34);
+            this.simpleButton10.TabIndex = 10;
+            this.simpleButton10.Text = "DM - LTTNV - Trường dữ liệu";
+            this.simpleButton10.Click += new System.EventHandler(this.simpleButton10_Click);
             // 
             // Form1
             // 
@@ -183,6 +196,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton9;
         private DevExpress.XtraEditors.SimpleButton simpleButton8;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
+        private DevExpress.XtraEditors.SimpleButton simpleButton10;
     }
 }
 
