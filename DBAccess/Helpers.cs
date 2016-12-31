@@ -369,6 +369,32 @@ namespace DBAccess
                 }
             }
 
+            public static List<DM_LoaiThutucNhiemvu_Truongdulieu> GetListCanChildren()
+            {
+                try
+                {
+                    string url = CreateRequestUrl("loaithutuc_truongdulieu");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "getlistcanchildren",
+                        Data = null
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    APIResponseData result = ConvertFromString(response);
+                    if (result == null || result.ErrorCode != 0) return null;
+
+                    return result.Data == null ? null : JsonConvert.DeserializeObject<List<DM_LoaiThutucNhiemvu_Truongdulieu>>(result.Data.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
             public static List<string> GetListTables()
             {
                 try
