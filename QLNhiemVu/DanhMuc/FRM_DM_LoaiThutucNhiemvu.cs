@@ -19,6 +19,7 @@ namespace QLNhiemVu.DanhMuc
         private static int currentRowSelected = int.MinValue;
         private static DM_LoaiThutucNhiemvu currentDataSelected = null;
         private static string currentState = "NORMAL";
+        private static List<Guid> currentListFields = null;
         public FRM_DM_LoaiThutucNhiemvu()
         {
             InitializeComponent();
@@ -171,6 +172,7 @@ namespace QLNhiemVu.DanhMuc
                 obj.DM016008 = AllDefine.gs_user_id;
                 obj.DM016009 = DateTime.Now;
                 obj.DM016010 = checkEdit2.Checked ? '1' : '0';
+                obj.FieldSelecteds = currentListFields;
 
                 return obj;
             }
@@ -208,6 +210,13 @@ namespace QLNhiemVu.DanhMuc
             {
                 AllDefine.Show_message("Vui lòng nhập Tên form!");
                 textEdit2.Focus();
+                return false;
+            }
+
+            if (checkEdit1.Checked && currentListFields == null)
+            {
+                AllDefine.Show_message("Vui lòng nhập Chọn trường dữ liệu thẩm định!");
+                ShowChildForm();
                 return false;
             }
 
@@ -326,6 +335,45 @@ namespace QLNhiemVu.DanhMuc
             textEdit1.Text = data == null ? string.Empty : data.DM016003;
             textEdit2.Text = data == null ? string.Empty : data.DM016004;
             checkEdit2.Checked = data == null ? false : data.DM016010 == '1';
+            currentListFields = data == null ? null : data.FieldSelecteds;
+        }
+
+        private void ShowChildForm()
+        {
+            this.Enabled = false;
+            FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh frm = new FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh();
+            frm.Show();
+            frm.Focus();
+        }
+
+        private void checkEdit2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (currentState == "NORMAL") return;
+
+            if (checkEdit2.Checked)
+            {
+                ShowChildForm();
+            }
+            else
+            {
+                Form frm = Application.OpenForms["FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh"];
+                if (frm != null)
+                    frm.Dispose();
+            }
+        }
+
+        public void CallBack_Thamdinh(List<Guid> fieldSelecteds, bool update)
+        {
+            if (update)
+                currentListFields = fieldSelecteds;
+
+            this.Enabled = true;
+            this.Focus();
+        }
+
+        public List<Guid> CallBack_GetCurrentFieldSelected()
+        {
+            return currentListFields;
         }
     }
 }

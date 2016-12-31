@@ -99,6 +99,7 @@
             this.gridColumn10.FieldName = "IsChecked";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.FixedWidth = true;
+            this.gridColumn10.OptionsColumn.ShowCaption = false;
             this.gridColumn10.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn10.OptionsFilter.AllowFilter = false;
             this.gridColumn10.Visible = true;
@@ -116,7 +117,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1258, 82);
+            this.panel1.Size = new System.Drawing.Size(1258, 48);
             this.panel1.TabIndex = 0;
             // 
             // panelHeader1
@@ -178,6 +179,7 @@
             this.checkEdit2.Properties.Caption = "";
             this.checkEdit2.Size = new System.Drawing.Size(15, 19);
             this.checkEdit2.TabIndex = 44;
+            this.checkEdit2.CheckedChanged += new System.EventHandler(this.checkEdit2_CheckedChanged);
             // 
             // label4
             // 
@@ -194,7 +196,9 @@
             this.lookUpEdit2.Location = new System.Drawing.Point(247, 47);
             this.lookUpEdit2.Name = "lookUpEdit2";
             this.lookUpEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit2.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit2.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit2.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit2.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit2.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -258,7 +262,9 @@
             this.textEdit2.Location = new System.Drawing.Point(706, 47);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.textEdit2.Properties.Appearance.Options.UseFont = true;
+            this.textEdit2.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit2.Size = new System.Drawing.Size(236, 26);
             this.textEdit2.TabIndex = 3;
             // 
@@ -277,7 +283,9 @@
             this.textEdit1.Location = new System.Drawing.Point(706, 15);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.textEdit1.Properties.Appearance.Options.UseFont = true;
+            this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit1.Size = new System.Drawing.Size(236, 26);
             this.textEdit1.TabIndex = 2;
             // 
@@ -300,15 +308,15 @@
             this.groupControl1.Controls.Add(this.checkEdit1);
             this.groupControl1.Controls.Add(this.gridControl1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(0, 82);
+            this.groupControl1.Location = new System.Drawing.Point(0, 48);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1258, 359);
+            this.groupControl1.Size = new System.Drawing.Size(1258, 393);
             this.groupControl1.TabIndex = 3;
             this.groupControl1.Text = "Danh sách";
             // 
             // checkEdit1
             // 
-            this.checkEdit1.Location = new System.Drawing.Point(26, 30);
+            this.checkEdit1.Location = new System.Drawing.Point(9, 30);
             this.checkEdit1.Name = "checkEdit1";
             this.checkEdit1.Properties.Caption = "";
             this.checkEdit1.Size = new System.Drawing.Size(16, 19);
@@ -325,7 +333,7 @@
             this.repositoryItemImageComboBox1,
             this.repositoryItemCheckEdit1,
             this.repositoryItemCheckEdit2});
-            this.gridControl1.Size = new System.Drawing.Size(1254, 330);
+            this.gridControl1.Size = new System.Drawing.Size(1254, 364);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -354,8 +362,14 @@
             this.gridColumn15});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.AutoPopulateColumns = false;
+            this.gridView1.OptionsCustomization.AllowGroup = false;
+            this.gridView1.OptionsDetail.ShowDetailTabs = false;
+            this.gridView1.OptionsMenu.EnableColumnMenu = false;
             this.gridView1.OptionsSelection.CheckBoxSelectorColumnWidth = 100;
+            this.gridView1.OptionsView.ShowDetailButtons = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.OptionsView.ShowIndicator = false;
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
             // 
             // gridColumn1
@@ -536,9 +550,9 @@
             // 
             this.panel2.Controls.Add(this.panelHeader2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 147);
+            this.panel2.Location = new System.Drawing.Point(0, 167);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1258, 100);
+            this.panel2.Size = new System.Drawing.Size(1258, 80);
             this.panel2.TabIndex = 5;
             // 
             // panelHeader2

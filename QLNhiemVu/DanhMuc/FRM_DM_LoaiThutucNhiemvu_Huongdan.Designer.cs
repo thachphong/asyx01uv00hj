@@ -93,6 +93,7 @@
             this.gridColumn10.FieldName = "IsChecked";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.FixedWidth = true;
+            this.gridColumn10.OptionsColumn.ShowCaption = false;
             this.gridColumn10.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn10.OptionsFilter.AllowFilter = false;
             this.gridColumn10.Visible = true;
@@ -110,7 +111,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1258, 82);
+            this.panel1.Size = new System.Drawing.Size(1258, 45);
             this.panel1.TabIndex = 0;
             // 
             // panelHeader1
@@ -276,9 +277,9 @@
             this.groupControl1.Controls.Add(this.checkEdit1);
             this.groupControl1.Controls.Add(this.gridControl1);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl1.Location = new System.Drawing.Point(0, 82);
+            this.groupControl1.Location = new System.Drawing.Point(0, 45);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1258, 359);
+            this.groupControl1.Size = new System.Drawing.Size(1258, 396);
             this.groupControl1.TabIndex = 3;
             this.groupControl1.Text = "Danh sách";
             // 
@@ -300,7 +301,7 @@
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemImageComboBox1,
             this.repositoryItemCheckEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(1254, 330);
+            this.gridControl1.Size = new System.Drawing.Size(1254, 367);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -491,9 +492,9 @@
             // 
             this.panel2.Controls.Add(this.panelHeader2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 147);
+            this.panel2.Location = new System.Drawing.Point(0, 163);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1258, 100);
+            this.panel2.Size = new System.Drawing.Size(1258, 84);
             this.panel2.TabIndex = 5;
             // 
             // panelHeader2
@@ -501,14 +502,14 @@
             this.panelHeader2.Controls.Add(this.uC_MenuBtn1);
             this.panelHeader2.Location = new System.Drawing.Point(96, 3);
             this.panelHeader2.Name = "panelHeader2";
-            this.panelHeader2.Size = new System.Drawing.Size(739, 73);
+            this.panelHeader2.Size = new System.Drawing.Size(662, 73);
             this.panelHeader2.TabIndex = 0;
             // 
             // uC_MenuBtn1
             // 
             this.uC_MenuBtn1.Location = new System.Drawing.Point(5, 3);
             this.uC_MenuBtn1.Name = "uC_MenuBtn1";
-            this.uC_MenuBtn1.Size = new System.Drawing.Size(731, 67);
+            this.uC_MenuBtn1.Size = new System.Drawing.Size(655, 67);
             this.uC_MenuBtn1.TabIndex = 4;
             // 
             // FRM_DM_LoaiThutucNhiemvu_Huongdan

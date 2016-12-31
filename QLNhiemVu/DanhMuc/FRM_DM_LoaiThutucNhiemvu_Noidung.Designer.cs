@@ -37,8 +37,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.panelHeader3 = new QLNhiemVu.panelHeader();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -75,8 +73,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             this.panelHeader3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
@@ -100,6 +96,7 @@
             this.gridColumn10.FieldName = "IsChecked";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.FixedWidth = true;
+            this.gridColumn10.OptionsColumn.ShowCaption = false;
             this.gridColumn10.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn10.OptionsFilter.AllowFilter = false;
             this.gridColumn10.Visible = true;
@@ -117,7 +114,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1258, 116);
+            this.panel1.Size = new System.Drawing.Size(1258, 85);
             this.panel1.TabIndex = 0;
             // 
             // panelHeader1
@@ -189,13 +186,12 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(390, 470);
+            this.groupControl2.Size = new System.Drawing.Size(390, 523);
             this.groupControl2.TabIndex = 4;
             this.groupControl2.Text = "Chi tiết Nội dung";
             // 
             // panelHeader3
             // 
-            this.panelHeader3.Controls.Add(this.groupBox1);
             this.panelHeader3.Controls.Add(this.lookUpEdit2);
             this.panelHeader3.Controls.Add(this.label3);
             this.panelHeader3.Controls.Add(this.label2);
@@ -204,28 +200,8 @@
             this.panelHeader3.Controls.Add(this.textEdit1);
             this.panelHeader3.Location = new System.Drawing.Point(26, 30);
             this.panelHeader3.Name = "panelHeader3";
-            this.panelHeader3.Size = new System.Drawing.Size(353, 435);
+            this.panelHeader3.Size = new System.Drawing.Size(353, 115);
             this.panelHeader3.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.memoEdit1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(0, 106);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(353, 329);
-            this.groupBox1.TabIndex = 43;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Đoạn văn";
-            this.groupBox1.Visible = false;
-            // 
-            // memoEdit1
-            // 
-            this.memoEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.memoEdit1.Location = new System.Drawing.Point(3, 17);
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(347, 309);
-            this.memoEdit1.TabIndex = 0;
             // 
             // lookUpEdit2
             // 
@@ -308,7 +284,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(863, 470);
+            this.groupControl1.Size = new System.Drawing.Size(863, 523);
             this.groupControl1.TabIndex = 3;
             this.groupControl1.Text = "Danh sách";
             // 
@@ -330,7 +306,7 @@
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemImageComboBox1,
             this.repositoryItemCheckEdit1});
-            this.gridControl1.Size = new System.Drawing.Size(859, 441);
+            this.gridControl1.Size = new System.Drawing.Size(859, 494);
             this.gridControl1.TabIndex = 3;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -503,6 +479,7 @@
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
             this.splitContainerControl1.Horizontal = false;
+            this.splitContainerControl1.IsSplitterFixed = true;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl1.Name = "splitContainerControl1";
             this.splitContainerControl1.Panel1.Controls.Add(this.splitContainerControl2);
@@ -511,7 +488,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.panel2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(1258, 693);
-            this.splitContainerControl1.SplitterPosition = 102;
+            this.splitContainerControl1.SplitterPosition = 80;
             this.splitContainerControl1.TabIndex = 3;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -520,13 +497,13 @@
             this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl2.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
             this.splitContainerControl2.IsSplitterFixed = true;
-            this.splitContainerControl2.Location = new System.Drawing.Point(0, 116);
+            this.splitContainerControl2.Location = new System.Drawing.Point(0, 85);
             this.splitContainerControl2.Name = "splitContainerControl2";
             this.splitContainerControl2.Panel1.Controls.Add(this.groupControl1);
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.groupControl2);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(1258, 470);
+            this.splitContainerControl2.Size = new System.Drawing.Size(1258, 523);
             this.splitContainerControl2.SplitterPosition = 390;
             this.splitContainerControl2.TabIndex = 4;
             this.splitContainerControl2.Text = "splitContainerControl2";
@@ -537,7 +514,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1258, 102);
+            this.panel2.Size = new System.Drawing.Size(1258, 80);
             this.panel2.TabIndex = 5;
             // 
             // panelHeader2
@@ -545,14 +522,14 @@
             this.panelHeader2.Controls.Add(this.uC_MenuBtn1);
             this.panelHeader2.Location = new System.Drawing.Point(96, 3);
             this.panelHeader2.Name = "panelHeader2";
-            this.panelHeader2.Size = new System.Drawing.Size(739, 73);
+            this.panelHeader2.Size = new System.Drawing.Size(661, 73);
             this.panelHeader2.TabIndex = 0;
             // 
             // uC_MenuBtn1
             // 
             this.uC_MenuBtn1.Location = new System.Drawing.Point(5, 3);
             this.uC_MenuBtn1.Name = "uC_MenuBtn1";
-            this.uC_MenuBtn1.Size = new System.Drawing.Size(731, 67);
+            this.uC_MenuBtn1.Size = new System.Drawing.Size(650, 67);
             this.uC_MenuBtn1.TabIndex = 4;
             // 
             // FRM_DM_LoaiThutucNhiemvu_Noidung
@@ -575,8 +552,6 @@
             this.groupControl2.ResumeLayout(false);
             this.panelHeader3.ResumeLayout(false);
             this.panelHeader3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
@@ -636,8 +611,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
 
     }
 }

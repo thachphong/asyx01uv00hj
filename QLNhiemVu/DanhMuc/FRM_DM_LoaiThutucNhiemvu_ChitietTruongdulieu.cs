@@ -1,5 +1,6 @@
 ﻿using DBAccess;
 using DevExpress.XtraEditors;
+using Newtonsoft.Json;
 using QLNhiemvu_DBEntities;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,7 @@ namespace QLNhiemVu.DanhMuc
         private static string currentCachnhap = "0";
         private static string currentBangdulieu = string.Empty;
         private static string currentDieukiendulieu = string.Empty;
+        private static string currentLookupData = string.Empty;
 
         public FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu()
         {
@@ -41,37 +43,7 @@ namespace QLNhiemVu.DanhMuc
             BindControlEvents();
 
             LoadKieutruong();
-            LoadCachnhap();
-            LoadTables();
             LoadList();
-        }
-
-        private void LoadTables()
-        {
-            List<string> list = Helpers.ThutucNhiemvu_Truongdulieu.GetListTables();
-            lookUpEdit1.Properties.DataSource = list;
-            lookUpEdit1.Properties.BestFitRowCount = list == null ? 0 : list.Count;
-            lookUpEdit1.Refresh();
-        }
-
-        private void LoadTableColumns()
-        {
-            List<string> list =
-                currentBangdulieu == string.Empty ? null :
-                Helpers.ThutucNhiemvu_Truongdulieu.GetListTableColumns(currentBangdulieu);
-
-            lookUpEdit2.Properties.DataSource = list;
-            lookUpEdit2.Properties.BestFitRowCount = list == null ? 0 : list.Count;
-            lookUpEdit2.Refresh();
-        }
-
-        private void LoadCachnhap()
-        {
-            lookUpEdit4.Properties.DataSource = AllDefine.dm_loaithutuc_truongdulieu_cachnhap;
-            lookUpEdit4.Properties.DisplayMember = "Description";
-            lookUpEdit4.Properties.ValueMember = "ID";
-            lookUpEdit4.Properties.BestFitRowCount = AllDefine.dm_loaithutuc_truongdulieu_cachnhap.Count;
-            lookUpEdit4.Refresh();
         }
 
         private void LoadKieutruong()
@@ -212,10 +184,7 @@ namespace QLNhiemVu.DanhMuc
                 obj.DM016207 = currentKieutruong.Trim();
                 obj.DM016208 = int.Parse(textEdit4.Text);
                 obj.DM016209 = currentCachnhap.Trim();
-                //10+11: chỉ khi 07 = 8
-                obj.DM016210 = obj.DM016207 == "8" ? lookUpEdit1.EditValue.ToString() : string.Empty;
-                obj.DM016211 = obj.DM016207 == "8" ? lookUpEdit2.EditValue.ToString() : string.Empty;
-                obj.DM016212 = textEdit8.Text;
+                obj.DM016210 = textEdit5.Text;
                 obj.DM016213 = textEdit7.Text;
                 obj.DM016214 = int.Parse(textEdit9.Text);
                 obj.DM016215 = checkEdit2.Checked ? '1' : '0';
@@ -284,46 +253,37 @@ namespace QLNhiemVu.DanhMuc
                 return false;
             }
 
-            if (lookUpEdit3.EditValue.ToString() == "8")
+            if (lookUpEdit3.EditValue.ToString() == "2" ||
+                lookUpEdit3.EditValue.ToString() == "8" ||
+                lookUpEdit3.EditValue.ToString() == "9")
             {
-                if (lookUpEdit4.EditValue.ToString() == string.Empty)
+                if (textEdit5.Text.Trim() == string.Empty)
                 {
-                    AllDefine.Show_message("Vui lòng nhập chọn Cách nhập!");
-                    lookUpEdit4.Focus();
+                    AllDefine.Show_message("Vui lòng nhập Điều kiện dữ liệu phù hợp!");
+                    textEdit5.Focus();
                     return false;
                 }
-                else
-                {
-                    if (lookUpEdit4.EditValue.ToString() == "2")
-                    {
-                        if (lookUpEdit1.EditValue.ToString() == string.Empty)
-                        {
-                            AllDefine.Show_message("Vui lòng nhập chọn Bảng dữ liệu!");
-                            lookUpEdit1.Focus();
-                            return false;
-                        }
 
-                        if (lookUpEdit2.EditValue.ToString() == string.Empty)
-                        {
-                            AllDefine.Show_message("Vui lòng nhập chọn Điều kiện dữ liệu!");
-                            lookUpEdit2.Focus();
-                            return false;
-                        }
+                if (lookUpEdit3.EditValue.ToString() == "8")
+                {
+                    try { JsonConvert.DeserializeObject<DM_LoaiThutucNhiemvu_Truongdulieu_LookupData>(textEdit5.Text.Trim()); }
+                    catch
+                    {
+                        AllDefine.Show_message("Vui lòng nhập Điều kiện dữ liệu phù hợp!");
+                        ShowChildForm_Lookup();
+                        return false;
                     }
                 }
 
-                if (textEdit8.Text.Trim() == string.Empty)
+                if (lookUpEdit3.EditValue.ToString() == "9")
                 {
-                    AllDefine.Show_message("Vui lòng nhập Công thức tính dữ liệu!");
-                    textEdit8.Focus();
-                    return false;
-                }
-
-                if (textEdit7.Text.Trim() == string.Empty)
-                {
-                    AllDefine.Show_message("Vui lòng nhập Cộng cột dữ liệu!");
-                    textEdit7.Focus();
-                    return false;
+                    try { JsonConvert.DeserializeObject<List<Guid>>(textEdit5.Text.Trim()); }
+                    catch
+                    {
+                        AllDefine.Show_message("Vui lòng nhập Điều kiện dữ liệu phù hợp!");
+                        ShowChildForm_Tab();
+                        return false;
+                    }
                 }
             }
 
@@ -417,74 +377,130 @@ namespace QLNhiemVu.DanhMuc
         private void AssignDetailFormValue(DM_LoaiThutucNhiemvu_Truongdulieu data)
         {
             lookUpEdit3.EditValue = data == null ? string.Empty : data.DM016207.Trim();
-            lookUpEdit4.EditValue = data == null ? string.Empty : data.DM016209.Trim();
 
             textEdit1.Text = data == null ? string.Empty : data.DM016204;
             textEdit2.Text = data == null ? string.Empty : data.DM016205;
             textEdit3.Text = data == null ? string.Empty : data.DM016206;
             textEdit9.Text = data == null ? string.Empty : data.DM016214.ToString();
             textEdit4.Text = data == null ? string.Empty : data.DM016208.ToString();
-            textEdit8.Text = data == null ? string.Empty : data.DM016212;
             textEdit7.Text = data == null ? string.Empty : data.DM016213;
 
-            lookUpEdit1.EditValue = data == null ? string.Empty : data.DM016210.Trim();
-            lookUpEdit2.EditValue = data == null ? string.Empty : data.DM016211.Trim();
+            textEdit5.Text = data == null ? string.Empty : data.DM016210.Trim();
 
             checkEdit2.Checked = data == null ? false : data.DM016215 == '1';
+
+            currentLookupData = data == null ? string.Empty : data.DM016210;
         }
 
         private void lookUpEdit3_EditValueChanged(object sender, EventArgs e)
         {
             currentKieutruong = lookUpEdit3.EditValue.ToString();
-            //currentCachnhap = lookUpEdit4.EditValue.ToString();
 
+            if (currentKieutruong == "2")
+            {
+                label9.Text = "Công thức tính dữ liệu";
+                textEdit5.Enabled = true;
+            }
+            else if (currentKieutruong == "8")
+            {
+                label9.Text = "Chọn điều kiện dữ liệu";
+                textEdit5.Enabled = false;
+                simpleButton1.Visible = true;
+            }
+            else if (currentKieutruong == "9")
+            {
+                label9.Text = "Chọn danh sách trường";
+                textEdit5.Enabled = false;
+                simpleButton1.Visible = true;
+            }
+            else
+            {
+                label9.Text = "...";
+                textEdit5.Enabled = false;
+                simpleButton1.Visible = false;
+            }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
             if (currentKieutruong == "8")
             {
-                lookUpEdit4.Enabled = true;
-                textEdit8.Enabled = true;
-                textEdit7.Enabled = true;
-
-                if (currentCachnhap == "2")
-                {
-                    lookUpEdit1.Enabled = true;
-                    lookUpEdit2.Enabled = true;
-                }
-                else
-                {
-                    lookUpEdit1.Enabled = false;
-                    lookUpEdit2.Enabled = false;
-                }
+                ShowChildForm_Lookup();
             }
-            else
+            else if (currentKieutruong == "9")
             {
-                lookUpEdit4.Enabled = false;
-                textEdit8.Enabled = false;
-                textEdit7.Enabled = false;
-                lookUpEdit1.Enabled = false;
-                lookUpEdit2.Enabled = false;
+                ShowChildForm_Tab();
             }
         }
 
-        private void lookUpEdit4_EditValueChanged(object sender, EventArgs e)
+        private void ShowChildForm_Tab()
         {
-            currentCachnhap = lookUpEdit4.EditValue.ToString();
+            this.Enabled = false;
+            FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Tab frm = new FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Tab();
+            frm.Show();
+            frm.Focus();
+        }
 
-            if (lookUpEdit4.EditValue.ToString() == "2")
+        private void ShowChildForm_Lookup()
+        {
+            this.Enabled = false;
+            FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup frm = new FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup();
+            frm.Show();
+            frm.Focus();
+        }
+
+        public DM_LoaiThutucNhiemvu_Truongdulieu_LookupData CallBack_GetLookupData()
+        {
+            try
             {
-                lookUpEdit1.Enabled = true;
-                lookUpEdit2.Enabled = true;
+                if (string.IsNullOrEmpty(currentLookupData)) return null;
+
+                return JsonConvert.DeserializeObject<DM_LoaiThutucNhiemvu_Truongdulieu_LookupData>(currentLookupData);
             }
-            else
+            catch (Exception ex)
             {
-                lookUpEdit1.Enabled = false;
-                lookUpEdit2.Enabled = false;
+                Log.write(ex);
+                return null;
             }
         }
 
-        private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        public void CallBack_UpdateLookupData(DM_LoaiThutucNhiemvu_Truongdulieu_LookupData data, bool update)
         {
-            currentBangdulieu = lookUpEdit1.EditValue.ToString();
-            LoadTableColumns();
+            if (update)
+            {
+                currentLookupData = JsonConvert.SerializeObject(data);
+                textEdit5.Text = currentLookupData;
+            }
+
+            this.Enabled = true;
+            this.Focus();
+        }
+
+        public List<Guid> CallBack_GetTabData()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(currentLookupData)) return null;
+
+                return JsonConvert.DeserializeObject<List<Guid>>(currentLookupData);
+            }
+            catch (Exception ex)
+            {
+                Log.write(ex);
+                return null;
+            }
+        }
+
+        public void CallBack_UpdateTabData(List<Guid> data, bool update)
+        {
+            if (update)
+            {
+                currentLookupData = JsonConvert.SerializeObject(data);
+                textEdit5.Text = currentLookupData;
+            }
+
+            this.Enabled = true;
+            this.Focus();
         }
     }
 }

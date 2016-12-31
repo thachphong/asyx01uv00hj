@@ -96,6 +96,24 @@
     <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_Noidung.Designer.cs">
       <DependentUpon>FRM_DM_LoaiThutucNhiemvu_Noidung.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup.Designer.cs">
+      <DependentUpon>FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Tab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Tab.Designer.cs">
+      <DependentUpon>FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Tab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh.Designer.cs">
+      <DependentUpon>FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\FRM_PC_PB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +209,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_Noidung.resx">
       <DependentUpon>FRM_DM_LoaiThutucNhiemvu_Noidung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup.resx">
+      <DependentUpon>FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Tab.resx">
+      <DependentUpon>FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Tab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh.resx">
+      <DependentUpon>FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\FRM_PC_PB.resx">
       <DependentUpon>FRM_PC_PB.cs</DependentUpon>

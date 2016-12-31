@@ -61,6 +61,8 @@ namespace QLNhiemVu
             new DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong(){ ID="9", Description="Tab"},
             new DM_LoaiThutucNhiemvu_Truongdulieu_Kieutruong(){ ID="10", Description="Image"},
         };
+        public static List<string> dm_loaithutuc_truongdulieu_lookup_formulas = new List<string>() { "=", ">=", "<=", "likeend", "likefirst", "contain" };
+        public static List<string> dm_loaithutuc_truongdulieu_lookup_conditioncombines = new List<string>() { "AND", "OR" };
 
 
         #endregion

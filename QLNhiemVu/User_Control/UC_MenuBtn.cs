@@ -36,7 +36,7 @@ namespace QLNhiemVu.User_Control
                     btn_sua.Enabled = false;
                     btn_xoa.Enabled = false;
                     btn_capnhat.Enabled = false;
-                    btn_in.Enabled = true;
+                    btn_in.Enabled = false;
                     btn_boqua.Enabled = false;
                     // btn_congnhan.Enabled = false;
                 }

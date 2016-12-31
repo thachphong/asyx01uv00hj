@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace QLNhiemVu
 {
-    public class panelHeader:System.Windows.Forms.Panel
+    public class panelHeader : System.Windows.Forms.Panel
     {
-        public panelHeader() 
+        public panelHeader()
         {
-            
+
         }
 
         /// <summary>
@@ -22,7 +22,10 @@ namespace QLNhiemVu
         /// <param name="Y"></param>
         public void alignCenter(Control ctrl, params int[] Y)
         {
-            this.Location = new Point((ctrl.Width - this.Width) / 2, Y.Length > 0 ? Y[0] : 30);
+            if (ctrl.GetType().FullName == "DevExpress.XtraEditors.GroupControl")
+                this.Location = new Point((ctrl.Width - this.Width) / 2, Y.Length > 0 ? Y[0] : 30);
+            else
+                this.Location = new Point((ctrl.Width - this.Width) / 2, Y.Length > 0 ? Y[0] : 0);
         }
     }
 }

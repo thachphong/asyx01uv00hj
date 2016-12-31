@@ -171,7 +171,7 @@ namespace QLNhiemVu.DanhMuc
                 obj.DM016107 = currentState == "NEW" ? DateTime.Now : currentDataSelected.DM016107;
                 obj.DM016108 = AllDefine.gs_user_id;
                 obj.DM016109 = DateTime.Now;
-                obj.DM016110 = memoEdit1.Text;
+                obj.DM016110 = string.Empty;
 
                 return obj;
             }
@@ -210,16 +210,6 @@ namespace QLNhiemVu.DanhMuc
                 AllDefine.Show_message("Vui lòng nhập Tên nội dung!");
                 textEdit2.Focus();
                 return false;
-            }
-
-            if (lookUpEdit2.EditValue.ToString() == "1")
-            {
-                if (memoEdit1.Text.Trim() == string.Empty)
-                {
-                    AllDefine.Show_message("Vui lòng nhập Đoạn văn!");
-                    memoEdit1.Focus();
-                    return false;
-                }
             }
 
             return true;
@@ -341,7 +331,6 @@ namespace QLNhiemVu.DanhMuc
 
         private void lookUpEdit2_EditValueChanged(object sender, EventArgs e)
         {
-            groupBox1.Visible = lookUpEdit2.EditValue.ToString() == "1";
         }
 
         private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
