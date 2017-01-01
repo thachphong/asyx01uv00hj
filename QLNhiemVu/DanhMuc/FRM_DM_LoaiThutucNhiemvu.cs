@@ -1,5 +1,6 @@
 ﻿using DBAccess;
 using DevExpress.XtraEditors;
+using QLNhiemVu.FRMModel;
 using QLNhiemvu_DBEntities;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ using System.Windows.Forms;
 
 namespace QLNhiemVu.DanhMuc
 {
-    public partial class FRM_DM_LoaiThutucNhiemvu : Form
+    public partial class FRM_DM_LoaiThutucNhiemvu : BaseForm_Data
     {
         private static List<DM_LoaiThutucNhiemvu> currentList = null;
         private static int currentRowSelected = int.MinValue;

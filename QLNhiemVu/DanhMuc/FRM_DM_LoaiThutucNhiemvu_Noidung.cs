@@ -1,5 +1,6 @@
 ﻿using DBAccess;
 using DevExpress.XtraEditors;
+using QLNhiemVu.FRMModel;
 using QLNhiemvu_DBEntities;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,14 @@ using System.Windows.Forms;
 
 namespace QLNhiemVu.DanhMuc
 {
-    public partial class FRM_DM_LoaiThutucNhiemvu_Noidung : Form
+    public partial class FRM_DM_LoaiThutucNhiemvu_Noidung : BaseForm_Data
     {
         private static List<DM_LoaiThutucNhiemvu_Noidung> currentList = null;
         private static int currentRowSelected = int.MinValue;
         private static DM_LoaiThutucNhiemvu_Noidung currentDataSelected = null;
         private static string currentState = "NORMAL";
         private static Guid currentThutucID = Guid.Empty;
+        private static List<Guid> currentListFields = null;
         public FRM_DM_LoaiThutucNhiemvu_Noidung()
         {
             InitializeComponent();
@@ -172,6 +174,7 @@ namespace QLNhiemVu.DanhMuc
                 obj.DM016108 = AllDefine.gs_user_id;
                 obj.DM016109 = DateTime.Now;
                 obj.DM016110 = string.Empty;
+                obj.FieldSelecteds = currentListFields;
 
                 return obj;
             }
@@ -209,6 +212,13 @@ namespace QLNhiemVu.DanhMuc
             {
                 AllDefine.Show_message("Vui lòng nhập Tên nội dung!");
                 textEdit2.Focus();
+                return false;
+            }
+
+            if(lookUpEdit2.EditValue.ToString().Trim()=="2" && currentListFields==null)
+            {
+                AllDefine.Show_message("Vui lòng chọn danh sách Trường dữ liệu!");
+                ShowChildForm();
                 return false;
             }
 
@@ -327,6 +337,7 @@ namespace QLNhiemVu.DanhMuc
             lookUpEdit2.EditValue = data == null ? ' ' : data.DM016105;
             textEdit1.Text = data == null ? string.Empty : data.DM016103;
             textEdit2.Text = data == null ? string.Empty : data.DM016104;
+            currentListFields = data == null ? null : data.FieldSelecteds;
         }
 
         private void lookUpEdit2_EditValueChanged(object sender, EventArgs e)
@@ -338,6 +349,28 @@ namespace QLNhiemVu.DanhMuc
             currentThutucID = Guid.Parse(lookUpEdit1.EditValue.ToString());
             if (currentThutucID != Guid.Empty)
                 LoadList();
+        }
+
+        public void CallBack_UpdateFieldSelecteds(List<Guid> fieldSelecteds, bool update)
+        {
+            if (update)
+                currentListFields = fieldSelecteds;
+
+            this.Enabled = true;
+            this.Focus();
+        }
+
+        public List<Guid> CallBack_GetCurrentFieldSelected()
+        {
+            return currentListFields;
+        }
+
+        private void ShowChildForm()
+        {
+            this.Enabled = false;
+            FRM_DM_LoaiThutucNhiemvu_Noidung_Nhaptruongdulieu frm = new FRM_DM_LoaiThutucNhiemvu_Noidung_Nhaptruongdulieu();
+            frm.Show();
+            frm.Focus();
         }
     }
 }

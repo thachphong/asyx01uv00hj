@@ -13,18 +13,19 @@ using System.Windows.Forms;
 
 namespace QLNhiemVu.DanhMuc
 {
-    public partial class FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh : BaseForm_Data
+    public partial class FRM_DM_LoaiThutucNhiemvu_Noidung_Nhaptruongdulieu : BaseForm_Data
     {
-        FRM_DM_LoaiThutucNhiemvu frm = null;
+        FRM_DM_LoaiThutucNhiemvu_Noidung frm = null;
         List<DM_LoaiThutucNhiemvu_Truongdulieu> currentList = null;
-        public FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh()
+        
+        public FRM_DM_LoaiThutucNhiemvu_Noidung_Nhaptruongdulieu()
         {
             InitializeComponent();
         }
 
-        private void FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh_Load(object sender, EventArgs e)
+        private void FRM_DM_LoaiThutucNhiemvu_Noidung_Nhaptruongdulieu_Load(object sender, EventArgs e)
         {
-            frm = (FRM_DM_LoaiThutucNhiemvu)Application.OpenForms["FRM_DM_LoaiThutucNhiemvu"];
+            frm = (FRM_DM_LoaiThutucNhiemvu_Noidung)Application.OpenForms["FRM_DM_LoaiThutucNhiemvu_Noidung"];
             if (frm == null) this.Dispose();
 
             panelHeader1.alignCenter(panelHeader1.Parent);
@@ -66,13 +67,13 @@ namespace QLNhiemVu.DanhMuc
                     selecteds.Add(obj.DM016201);
             }
 
-            frm.CallBack_Thamdinh(selecteds.Count == 0 ? null : selecteds, true);
+            frm.CallBack_UpdateFieldSelecteds(selecteds.Count == 0 ? null : selecteds, true);
             this.Dispose();
         }
 
         private void btn_thoat_Click(object sender, EventArgs e)
         {
-            frm.CallBack_Thamdinh(null, false);
+            frm.CallBack_UpdateFieldSelecteds(null, false);
             this.Dispose();
         }
     }

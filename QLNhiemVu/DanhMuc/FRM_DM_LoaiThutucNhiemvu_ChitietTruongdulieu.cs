@@ -1,6 +1,7 @@
 ﻿using DBAccess;
 using DevExpress.XtraEditors;
 using Newtonsoft.Json;
+using QLNhiemVu.FRMModel;
 using QLNhiemvu_DBEntities;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace QLNhiemVu.DanhMuc
 {
-    public partial class FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu : Form
+    public partial class FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu : BaseForm_Data
     {
         private static List<DM_LoaiThutucNhiemvu_Truongdulieu> currentList = null;
         private static int currentRowSelected = int.MinValue;

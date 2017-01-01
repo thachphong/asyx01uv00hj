@@ -1,4 +1,5 @@
 ﻿using DBAccess;
+using QLNhiemVu.FRMModel;
 using QLNhiemvu_DBEntities;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace QLNhiemVu.DanhMuc
 {
-    public partial class FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Tab : Form
+    public partial class FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Tab : BaseForm_Data
     {
         FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu frm = null;
         List<DM_LoaiThutucNhiemvu_Truongdulieu> currentList = null;

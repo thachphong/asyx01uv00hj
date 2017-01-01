@@ -1,4 +1,5 @@
 ﻿using DBAccess;
+using QLNhiemVu.FRMModel;
 using QLNhiemvu_DBEntities;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace QLNhiemVu.DanhMuc
 {
-    public partial class FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup : Form
+    public partial class FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup : BaseForm_Data
     {
         FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu frm = null;
         DM_LoaiThutucNhiemvu_Truongdulieu_LookupData currentData = null;
@@ -140,7 +141,7 @@ namespace QLNhiemVu.DanhMuc
                 return;
             }
 
-            if (lookUpEdit9.EditValue == null)
+            if (lookUpEdit9.EditValue != null)
             {
                 if (lookUpEdit11.EditValue == null)
                 {

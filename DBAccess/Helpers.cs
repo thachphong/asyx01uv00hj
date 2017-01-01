@@ -31,6 +31,35 @@ namespace DBAccess
             }
         }
 
+        public class DBUtilities
+        {
+            public static bool CheckConnection()
+            {
+                try
+                {
+                    string url = CreateRequestUrl("dbutilities");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "checkdbconnection",
+                        Data = null
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return false;
+
+                    APIResponseData result = ConvertFromString(response);
+                    if (result == null || result.ErrorCode != 0) return false;
+
+                    return result.ErrorCode == 0;
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return false;
+                }
+            }
+        }
+
         #endregion
 
         #region ThutucNhiemvu
