@@ -21,6 +21,7 @@ namespace QLNhiemVu.DanhMuc
         private static DM_LoaiThutucNhiemvu_Noidung currentDataSelected = null;
         private static string currentState = "NORMAL";
         private static Guid currentThutucID = Guid.Empty;
+        private static Guid thutucIDforEntity = Guid.Empty;
         private static List<Guid> currentListFields = null;
         public FRM_DM_LoaiThutucNhiemvu_Noidung()
         {
@@ -39,7 +40,8 @@ namespace QLNhiemVu.DanhMuc
 
             LoadThutuc();
             LoadCachnhap();
-            //LoadList();
+            uC_MenuBtn1.set_status_menu(currentState, currentList == null ? 0 : currentList.Count);
+            SetDetailFormEnable(false);
         }
 
         private void BindControlEvents()
@@ -99,6 +101,8 @@ namespace QLNhiemVu.DanhMuc
 
         void btn_sua_Click(object sender, EventArgs e)
         {
+            thutucIDforEntity = currentThutucID;
+
             currentState = "EDIT";
             uC_MenuBtn1.set_status_menu(currentState, currentList == null ? 0 : currentList.Count);
             AssignDetailFormValue(currentDataSelected);
@@ -165,7 +169,7 @@ namespace QLNhiemVu.DanhMuc
             {
                 DM_LoaiThutucNhiemvu_Noidung obj = new DM_LoaiThutucNhiemvu_Noidung();
                 obj.DM016101 = currentState == "NEW" ? Guid.NewGuid() : currentDataSelected.DM016101;
-                obj.DM016102 = currentThutucID;
+                obj.DM016102 = thutucIDforEntity;
                 obj.DM016103 = textEdit1.Text;
                 obj.DM016104 = textEdit2.Text;
                 obj.DM016105 = char.Parse(lookUpEdit2.EditValue.ToString());
@@ -215,7 +219,7 @@ namespace QLNhiemVu.DanhMuc
                 return false;
             }
 
-            if(lookUpEdit2.EditValue.ToString().Trim()=="2" && currentListFields==null)
+            if (lookUpEdit2.EditValue.ToString().Trim() == "2" && currentListFields == null)
             {
                 AllDefine.Show_message("Vui lòng chọn danh sách Trường dữ liệu!");
                 ShowChildForm();
@@ -240,6 +244,14 @@ namespace QLNhiemVu.DanhMuc
 
         void btn_them_Click(object sender, EventArgs e)
         {
+            if(lookUpEdit1.EditValue==null)
+            {
+                AllDefine.Show_message("Vui lòng Loại thủ tục nhiệm vụ!");
+                return;
+            }
+
+            thutucIDforEntity = currentThutucID;
+
             currentState = "NEW";
             uC_MenuBtn1.set_status_menu(currentState, 0);
             AssignDetailFormValue(null);
@@ -323,12 +335,17 @@ namespace QLNhiemVu.DanhMuc
 
         private void SetDetailFormEnable(bool isEnable)
         {
-            groupControl2.Enabled = isEnable;
+            textEdit1.ReadOnly = !isEnable;
+            textEdit2.ReadOnly = !isEnable;
+            lookUpEdit2.ReadOnly = !isEnable;
+
             groupControl1.Enabled = !isEnable;
-            lookUpEdit1.Enabled = !isEnable;
+            lookUpEdit1.ReadOnly = isEnable;
 
             if (isEnable)
                 lookUpEdit2.Focus();
+
+            lookUpEdit1.EditValue = thutucIDforEntity;
         }
 
         private void AssignDetailFormValue(DM_LoaiThutucNhiemvu_Noidung data)
@@ -342,6 +359,10 @@ namespace QLNhiemVu.DanhMuc
 
         private void lookUpEdit2_EditValueChanged(object sender, EventArgs e)
         {
+            if (lookUpEdit2.EditValue.ToString().Trim() == "2")
+                simpleButton1.Visible = true;
+            else
+                simpleButton1.Visible = false;
         }
 
         private void lookUpEdit1_EditValueChanged(object sender, EventArgs e)
@@ -371,6 +392,11 @@ namespace QLNhiemVu.DanhMuc
             FRM_DM_LoaiThutucNhiemvu_Noidung_Nhaptruongdulieu frm = new FRM_DM_LoaiThutucNhiemvu_Noidung_Nhaptruongdulieu();
             frm.Show();
             frm.Focus();
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            ShowChildForm();
         }
     }
 }

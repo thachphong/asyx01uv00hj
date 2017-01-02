@@ -559,11 +559,12 @@
             // 
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(395, 49);
+            this.simpleButton1.Location = new System.Drawing.Point(399, 81);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(24, 26);
             this.simpleButton1.TabIndex = 92;
             this.simpleButton1.Text = "...";
+            this.simpleButton1.Visible = false;
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // textEdit2

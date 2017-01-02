@@ -1,13 +1,18 @@
 ﻿using DBAccess;
+using Decided.Libs;
 using DevExpress.XtraEditors;
+using Newtonsoft.Json;
 using QLNhiemVu.FRMModel;
 using QLNhiemvu_DBEntities;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,6 +25,7 @@ namespace QLNhiemVu.DanhMuc
         private static int currentRowSelected = int.MinValue;
         private static DM_Huongdan currentDataSelected = null;
         private static string currentState = "NORMAL";
+        private static string filePath = string.Empty;
         public FRM_DM_LoaiThutucNhiemvu_Huongdan()
         {
             InitializeComponent();
@@ -34,6 +40,9 @@ namespace QLNhiemVu.DanhMuc
             panelHeader3.alignCenter(panelHeader3.Parent);
 
             BindControlEvents();
+
+            openFileDialog1.Filter = "Text files|*.txt; *.doc; *.docx; *.pdf; *.xls; *.xlsx; *.ppt; *.pptx|Video files|*.avi; *.mwv|Audio files|*.mp3|All files|*.*";
+            openFileDialog1.Title = "Chọn tệp nội dung hướng dẫn!";
 
             LoadThutuc();
             LoadHuongdan();
@@ -172,6 +181,25 @@ namespace QLNhiemVu.DanhMuc
                 obj.DM016308 = AllDefine.gs_user_id;
                 obj.DM016309 = DateTime.Now;
 
+                if (textEdit3.Text.Trim() != string.Empty)
+                {
+                    string uri = Helpers.CreateRequestUrl_UploadFile();
+                    uri += "&n=loaithutucnhiemvu_huongdan&fn=" + obj.DM016301.ToString();
+                    string response = WebUtils.Request_UploadFile(uri, textEdit3.Text.Trim());
+                    APIResponseData result = JsonConvert.DeserializeObject<APIResponseData>(response);
+                    if (result.ErrorCode != 0)
+                    {
+                        AllDefine.Show_message("Error code " + result.ErrorCode + ": Lỗi không thể upload tệp!");
+                        return null;
+                    }
+
+                    obj.DM016310 = result.Data.ToString();
+                }
+                else
+                {
+                    obj.DM016310 = currentDataSelected == null ? string.Empty : currentDataSelected.DM016310;
+                }
+
                 return obj;
             }
             catch (Exception ex)
@@ -209,6 +237,12 @@ namespace QLNhiemVu.DanhMuc
                 AllDefine.Show_message("Vui lòng nhập Tên hướng dẫn!");
                 textEdit2.Focus();
                 return false;
+            }
+
+            if (currentState == "NEW" && textEdit3.Text.Trim() == string.Empty)
+            {
+                AllDefine.Show_message("Vui lòng chọn tệp nội dung hướng dẫn!");
+                simpleButton1.PerformClick();
             }
 
             return true;
@@ -325,6 +359,16 @@ namespace QLNhiemVu.DanhMuc
             lookUpEdit2.EditValue = data == null ? ' ' : data.DM016305;
             textEdit1.Text = data == null ? string.Empty : data.DM016303;
             textEdit2.Text = data == null ? string.Empty : data.DM016304;
+            textEdit3.Text = data == null ? string.Empty : data.DM016310;
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                textEdit3.Text = openFileDialog1.FileName;
+                string path = openFileDialog1.FileName;
+            }
         }
     }
 }

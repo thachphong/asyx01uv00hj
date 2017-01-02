@@ -105,19 +105,35 @@ namespace QLNhiemVu.DanhMuc
             if (currentData == null) return;
 
             lookUpEdit1.EditValue = currentData.Table;
-            lookUpEdit1.EditValue = currentData.Table;
-            lookUpEdit1.EditValue = currentData.Table;
-            lookUpEdit1.EditValue = currentData.Table;
-            lookUpEdit1.EditValue = currentData.Table;
-            lookUpEdit1.EditValue = currentData.Table;
-            lookUpEdit1.EditValue = currentData.Table;
-            lookUpEdit1.EditValue = currentData.Table;
-            lookUpEdit1.EditValue = currentData.Table;
-            lookUpEdit1.EditValue = currentData.Table;
-            lookUpEdit1.EditValue = currentData.Table;
-            lookUpEdit1.EditValue = currentData.Table;
-            lookUpEdit1.EditValue = currentData.Table;
-            lookUpEdit1.EditValue = currentData.Table;
+            lookUpEdit2.EditValue = currentData.ColumnSave;
+            lookUpEdit3.EditValue = currentData.ColumnDisplayID;
+            lookUpEdit4.EditValue = currentData.ColumnDisplayName;
+            lookUpEdit5.EditValue = currentData.ColumnDisplayExtend1;
+            lookUpEdit6.EditValue = currentData.ColumnDisplayExtend2;
+            lookUpEdit7.EditValue = currentData.Condition1 == null ? string.Empty : currentData.Condition1.ColumnName;
+            lookUpEdit8.EditValue = currentData.Condition1 == null ? string.Empty : currentData.Condition1.Condition;
+            textEdit1.Text = currentData.Condition1 == null ? string.Empty : currentData.Condition1.Value;
+            lookUpEdit11.EditValue = currentData.Condition2 == null ? string.Empty : currentData.Condition2.ColumnName;
+            lookUpEdit10.EditValue = currentData.Condition2 == null ? string.Empty : currentData.Condition2.Condition;
+            textEdit2.Text = currentData.Condition2 == null ? string.Empty : currentData.Condition2.Value;
+            lookUpEdit9.EditValue = currentData.ConditionCombination;
+
+            if (currentData.ConditionCombination.Trim() != string.Empty)
+            {
+                simpleButton1.Visible = false;
+                lookUpEdit11.Visible = true;
+                lookUpEdit10.Visible = true;
+                lookUpEdit9.Visible = true;
+                textEdit2.Visible = true;
+            }
+            else
+            {
+                simpleButton1.Visible = true;
+                lookUpEdit11.Visible = false;
+                lookUpEdit10.Visible = false;
+                lookUpEdit9.Visible = false;
+                textEdit2.Visible = false;
+            }
         }
 
         private void btn_capnhat_Click(object sender, EventArgs e)
@@ -143,19 +159,19 @@ namespace QLNhiemVu.DanhMuc
 
             if (lookUpEdit9.EditValue != null)
             {
-                if (lookUpEdit11.EditValue == null)
+                if (lookUpEdit11.EditValue == null || lookUpEdit11.EditValue.ToString().Trim() == string.Empty)
                 {
                     AllDefine.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
                     lookUpEdit11.Focus();
                     return;
                 }
-                if (lookUpEdit10.EditValue == null)
+                if (lookUpEdit10.EditValue == null || lookUpEdit10.EditValue.ToString().Trim() == string.Empty)
                 {
                     AllDefine.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
                     lookUpEdit10.Focus();
                     return;
                 }
-                if (textEdit2.Text.Trim() == Guid.Empty.ToString())
+                if (textEdit2.Text.Trim() == string.Empty)
                 {
                     AllDefine.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
                     textEdit2.Focus();

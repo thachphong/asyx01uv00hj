@@ -322,7 +322,12 @@ namespace QLNhiemVu.DanhMuc
 
         private void SetDetailFormEnable(bool isEnable)
         {
-            groupControl2.Enabled = isEnable;
+            lookUpEdit1.ReadOnly = !isEnable;
+            lookUpEdit2.ReadOnly = !isEnable;
+            textEdit1.ReadOnly = !isEnable;
+            textEdit2.ReadOnly = !isEnable;
+            checkEdit2.ReadOnly = !isEnable;
+
             groupControl1.Enabled = !isEnable;
 
             if (isEnable)
@@ -353,13 +358,11 @@ namespace QLNhiemVu.DanhMuc
 
             if (checkEdit2.Checked)
             {
-                ShowChildForm();
+                simpleButton1.Visible = true;
             }
             else
             {
-                Form frm = Application.OpenForms["FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh"];
-                if (frm != null)
-                    frm.Dispose();
+                simpleButton1.Visible = false;
             }
         }
 
@@ -375,6 +378,11 @@ namespace QLNhiemVu.DanhMuc
         public List<Guid> CallBack_GetCurrentFieldSelected()
         {
             return currentListFields;
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            ShowChildForm();
         }
     }
 }

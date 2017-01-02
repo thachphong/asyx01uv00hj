@@ -371,7 +371,16 @@ namespace QLNhiemVu.DanhMuc
 
         private void SetDetailFormEnable(bool isEnable)
         {
-            groupControl2.Enabled = isEnable;
+            textEdit1.ReadOnly = !isEnable;
+            textEdit2.ReadOnly = !isEnable;
+            textEdit3.ReadOnly = !isEnable;
+            textEdit4.ReadOnly = !isEnable;
+            textEdit5.ReadOnly = !isEnable;
+            textEdit7.ReadOnly = !isEnable;
+            textEdit9.ReadOnly = !isEnable;
+            lookUpEdit3.ReadOnly = !isEnable;
+            checkEdit2.ReadOnly = !isEnable;
+
             groupControl1.Enabled = !isEnable;
         }
 

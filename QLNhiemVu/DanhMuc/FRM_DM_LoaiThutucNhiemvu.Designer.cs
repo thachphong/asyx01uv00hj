@@ -35,6 +35,7 @@
             this.lblHeadTitle1 = new QLNhiemVu.lblHeadTitle();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.panelHeader3 = new QLNhiemVu.panelHeader();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
@@ -155,6 +156,7 @@
             // 
             // panelHeader3
             // 
+            this.panelHeader3.Controls.Add(this.simpleButton1);
             this.panelHeader3.Controls.Add(this.checkEdit2);
             this.panelHeader3.Controls.Add(this.label4);
             this.panelHeader3.Controls.Add(this.lookUpEdit2);
@@ -170,14 +172,24 @@
             this.panelHeader3.Size = new System.Drawing.Size(971, 117);
             this.panelHeader3.TabIndex = 0;
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(272, 79);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(26, 26);
+            this.simpleButton1.TabIndex = 45;
+            this.simpleButton1.Text = "...";
+            this.simpleButton1.Visible = false;
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // checkEdit2
             // 
-            this.checkEdit2.Location = new System.Drawing.Point(247, 79);
+            this.checkEdit2.Location = new System.Drawing.Point(247, 81);
             this.checkEdit2.Name = "checkEdit2";
             this.checkEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.checkEdit2.Properties.Appearance.Options.UseFont = true;
             this.checkEdit2.Properties.Caption = "";
-            this.checkEdit2.Size = new System.Drawing.Size(15, 19);
+            this.checkEdit2.Size = new System.Drawing.Size(19, 19);
             this.checkEdit2.TabIndex = 44;
             this.checkEdit2.CheckedChanged += new System.EventHandler(this.checkEdit2_CheckedChanged);
             // 
@@ -185,7 +197,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(26, 79);
+            this.label4.Location = new System.Drawing.Point(26, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(215, 19);
             this.label4.TabIndex = 43;
@@ -652,6 +664,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit2;
         private DevExpress.XtraEditors.CheckEdit checkEdit2;
         private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
 
     }
 }

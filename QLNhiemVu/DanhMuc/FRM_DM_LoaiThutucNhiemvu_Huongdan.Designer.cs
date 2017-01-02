@@ -35,6 +35,9 @@
             this.lblHeadTitle1 = new QLNhiemVu.lblHeadTitle();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.panelHeader3 = new QLNhiemVu.panelHeader();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             this.label3 = new System.Windows.Forms.Label();
@@ -65,12 +68,14 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelHeader2 = new QLNhiemVu.panelHeader();
             this.uC_MenuBtn1 = new QLNhiemVu.User_Control.UC_MenuBtn();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelHeader1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             this.panelHeader3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
@@ -149,6 +154,9 @@
             // 
             // panelHeader3
             // 
+            this.panelHeader3.Controls.Add(this.simpleButton1);
+            this.panelHeader3.Controls.Add(this.label4);
+            this.panelHeader3.Controls.Add(this.textEdit3);
             this.panelHeader3.Controls.Add(this.lookUpEdit2);
             this.panelHeader3.Controls.Add(this.lookUpEdit1);
             this.panelHeader3.Controls.Add(this.label3);
@@ -159,8 +167,39 @@
             this.panelHeader3.Controls.Add(this.label11);
             this.panelHeader3.Location = new System.Drawing.Point(26, 30);
             this.panelHeader3.Name = "panelHeader3";
-            this.panelHeader3.Size = new System.Drawing.Size(971, 93);
+            this.panelHeader3.Size = new System.Drawing.Size(971, 113);
             this.panelHeader3.TabIndex = 0;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Location = new System.Drawing.Point(500, 79);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(24, 26);
+            this.simpleButton1.TabIndex = 93;
+            this.simpleButton1.Text = "...";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(26, 82);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 19);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "Tệp đính kèm";
+            // 
+            // textEdit3
+            // 
+            this.textEdit3.Location = new System.Drawing.Point(225, 79);
+            this.textEdit3.Name = "textEdit3";
+            this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit3.Properties.Appearance.Options.UseFont = true;
+            this.textEdit3.Properties.ReadOnly = true;
+            this.textEdit3.Size = new System.Drawing.Size(269, 26);
+            this.textEdit3.TabIndex = 43;
             // 
             // lookUpEdit2
             // 
@@ -512,6 +551,12 @@
             this.uC_MenuBtn1.Size = new System.Drawing.Size(655, 67);
             this.uC_MenuBtn1.TabIndex = 4;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "Text files|*.txt;*.doc;*.docx;*.pdf|Video files|*.avi;*.mwv|Audio files|*.mp3|All" +
+    " files|*.*";
+            this.openFileDialog1.RestoreDirectory = true;
+            // 
             // FRM_DM_LoaiThutucNhiemvu_Huongdan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -531,6 +576,7 @@
             this.groupControl2.ResumeLayout(false);
             this.panelHeader3.ResumeLayout(false);
             this.panelHeader3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
@@ -588,6 +634,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label4;
+        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
 
     }
 }

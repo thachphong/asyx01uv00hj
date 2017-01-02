@@ -15,7 +15,12 @@ namespace DBAccess
 
         public static string CreateRequestUrl(string module)
         {
-            return DefineValues.API_Host + module + "?u=" + DefineValues.API_Authentication_User + "&p=" + DefineValues.API_Authentication_Password;
+            return DefineValues.API_Host + module +"?u=" + DefineValues.API_Authentication_User + "&p=" + DefineValues.API_Authentication_Password;
+        }
+
+        public static string CreateRequestUrl_UploadFile()
+        {
+            return DefineValues.API_Host + "Functions/ResourceManager.aspx" + "?u=" + DefineValues.API_Authentication_User + "&p=" + DefineValues.API_Authentication_Password;
         }
 
         public static APIResponseData ConvertFromString(string data)

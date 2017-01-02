@@ -66,6 +66,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelHeader2 = new QLNhiemVu.panelHeader();
             this.uC_MenuBtn1 = new QLNhiemVu.User_Control.UC_MenuBtn();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelHeader1.SuspendLayout();
@@ -192,15 +193,16 @@
             // 
             // panelHeader3
             // 
+            this.panelHeader3.Controls.Add(this.simpleButton1);
             this.panelHeader3.Controls.Add(this.lookUpEdit2);
             this.panelHeader3.Controls.Add(this.label3);
             this.panelHeader3.Controls.Add(this.label2);
             this.panelHeader3.Controls.Add(this.textEdit2);
             this.panelHeader3.Controls.Add(this.label1);
             this.panelHeader3.Controls.Add(this.textEdit1);
-            this.panelHeader3.Location = new System.Drawing.Point(26, 30);
+            this.panelHeader3.Location = new System.Drawing.Point(5, 30);
             this.panelHeader3.Name = "panelHeader3";
-            this.panelHeader3.Size = new System.Drawing.Size(353, 115);
+            this.panelHeader3.Size = new System.Drawing.Size(380, 115);
             this.panelHeader3.TabIndex = 0;
             // 
             // lookUpEdit2
@@ -532,6 +534,18 @@
             this.uC_MenuBtn1.Size = new System.Drawing.Size(650, 67);
             this.uC_MenuBtn1.TabIndex = 4;
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Location = new System.Drawing.Point(342, 73);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(24, 26);
+            this.simpleButton1.TabIndex = 93;
+            this.simpleButton1.Text = "...";
+            this.simpleButton1.Visible = false;
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // FRM_DM_LoaiThutucNhiemvu_Noidung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -611,6 +625,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
 
     }
 }
