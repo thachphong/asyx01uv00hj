@@ -44,6 +44,8 @@ namespace QLNhiemVu.DanhMuc
             openFileDialog1.Filter = "Text files|*.txt; *.doc; *.docx; *.pdf; *.xls; *.xlsx; *.ppt; *.pptx|Video files|*.avi; *.mwv|Audio files|*.mp3|All files|*.*";
             openFileDialog1.Title = "Chọn tệp nội dung hướng dẫn!";
 
+            currentState = "NORMAL";
+
             LoadThutuc();
             LoadHuongdan();
             LoadList();
@@ -322,6 +324,9 @@ namespace QLNhiemVu.DanhMuc
 
             uC_MenuBtn1.set_status_menu(currentState, currentList == null ? 0 : currentList.Count);
             SetDetailFormEnable(false);
+
+            DM_Huongdan current = (DM_Huongdan)gridView1.GetFocusedRow();
+            AssignDetailFormValue(current);
         }
 
         private void checkEdit1_CheckedChanged(object sender, EventArgs e)
@@ -346,7 +351,11 @@ namespace QLNhiemVu.DanhMuc
 
         private void SetDetailFormEnable(bool isEnable)
         {
-            groupControl2.Enabled = isEnable;
+            lookUpEdit1.ReadOnly = !isEnable;
+            lookUpEdit2.ReadOnly = !isEnable;
+            textEdit1.ReadOnly = !isEnable;
+            textEdit2.ReadOnly = !isEnable;
+
             groupControl1.Enabled = !isEnable;
 
             if (isEnable)

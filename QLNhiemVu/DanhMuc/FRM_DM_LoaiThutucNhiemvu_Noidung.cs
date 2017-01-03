@@ -40,6 +40,8 @@ namespace QLNhiemVu.DanhMuc
 
             LoadThutuc();
             LoadCachnhap();
+
+            currentState = "NORMAL";
             uC_MenuBtn1.set_status_menu(currentState, currentList == null ? 0 : currentList.Count);
             SetDetailFormEnable(false);
         }
@@ -244,7 +246,7 @@ namespace QLNhiemVu.DanhMuc
 
         void btn_them_Click(object sender, EventArgs e)
         {
-            if(lookUpEdit1.EditValue==null)
+            if (lookUpEdit1.EditValue == null)
             {
                 AllDefine.Show_message("Vui lòng Loại thủ tục nhiệm vụ!");
                 return;
@@ -303,7 +305,8 @@ namespace QLNhiemVu.DanhMuc
 
         private void LoadList()
         {
-            currentList = Helpers.ThutucNhiemvu_Noidung.GetList(currentThutucID);
+            thutucIDforEntity = currentThutucID;
+            currentList = Helpers.ThutucNhiemvu_Noidung.GetList(thutucIDforEntity);
 
             gridControl1.DataSource = currentList;
             gridControl1.RefreshDataSource();
@@ -311,6 +314,9 @@ namespace QLNhiemVu.DanhMuc
 
             uC_MenuBtn1.set_status_menu(currentState, currentList == null ? 0 : currentList.Count);
             SetDetailFormEnable(false);
+
+            DM_LoaiThutucNhiemvu_Noidung current = (DM_LoaiThutucNhiemvu_Noidung)gridView1.GetFocusedRow();
+            AssignDetailFormValue(current);
         }
 
         private void checkEdit1_CheckedChanged(object sender, EventArgs e)
@@ -344,13 +350,13 @@ namespace QLNhiemVu.DanhMuc
 
             if (isEnable)
                 lookUpEdit2.Focus();
-
-            lookUpEdit1.EditValue = thutucIDforEntity;
+            else
+                lookUpEdit1.EditValue = thutucIDforEntity;
         }
 
         private void AssignDetailFormValue(DM_LoaiThutucNhiemvu_Noidung data)
         {
-            lookUpEdit1.EditValue = data == null ? Guid.Empty : data.DM016102;
+            //lookUpEdit1.EditValue = data == null ? Guid.Empty : data.DM016102;
             lookUpEdit2.EditValue = data == null ? ' ' : data.DM016105;
             textEdit1.Text = data == null ? string.Empty : data.DM016103;
             textEdit2.Text = data == null ? string.Empty : data.DM016104;

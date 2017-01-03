@@ -208,7 +208,7 @@
             this.lookUpEdit2.Location = new System.Drawing.Point(247, 47);
             this.lookUpEdit2.Name = "lookUpEdit2";
             this.lookUpEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lookUpEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.lookUpEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lookUpEdit2.Properties.Appearance.Options.UseFont = true;
             this.lookUpEdit2.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit2.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -274,7 +274,7 @@
             this.textEdit2.Location = new System.Drawing.Point(706, 47);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.textEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.textEdit2.Properties.Appearance.Options.UseFont = true;
             this.textEdit2.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit2.Size = new System.Drawing.Size(236, 26);
@@ -295,7 +295,7 @@
             this.textEdit1.Location = new System.Drawing.Point(706, 15);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.textEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.textEdit1.Properties.Appearance.Options.UseFont = true;
             this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit1.Size = new System.Drawing.Size(236, 26);

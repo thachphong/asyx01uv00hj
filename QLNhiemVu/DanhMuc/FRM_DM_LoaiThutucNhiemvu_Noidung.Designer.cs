@@ -37,6 +37,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.panelHeader3 = new QLNhiemVu.panelHeader();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,7 +67,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelHeader2 = new QLNhiemVu.panelHeader();
             this.uC_MenuBtn1 = new QLNhiemVu.User_Control.UC_MenuBtn();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelHeader1.SuspendLayout();
@@ -205,12 +205,26 @@
             this.panelHeader3.Size = new System.Drawing.Size(380, 115);
             this.panelHeader3.TabIndex = 0;
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.Location = new System.Drawing.Point(342, 73);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(24, 26);
+            this.simpleButton1.TabIndex = 93;
+            this.simpleButton1.Text = "...";
+            this.simpleButton1.Visible = false;
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // lookUpEdit2
             // 
             this.lookUpEdit2.Location = new System.Drawing.Point(143, 74);
             this.lookUpEdit2.Name = "lookUpEdit2";
             this.lookUpEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lookUpEdit2.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit2.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit2.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit2.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit2.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -252,7 +266,9 @@
             this.textEdit2.Location = new System.Drawing.Point(143, 42);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.textEdit2.Properties.Appearance.Options.UseFont = true;
+            this.textEdit2.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit2.Size = new System.Drawing.Size(193, 26);
             this.textEdit2.TabIndex = 3;
             // 
@@ -271,7 +287,9 @@
             this.textEdit1.Location = new System.Drawing.Point(143, 10);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.textEdit1.Properties.Appearance.Options.UseFont = true;
+            this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit1.Size = new System.Drawing.Size(193, 26);
             this.textEdit1.TabIndex = 2;
             // 
@@ -533,18 +551,6 @@
             this.uC_MenuBtn1.Name = "uC_MenuBtn1";
             this.uC_MenuBtn1.Size = new System.Drawing.Size(650, 67);
             this.uC_MenuBtn1.TabIndex = 4;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(342, 73);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(24, 26);
-            this.simpleButton1.TabIndex = 93;
-            this.simpleButton1.Text = "...";
-            this.simpleButton1.Visible = false;
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // FRM_DM_LoaiThutucNhiemvu_Noidung
             // 

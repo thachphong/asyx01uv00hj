@@ -43,6 +43,8 @@ namespace QLNhiemVu.DanhMuc
 
             BindControlEvents();
 
+            currentState = "NORMAL";
+
             LoadKieutruong();
             LoadList();
         }
@@ -347,6 +349,9 @@ namespace QLNhiemVu.DanhMuc
 
             uC_MenuBtn1.set_status_menu(currentState, currentList == null ? 0 : currentList.Count);
             SetDetailFormEnable(false);
+
+            DM_LoaiThutucNhiemvu_Truongdulieu current = (DM_LoaiThutucNhiemvu_Truongdulieu)gridView1.GetFocusedRow();
+            AssignDetailFormValue(current);
         }
 
         private void checkEdit1_CheckedChanged(object sender, EventArgs e)

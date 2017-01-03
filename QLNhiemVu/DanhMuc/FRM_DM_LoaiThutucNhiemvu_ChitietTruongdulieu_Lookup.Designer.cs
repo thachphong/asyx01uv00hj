@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelHeader1 = new QLNhiemVu.panelHeader();
+            this.btn_thoat = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_capnhat = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.panelHeader2 = new QLNhiemVu.panelHeader();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
@@ -53,10 +56,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelHeader1 = new QLNhiemVu.panelHeader();
-            this.btn_thoat = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_capnhat = new DevExpress.XtraEditors.SimpleButton();
             this.panel1.SuspendLayout();
+            this.panelHeader1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.panelHeader2.SuspendLayout();
@@ -73,7 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
-            this.panelHeader1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -84,6 +84,41 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(719, 55);
             this.panel1.TabIndex = 5;
+            // 
+            // panelHeader1
+            // 
+            this.panelHeader1.Controls.Add(this.btn_thoat);
+            this.panelHeader1.Controls.Add(this.btn_capnhat);
+            this.panelHeader1.Location = new System.Drawing.Point(26, 3);
+            this.panelHeader1.Name = "panelHeader1";
+            this.panelHeader1.Size = new System.Drawing.Size(203, 36);
+            this.panelHeader1.TabIndex = 0;
+            // 
+            // btn_thoat
+            // 
+            this.btn_thoat.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_thoat.Appearance.Options.UseFont = true;
+            this.btn_thoat.Image = ((System.Drawing.Image)(resources.GetObject("btn_thoat.Image")));
+            this.btn_thoat.ImageIndex = 4;
+            this.btn_thoat.Location = new System.Drawing.Point(104, 3);
+            this.btn_thoat.Name = "btn_thoat";
+            this.btn_thoat.Size = new System.Drawing.Size(95, 29);
+            this.btn_thoat.TabIndex = 91;
+            this.btn_thoat.Text = "Hủy";
+            this.btn_thoat.Click += new System.EventHandler(this.btn_thoat_Click);
+            // 
+            // btn_capnhat
+            // 
+            this.btn_capnhat.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_capnhat.Appearance.Options.UseFont = true;
+            this.btn_capnhat.Image = ((System.Drawing.Image)(resources.GetObject("btn_capnhat.Image")));
+            this.btn_capnhat.ImageIndex = 7;
+            this.btn_capnhat.Location = new System.Drawing.Point(3, 3);
+            this.btn_capnhat.Name = "btn_capnhat";
+            this.btn_capnhat.Size = new System.Drawing.Size(95, 29);
+            this.btn_capnhat.TabIndex = 89;
+            this.btn_capnhat.Text = "Lưu";
+            this.btn_capnhat.Click += new System.EventHandler(this.btn_capnhat_Click);
             // 
             // groupControl1
             // 
@@ -132,7 +167,9 @@
             this.textEdit2.Location = new System.Drawing.Point(409, 273);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.textEdit2.Properties.Appearance.Options.UseFont = true;
+            this.textEdit2.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit2.Size = new System.Drawing.Size(142, 26);
             this.textEdit2.TabIndex = 111;
             this.textEdit2.Visible = false;
@@ -142,7 +179,9 @@
             this.lookUpEdit10.Location = new System.Drawing.Point(327, 273);
             this.lookUpEdit10.Name = "lookUpEdit10";
             this.lookUpEdit10.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit10.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lookUpEdit10.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit10.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit10.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit10.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit10.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -163,7 +202,9 @@
             this.lookUpEdit11.Location = new System.Drawing.Point(189, 273);
             this.lookUpEdit11.Name = "lookUpEdit11";
             this.lookUpEdit11.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit11.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lookUpEdit11.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit11.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit11.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit11.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit11.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -183,7 +224,9 @@
             this.lookUpEdit9.Location = new System.Drawing.Point(189, 241);
             this.lookUpEdit9.Name = "lookUpEdit9";
             this.lookUpEdit9.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit9.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lookUpEdit9.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit9.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit9.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit9.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit9.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -215,7 +258,9 @@
             this.textEdit1.Location = new System.Drawing.Point(409, 209);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.textEdit1.Properties.Appearance.Options.UseFont = true;
+            this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit1.Size = new System.Drawing.Size(142, 26);
             this.textEdit1.TabIndex = 106;
             // 
@@ -224,7 +269,9 @@
             this.lookUpEdit8.Location = new System.Drawing.Point(327, 209);
             this.lookUpEdit8.Name = "lookUpEdit8";
             this.lookUpEdit8.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit8.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lookUpEdit8.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit8.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit8.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit8.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit8.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -244,7 +291,9 @@
             this.lookUpEdit7.Location = new System.Drawing.Point(189, 209);
             this.lookUpEdit7.Name = "lookUpEdit7";
             this.lookUpEdit7.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit7.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lookUpEdit7.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit7.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit7.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit7.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit7.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -273,7 +322,9 @@
             this.lookUpEdit6.Location = new System.Drawing.Point(189, 177);
             this.lookUpEdit6.Name = "lookUpEdit6";
             this.lookUpEdit6.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit6.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lookUpEdit6.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit6.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit6.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit6.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit6.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -302,7 +353,9 @@
             this.lookUpEdit5.Location = new System.Drawing.Point(189, 145);
             this.lookUpEdit5.Name = "lookUpEdit5";
             this.lookUpEdit5.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit5.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lookUpEdit5.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit5.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit5.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit5.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit5.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -331,7 +384,9 @@
             this.lookUpEdit4.Location = new System.Drawing.Point(189, 113);
             this.lookUpEdit4.Name = "lookUpEdit4";
             this.lookUpEdit4.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit4.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lookUpEdit4.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit4.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit4.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit4.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit4.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -360,7 +415,9 @@
             this.lookUpEdit3.Location = new System.Drawing.Point(189, 81);
             this.lookUpEdit3.Name = "lookUpEdit3";
             this.lookUpEdit3.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit3.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lookUpEdit3.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit3.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit3.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit3.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit3.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -389,7 +446,9 @@
             this.lookUpEdit2.Location = new System.Drawing.Point(189, 49);
             this.lookUpEdit2.Name = "lookUpEdit2";
             this.lookUpEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lookUpEdit2.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit2.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit2.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit2.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit2.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -418,7 +477,9 @@
             this.lookUpEdit1.Location = new System.Drawing.Point(189, 17);
             this.lookUpEdit1.Name = "lookUpEdit1";
             this.lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lookUpEdit1.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit1.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit1.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit1.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit1.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -443,41 +504,6 @@
             this.label1.TabIndex = 91;
             this.label1.Text = "Chọn bảng";
             // 
-            // panelHeader1
-            // 
-            this.panelHeader1.Controls.Add(this.btn_thoat);
-            this.panelHeader1.Controls.Add(this.btn_capnhat);
-            this.panelHeader1.Location = new System.Drawing.Point(26, 3);
-            this.panelHeader1.Name = "panelHeader1";
-            this.panelHeader1.Size = new System.Drawing.Size(203, 36);
-            this.panelHeader1.TabIndex = 0;
-            // 
-            // btn_thoat
-            // 
-            this.btn_thoat.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_thoat.Appearance.Options.UseFont = true;
-            this.btn_thoat.Image = ((System.Drawing.Image)(resources.GetObject("btn_thoat.Image")));
-            this.btn_thoat.ImageIndex = 4;
-            this.btn_thoat.Location = new System.Drawing.Point(104, 3);
-            this.btn_thoat.Name = "btn_thoat";
-            this.btn_thoat.Size = new System.Drawing.Size(95, 29);
-            this.btn_thoat.TabIndex = 91;
-            this.btn_thoat.Text = "Hủy";
-            this.btn_thoat.Click += new System.EventHandler(this.btn_thoat_Click);
-            // 
-            // btn_capnhat
-            // 
-            this.btn_capnhat.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_capnhat.Appearance.Options.UseFont = true;
-            this.btn_capnhat.Image = ((System.Drawing.Image)(resources.GetObject("btn_capnhat.Image")));
-            this.btn_capnhat.ImageIndex = 7;
-            this.btn_capnhat.Location = new System.Drawing.Point(3, 3);
-            this.btn_capnhat.Name = "btn_capnhat";
-            this.btn_capnhat.Size = new System.Drawing.Size(95, 29);
-            this.btn_capnhat.TabIndex = 89;
-            this.btn_capnhat.Text = "Lưu";
-            this.btn_capnhat.Click += new System.EventHandler(this.btn_capnhat_Click);
-            // 
             // FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -494,6 +520,7 @@
             this.TopMost = true;
             this.Load += new System.EventHandler(this.FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh_Load);
             this.panel1.ResumeLayout(false);
+            this.panelHeader1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.panelHeader2.ResumeLayout(false);
@@ -511,7 +538,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
-            this.panelHeader1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

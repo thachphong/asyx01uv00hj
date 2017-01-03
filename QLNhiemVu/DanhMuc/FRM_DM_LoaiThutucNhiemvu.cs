@@ -36,6 +36,8 @@ namespace QLNhiemVu.DanhMuc
 
             BindControlEvents();
 
+            currentState = "NORMAL";
+
             LoadDonvi();
             LoadLoaiCapphep();
             LoadList();
@@ -298,6 +300,9 @@ namespace QLNhiemVu.DanhMuc
 
             uC_MenuBtn1.set_status_menu(currentState, currentList == null ? 0 : currentList.Count);
             SetDetailFormEnable(false);
+
+            DM_LoaiThutucNhiemvu current = (DM_LoaiThutucNhiemvu)gridView1.GetFocusedRow();
+            AssignDetailFormValue(current);
         }
 
         private void checkEdit1_CheckedChanged(object sender, EventArgs e)
@@ -354,7 +359,7 @@ namespace QLNhiemVu.DanhMuc
 
         private void checkEdit2_CheckedChanged(object sender, EventArgs e)
         {
-            if (currentState == "NORMAL") return;
+            //if (currentState == "NORMAL") return;
 
             if (checkEdit2.Checked)
             {

@@ -572,7 +572,9 @@
             this.textEdit2.Location = new System.Drawing.Point(580, 18);
             this.textEdit2.Name = "textEdit2";
             this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.textEdit2.Properties.Appearance.Options.UseFont = true;
+            this.textEdit2.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit2.Size = new System.Drawing.Size(193, 26);
             this.textEdit2.TabIndex = 43;
             // 
@@ -591,7 +593,9 @@
             this.textEdit5.Location = new System.Drawing.Point(200, 82);
             this.textEdit5.Name = "textEdit5";
             this.textEdit5.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit5.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.textEdit5.Properties.Appearance.Options.UseFont = true;
+            this.textEdit5.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit5.Size = new System.Drawing.Size(193, 26);
             this.textEdit5.TabIndex = 91;
             // 
@@ -600,7 +604,9 @@
             this.textEdit3.Location = new System.Drawing.Point(580, 50);
             this.textEdit3.Name = "textEdit3";
             this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit3.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.textEdit3.Properties.Appearance.Options.UseFont = true;
+            this.textEdit3.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit3.Size = new System.Drawing.Size(193, 26);
             this.textEdit3.TabIndex = 46;
             // 
@@ -609,7 +615,9 @@
             this.lookUpEdit3.Location = new System.Drawing.Point(200, 50);
             this.lookUpEdit3.Name = "lookUpEdit3";
             this.lookUpEdit3.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit3.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.lookUpEdit3.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit3.Properties.Appearance.Options.UseForeColor = true;
             this.lookUpEdit3.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit3.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
             this.lookUpEdit3.Properties.AppearanceDropDown.Options.UseFont = true;
@@ -651,7 +659,9 @@
             this.textEdit9.Location = new System.Drawing.Point(580, 82);
             this.textEdit9.Name = "textEdit9";
             this.textEdit9.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit9.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.textEdit9.Properties.Appearance.Options.UseFont = true;
+            this.textEdit9.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit9.Size = new System.Drawing.Size(54, 26);
             this.textEdit9.TabIndex = 62;
             // 
@@ -698,7 +708,9 @@
             this.textEdit7.Location = new System.Drawing.Point(200, 114);
             this.textEdit7.Name = "textEdit7";
             this.textEdit7.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit7.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.textEdit7.Properties.Appearance.Options.UseFont = true;
+            this.textEdit7.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit7.Size = new System.Drawing.Size(193, 26);
             this.textEdit7.TabIndex = 59;
             // 
@@ -718,7 +730,9 @@
             this.textEdit4.Location = new System.Drawing.Point(200, 146);
             this.textEdit4.Name = "textEdit4";
             this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit4.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.textEdit4.Properties.Appearance.Options.UseFont = true;
+            this.textEdit4.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit4.Size = new System.Drawing.Size(104, 26);
             this.textEdit4.TabIndex = 51;
             // 
@@ -747,7 +761,9 @@
             this.textEdit1.Location = new System.Drawing.Point(200, 18);
             this.textEdit1.Name = "textEdit1";
             this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             this.textEdit1.Properties.Appearance.Options.UseFont = true;
+            this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
             this.textEdit1.Size = new System.Drawing.Size(193, 26);
             this.textEdit1.TabIndex = 42;
             // 
