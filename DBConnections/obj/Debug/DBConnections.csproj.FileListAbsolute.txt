@@ -1,6 +1,0 @@
-D:\Du An C#\QLNhiemVu\DBConnections\bin\Debug\DBConnections.exe.config
-D:\Du An C#\QLNhiemVu\DBConnections\bin\Debug\DBConnections.exe
-D:\Du An C#\QLNhiemVu\DBConnections\bin\Debug\DBConnections.pdb
-D:\Du An C#\QLNhiemVu\DBConnections\obj\Debug\DBConnections.exe
-D:\Du An C#\QLNhiemVu\DBConnections\obj\Debug\DBConnections.pdb
-D:\Du An C#\QLNhiemVu\DBConnections\obj\Debug\DBConnections.csprojResolveAssemblyReference.cache
