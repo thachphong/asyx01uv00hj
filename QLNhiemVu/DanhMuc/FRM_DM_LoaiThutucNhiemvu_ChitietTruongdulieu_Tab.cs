@@ -17,6 +17,7 @@ namespace QLNhiemVu.DanhMuc
     {
         FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu frm = null;
         List<DM_LoaiThutucNhiemvu_Truongdulieu> currentList = null;
+        public string currentState = "NORMAL";
         public FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Tab()
         {
             InitializeComponent();
@@ -31,6 +32,11 @@ namespace QLNhiemVu.DanhMuc
 
             LoadList();
             CheckSelecteds();
+
+            if (currentState == "NORMAL")
+                btn_capnhat.Enabled = false;
+            else
+                btn_capnhat.Enabled = true;
         }
 
         private void CheckSelecteds()

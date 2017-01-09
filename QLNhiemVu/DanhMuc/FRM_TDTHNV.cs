@@ -10,6 +10,7 @@ namespace QLNhiemVu.DanhMuc
 {
     public partial class FRM_TDTHNV : QLNhiemVu.FRMModel.FRM_Model1
     {
+        private static string formTitle = "Nhiệm vụ";
         public FRM_TDTHNV()
         {
             InitializeComponent();

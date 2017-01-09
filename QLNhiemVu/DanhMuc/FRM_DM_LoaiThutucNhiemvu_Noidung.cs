@@ -396,6 +396,7 @@ namespace QLNhiemVu.DanhMuc
         {
             this.Enabled = false;
             FRM_DM_LoaiThutucNhiemvu_Noidung_Nhaptruongdulieu frm = new FRM_DM_LoaiThutucNhiemvu_Noidung_Nhaptruongdulieu();
+            frm.currentState = currentState;
             frm.Show();
             frm.Focus();
         }

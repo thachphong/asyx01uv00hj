@@ -316,7 +316,7 @@ namespace QLNhiemVu.DanhMuc
 
         private void LoadList()
         {
-            currentList = Helpers.ThutucNhiemvu_Huongdan.GetList();
+            currentList = Helpers.ThutucNhiemvu_Huongdan.GetList(Guid.Empty);
 
             gridControl1.DataSource = currentList;
             gridControl1.RefreshDataSource();

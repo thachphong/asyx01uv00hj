@@ -1,4 +1,5 @@
 ﻿using DBAccess;
+using DevExpress.XtraEditors;
 using QLNhiemVu.FRMModel;
 using QLNhiemvu_DBEntities;
 using System;
@@ -17,6 +18,7 @@ namespace QLNhiemVu.DanhMuc
     {
         FRM_DM_LoaiThutucNhiemvu_Noidung frm = null;
         List<DM_LoaiThutucNhiemvu_Truongdulieu> currentList = null;
+        public string currentState = "NORMAL";
         
         public FRM_DM_LoaiThutucNhiemvu_Noidung_Nhaptruongdulieu()
         {
@@ -32,6 +34,38 @@ namespace QLNhiemVu.DanhMuc
 
             LoadList();
             CheckSelecteds();
+
+            if (currentState == "NORMAL")
+                btn_capnhat.Enabled = false;
+            else
+                btn_capnhat.Enabled = true;
+
+            gridColumn10.ColumnEdit.EditValueChanged += ColumnEdit_EditValueChanged;
+        }
+
+        bool performChecked = true;
+        void ColumnEdit_EditValueChanged(object sender, EventArgs e)
+        {
+            gridView1.PostEditor();
+
+            CheckEdit cbxEdit = (CheckEdit)sender;
+            if (!cbxEdit.Checked)
+            {
+                performChecked = false;
+                checkEdit1.Checked = false;
+            }
+            else
+            {
+                bool allChecked = true;
+                for (int i = 0; i < gridView1.RowCount; i++)
+                {
+                    allChecked = (bool)gridView1.GetRowCellValue(i, gridColumn10);
+                    if (!allChecked) return;
+                }
+
+                if (allChecked)
+                    checkEdit1.Checked = true;
+            }
         }
 
         private void CheckSelecteds()
@@ -75,6 +109,19 @@ namespace QLNhiemVu.DanhMuc
         {
             frm.CallBack_UpdateFieldSelecteds(null, false);
             this.Dispose();
+        }
+
+        private void checkEdit1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (performChecked)
+            {
+                for (int i = 0; i < gridView1.RowCount; i++)
+                {
+                    gridView1.SetRowCellValue(i, gridColumn10, checkEdit1.Checked);
+                }
+            }
+
+            performChecked = true;
         }
     }
 }

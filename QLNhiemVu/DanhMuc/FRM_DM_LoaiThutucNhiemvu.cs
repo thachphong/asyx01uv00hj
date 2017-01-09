@@ -353,6 +353,7 @@ namespace QLNhiemVu.DanhMuc
         {
             this.Enabled = false;
             FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh frm = new FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh();
+            frm.currentState = currentState;
             frm.Show();
             frm.Focus();
         }

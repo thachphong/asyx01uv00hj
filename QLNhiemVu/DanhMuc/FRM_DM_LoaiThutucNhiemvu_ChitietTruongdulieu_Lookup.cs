@@ -18,6 +18,8 @@ namespace QLNhiemVu.DanhMuc
         FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu frm = null;
         DM_LoaiThutucNhiemvu_Truongdulieu_LookupData currentData = null;
         string currentTable = string.Empty;
+        public string currentState = "NORMAL";
+
         public FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup()
         {
             InitializeComponent();
@@ -35,6 +37,11 @@ namespace QLNhiemVu.DanhMuc
             LoadConditionCombines();
 
             FillValues();
+
+            if (currentState == "NORMAL")
+                btn_capnhat.Enabled = false;
+            else
+                btn_capnhat.Enabled = true;
         }
 
         private void LoadConditionCombines()

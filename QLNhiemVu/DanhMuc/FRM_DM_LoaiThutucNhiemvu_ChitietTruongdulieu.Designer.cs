@@ -67,6 +67,8 @@
             this.repositoryItemImageComboBox1 = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.panelHeader3 = new QLNhiemVu.panelHeader();
+            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.label1 = new System.Windows.Forms.Label();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.label2 = new System.Windows.Forms.Label();
@@ -106,6 +108,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             this.panelHeader3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
@@ -208,6 +211,7 @@
             this.checkEdit1.Properties.Caption = "";
             this.checkEdit1.Size = new System.Drawing.Size(16, 19);
             this.checkEdit1.TabIndex = 4;
+            this.checkEdit1.CheckedChanged += new System.EventHandler(this.checkEdit1_CheckedChanged);
             // 
             // gridControl1
             // 
@@ -328,7 +332,7 @@
             // gridColumn15
             // 
             this.gridColumn15.Caption = "Mã số";
-            this.gridColumn15.FieldName = "DM016204";
+            this.gridColumn15.FieldName = "Maso";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.OptionsColumn.AllowEdit = false;
             this.gridColumn15.OptionsColumn.AllowFocus = false;
@@ -342,18 +346,16 @@
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.OptionsColumn.AllowEdit = false;
             this.gridColumn16.OptionsColumn.AllowFocus = false;
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 2;
             // 
             // gridColumn17
             // 
             this.gridColumn17.Caption = "Tên trường hiển thị";
-            this.gridColumn17.FieldName = "DM016206";
+            this.gridColumn17.FieldName = "Tentruong";
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.OptionsColumn.AllowEdit = false;
             this.gridColumn17.OptionsColumn.AllowFocus = false;
             this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 3;
+            this.gridColumn17.VisibleIndex = 2;
             // 
             // gridColumn18
             // 
@@ -371,7 +373,7 @@
             this.gridColumn19.OptionsColumn.AllowEdit = false;
             this.gridColumn19.OptionsColumn.AllowFocus = false;
             this.gridColumn19.Visible = true;
-            this.gridColumn19.VisibleIndex = 4;
+            this.gridColumn19.VisibleIndex = 3;
             // 
             // gridColumn20
             // 
@@ -430,7 +432,7 @@
             this.gridColumn26.OptionsColumn.AllowEdit = false;
             this.gridColumn26.OptionsColumn.AllowFocus = false;
             this.gridColumn26.Visible = true;
-            this.gridColumn26.VisibleIndex = 5;
+            this.gridColumn26.VisibleIndex = 4;
             // 
             // repositoryItemCheckEdit2
             // 
@@ -531,6 +533,8 @@
             // 
             // panelHeader3
             // 
+            this.panelHeader3.Controls.Add(this.lookUpEdit1);
+            this.panelHeader3.Controls.Add(this.label1);
             this.panelHeader3.Controls.Add(this.simpleButton1);
             this.panelHeader3.Controls.Add(this.textEdit2);
             this.panelHeader3.Controls.Add(this.label2);
@@ -554,6 +558,39 @@
             this.panelHeader3.Name = "panelHeader3";
             this.panelHeader3.Size = new System.Drawing.Size(804, 188);
             this.panelHeader3.TabIndex = 0;
+            // 
+            // lookUpEdit1
+            // 
+            this.lookUpEdit1.Location = new System.Drawing.Point(580, 146);
+            this.lookUpEdit1.Name = "lookUpEdit1";
+            this.lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.lookUpEdit1.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit1.Properties.Appearance.Options.UseForeColor = true;
+            this.lookUpEdit1.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit1.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
+            this.lookUpEdit1.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lookUpEdit1.Properties.AppearanceDropDown.Options.UseForeColor = true;
+            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Tentruong", "Description")});
+            this.lookUpEdit1.Properties.NullText = "";
+            this.lookUpEdit1.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            this.lookUpEdit1.Properties.ShowHeader = false;
+            this.lookUpEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lookUpEdit1.Size = new System.Drawing.Size(193, 26);
+            this.lookUpEdit1.TabIndex = 94;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(490, 149);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 19);
+            this.label1.TabIndex = 93;
+            this.label1.Text = "Trường cha";
             // 
             // simpleButton1
             // 
@@ -813,6 +850,7 @@
             this.groupControl2.ResumeLayout(false);
             this.panelHeader3.ResumeLayout(false);
             this.panelHeader3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
@@ -889,5 +927,7 @@
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit3;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.TextEdit textEdit5;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private System.Windows.Forms.Label label1;
     }
 }

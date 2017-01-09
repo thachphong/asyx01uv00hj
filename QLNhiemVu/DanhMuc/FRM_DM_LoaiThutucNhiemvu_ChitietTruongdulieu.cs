@@ -195,6 +195,7 @@ namespace QLNhiemVu.DanhMuc
                 obj.DM016218 = currentState == "NEW" ? DateTime.Now : currentDataSelected.DM016218;
                 obj.DM016219 = AllDefine.gs_user_id;
                 obj.DM016220 = DateTime.Now;
+                obj.DM016216 = lookUpEdit1.EditValue == null ? Guid.Empty : Guid.Parse(lookUpEdit1.EditValue.ToString());
 
                 return obj;
             }
@@ -257,8 +258,7 @@ namespace QLNhiemVu.DanhMuc
             }
 
             if (lookUpEdit3.EditValue.ToString() == "2" ||
-                lookUpEdit3.EditValue.ToString() == "8" ||
-                lookUpEdit3.EditValue.ToString() == "9")
+                lookUpEdit3.EditValue.ToString() == "8")
             {
                 if (textEdit5.Text.Trim() == string.Empty)
                 {
@@ -274,17 +274,6 @@ namespace QLNhiemVu.DanhMuc
                     {
                         AllDefine.Show_message("Vui lòng nhập Điều kiện dữ liệu phù hợp!");
                         ShowChildForm_Lookup();
-                        return false;
-                    }
-                }
-
-                if (lookUpEdit3.EditValue.ToString() == "9")
-                {
-                    try { JsonConvert.DeserializeObject<List<Guid>>(textEdit5.Text.Trim()); }
-                    catch
-                    {
-                        AllDefine.Show_message("Vui lòng nhập Điều kiện dữ liệu phù hợp!");
-                        ShowChildForm_Tab();
                         return false;
                     }
                 }
@@ -347,6 +336,10 @@ namespace QLNhiemVu.DanhMuc
             gridControl1.RefreshDataSource();
             gridView1.BestFitColumns();
 
+            lookUpEdit1.Properties.DataSource = currentList;
+            lookUpEdit1.Properties.DisplayMember = "DM016205";
+            lookUpEdit1.Properties.ValueMember = "DM016201";
+
             uC_MenuBtn1.set_status_menu(currentState, currentList == null ? 0 : currentList.Count);
             SetDetailFormEnable(false);
 
@@ -385,6 +378,7 @@ namespace QLNhiemVu.DanhMuc
             textEdit9.ReadOnly = !isEnable;
             lookUpEdit3.ReadOnly = !isEnable;
             checkEdit2.ReadOnly = !isEnable;
+            lookUpEdit1.ReadOnly = !isEnable;
 
             groupControl1.Enabled = !isEnable;
         }
@@ -404,6 +398,8 @@ namespace QLNhiemVu.DanhMuc
 
             checkEdit2.Checked = data == null ? false : data.DM016215 == '1';
 
+            lookUpEdit1.EditValue = data == null ? Guid.Empty : data.DM016216;
+
             currentLookupData = data == null ? string.Empty : data.DM016210;
         }
 
@@ -415,6 +411,7 @@ namespace QLNhiemVu.DanhMuc
             {
                 label9.Text = "Công thức tính dữ liệu";
                 textEdit5.Enabled = true;
+                simpleButton1.Visible = false;
             }
             else if (currentKieutruong == "8")
             {
@@ -424,9 +421,12 @@ namespace QLNhiemVu.DanhMuc
             }
             else if (currentKieutruong == "9")
             {
-                label9.Text = "Chọn danh sách trường";
+                //label9.Text = "Chọn danh sách trường";
+                //textEdit5.Enabled = false;
+                //simpleButton1.Visible = true;
+                label9.Text = "...";
                 textEdit5.Enabled = false;
-                simpleButton1.Visible = true;
+                simpleButton1.Visible = false;
             }
             else
             {
@@ -452,6 +452,7 @@ namespace QLNhiemVu.DanhMuc
         {
             this.Enabled = false;
             FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Tab frm = new FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Tab();
+            frm.currentState = currentState;
             frm.Show();
             frm.Focus();
         }
@@ -460,6 +461,7 @@ namespace QLNhiemVu.DanhMuc
         {
             this.Enabled = false;
             FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup frm = new FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup();
+            frm.currentState = currentState;
             frm.Show();
             frm.Focus();
         }

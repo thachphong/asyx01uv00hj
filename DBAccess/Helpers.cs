@@ -15,7 +15,7 @@ namespace DBAccess
 
         public static string CreateRequestUrl(string module)
         {
-            return DefineValues.API_Host + module +"?u=" + DefineValues.API_Authentication_User + "&p=" + DefineValues.API_Authentication_Password;
+            return DefineValues.API_Host + module + "?u=" + DefineValues.API_Authentication_User + "&p=" + DefineValues.API_Authentication_Password;
         }
 
         public static string CreateRequestUrl_UploadFile()
@@ -173,16 +173,18 @@ namespace DBAccess
 
         public class ThutucNhiemvu_Huongdan
         {
-            public static List<DM_Huongdan> GetList()
+            public static List<DM_Huongdan> GetList(Guid thutucId)
             {
                 try
                 {
                     string url = CreateRequestUrl("loaithutuc_huongdan");
                     APIRequestData requestData = new APIRequestData()
                     {
-                        Action = "getlist",
-                        Data = null
+                        Action = "getlist"
                     };
+                    if (thutucId != Guid.Empty)
+                        requestData.Data = thutucId;
+
                     string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
 
                     if (string.IsNullOrEmpty(response)) return null;
@@ -542,6 +544,212 @@ namespace DBAccess
                     if (string.IsNullOrEmpty(response)) return null;
 
                     return ConvertFromString(response);
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+        }
+
+        #endregion
+
+        #region Trinhduyet_ThuchienNhiemvu
+
+        public class TrinhduyetThuchienNhiemvu
+        {
+            public static List<TD_ThuchienNhiemvu_TrangthaiHoSo> GetList_TrangthaiHoSo()
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thuchiennhiemvu");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "getlist_trangthaihoso",
+                        Data = null
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    APIResponseData result = ConvertFromString(response);
+                    if (result == null || result.ErrorCode != 0) return null;
+
+                    return result.Data == null ? null : JsonConvert.DeserializeObject<List<TD_ThuchienNhiemvu_TrangthaiHoSo>>(result.Data.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
+            public static List<TD_ThuchienNhiemvu_PhanloaiNhiemvu> GetList_PhanloaiNhiemvu()
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thuchiennhiemvu");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "getlist_phanloainhiemvu",
+                        Data = null
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    APIResponseData result = ConvertFromString(response);
+                    if (result == null || result.ErrorCode != 0) return null;
+
+                    return result.Data == null ? null : JsonConvert.DeserializeObject<List<TD_ThuchienNhiemvu_PhanloaiNhiemvu>>(result.Data.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
+            public static List<TD_ThuchienNhiemvu_DonviQuanly> GetList_DonviQuanly()
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thuchiennhiemvu");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "getlist_donviquanly",
+                        Data = null
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    APIResponseData result = ConvertFromString(response);
+                    if (result == null || result.ErrorCode != 0) return null;
+
+                    return result.Data == null ? null : JsonConvert.DeserializeObject<List<TD_ThuchienNhiemvu_DonviQuanly>>(result.Data.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
+            public static List<TD_ThuchienNhiemvu_Truongdulieu> GetList_Truongdulieu(Guid noidungId, Guid tdnhiemvuId)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thuchiennhiemvu");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "getlist_truongdulieu",
+                        Data = JsonConvert.SerializeObject(new List<Guid>() { noidungId, tdnhiemvuId })
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    APIResponseData result = ConvertFromString(response);
+                    if (result == null || result.ErrorCode != 0) return null;
+
+                    return result.Data == null ? null : JsonConvert.DeserializeObject<List<TD_ThuchienNhiemvu_Truongdulieu>>(result.Data.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
+            public static APIResponseData Create(TD_ThuchienNhiemvu obj)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thuchiennhiemvu");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "create",
+                        Data = JsonConvert.SerializeObject(obj)
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    return ConvertFromString(response);
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
+            public static APIResponseData Update(TD_ThuchienNhiemvu obj)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thuchiennhiemvu");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "update",
+                        Data = JsonConvert.SerializeObject(obj)
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    return ConvertFromString(response);
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
+            public static APIResponseData Delete(List<Guid> list)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thuchiennhiemvu");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "delete",
+                        Data = JsonConvert.SerializeObject(list)
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    return ConvertFromString(response);
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
+            public static List<TD_ThuchienNhiemvu> GetList(TD_ThuchienNhiemvu_Filter filter)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thuchiennhiemvu");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "getlist",
+                        Data = JsonConvert.SerializeObject(filter)
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    APIResponseData result = ConvertFromString(response);
+                    if (result == null || result.ErrorCode != 0) return null;
+
+                    return result.Data == null ? null : JsonConvert.DeserializeObject<List<TD_ThuchienNhiemvu>>(result.Data.ToString());
                 }
                 catch (Exception ex)
                 {

@@ -19,7 +19,7 @@ namespace QLNhiemVu
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            FRM_TDTHNV frm = new FRM_TDTHNV();
+            FRM_TD_ThuchienNhiemvu frm = new FRM_TD_ThuchienNhiemvu();
             frm.Show();
         }
 
