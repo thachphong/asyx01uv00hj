@@ -911,6 +911,7 @@
             this.simpleButton2.Size = new System.Drawing.Size(160, 30);
             this.simpleButton2.TabIndex = 53;
             this.simpleButton2.Text = "Tệp đính kèm";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // memoEdit1
             // 

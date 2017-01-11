@@ -637,6 +637,7 @@ namespace QLNhiemVu.DanhMuc
             //}
 
             groupControl1.Enabled = !isEnable;
+            panelControl1.Enabled = !isEnable;
         }
 
         private void AssignDetailFormValue(TD_ThuchienNhiemvu data)
@@ -681,14 +682,11 @@ namespace QLNhiemVu.DanhMuc
 
         private void ShowChildForm_Tepdinhkem()
         {
-            FRM_TD_ThuchienNhiemvu_Huongdan frm = new FRM_TD_ThuchienNhiemvu_Huongdan();
+            FRM_TD_ThuchienNhiemvu_AttachedFiles frm = new FRM_TD_ThuchienNhiemvu_AttachedFiles();
+            this.Enabled = false;
+            frm.currentState = currentState;
             frm.Show();
             frm.Focus();
-        }
-
-        public List<DM_Huongdan> CallBack_Huongdan_GetCurrentSelecteds()
-        {
-            return currentListHuongDan;
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -734,6 +732,11 @@ namespace QLNhiemVu.DanhMuc
             ShowChildForm_Huongdan();
         }
 
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            ShowChildForm_Tepdinhkem();
+        }
+
         private void lookUpEdit13_EditValueChanged(object sender, EventArgs e)
         {
             //Nội dung
@@ -774,12 +777,33 @@ namespace QLNhiemVu.DanhMuc
             Refresh();
         }
 
+        public List<DM_Huongdan> CallBack_Huongdan_GetCurrentSelecteds()
+        {
+            return currentListHuongDan;
+        }
+
         public void CallBack_UpdateField(TD_ThuchienNhiemvu_Truongdulieu field, bool update)
         {
             if (update)
             {
                 TD_ThuchienNhiemvu_Truongdulieu f = tempFields.FirstOrDefault(o => o.DM016801 == field.DM016801);
                 f.Children = field.Children;
+            }
+
+            this.Enabled = true;
+            this.Focus();
+        }
+
+        public List<TD_ThuchienNhiemvu_Tepdinhkem> CallBack_Tepdinhkem_GetCurrentAttacheds()
+        {
+            return string.IsNullOrEmpty(tepDinhkem) ? null : JsonConvert.DeserializeObject<List<TD_ThuchienNhiemvu_Tepdinhkem>>(tepDinhkem);
+        }
+
+        public void CallBack_UpdateAttacheds(List<TD_ThuchienNhiemvu_Tepdinhkem> attacheds, bool update)
+        {
+            if (update)
+            {
+                tepDinhkem = attacheds == null ? string.Empty : JsonConvert.SerializeObject(attacheds);
             }
 
             this.Enabled = true;
