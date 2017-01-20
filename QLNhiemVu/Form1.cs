@@ -49,25 +49,13 @@ namespace QLNhiemVu
 
         private void simpleButton7_Click(object sender, EventArgs e)
         {
-            FRM_DM_LoaiThutucNhiemvu frm = new FRM_DM_LoaiThutucNhiemvu();
+            FRM_DM_ThuTuc_NhiemVu frm = new FRM_DM_ThuTuc_NhiemVu();
             frm.Show();
         }
 
-        private void simpleButton8_Click(object sender, EventArgs e)
+        private void simpleButton11_Click(object sender, EventArgs e)
         {
-            FRM_DM_LoaiThutucNhiemvu_Huongdan frm = new FRM_DM_LoaiThutucNhiemvu_Huongdan();
-            frm.Show();
-        }
-
-        private void simpleButton9_Click(object sender, EventArgs e)
-        {
-            FRM_DM_LoaiThutucNhiemvu_Noidung frm = new FRM_DM_LoaiThutucNhiemvu_Noidung();
-            frm.Show();
-        }
-
-        private void simpleButton10_Click(object sender, EventArgs e)
-        {
-            FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu frm = new FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu();
+            FRM_TD_Phancong frm = new FRM_TD_Phancong();
             frm.Show();
         }
     }

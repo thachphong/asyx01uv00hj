@@ -84,6 +84,8 @@
             this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.panelHeader1 = new QLNhiemVu.panelHeader();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
             this.dateEdit3 = new DevExpress.XtraEditors.DateEdit();
@@ -100,7 +102,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.lookUpEdit13 = new DevExpress.XtraEditors.LookUpEdit();
-            this.lookUpEdit12 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit11 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit10 = new DevExpress.XtraEditors.LookUpEdit();
             this.lookUpEdit8 = new DevExpress.XtraEditors.LookUpEdit();
@@ -156,7 +157,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit13.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit12.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit11.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit10.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit8.Properties)).BeginInit();
@@ -781,6 +781,8 @@
             // 
             // panelHeader1
             // 
+            this.panelHeader1.Controls.Add(this.label23);
+            this.panelHeader1.Controls.Add(this.label22);
             this.panelHeader1.Controls.Add(this.label21);
             this.panelHeader1.Controls.Add(this.lookUpEdit1);
             this.panelHeader1.Controls.Add(this.dateEdit3);
@@ -796,7 +798,6 @@
             this.panelHeader1.Controls.Add(this.label18);
             this.panelHeader1.Controls.Add(this.label19);
             this.panelHeader1.Controls.Add(this.lookUpEdit13);
-            this.panelHeader1.Controls.Add(this.lookUpEdit12);
             this.panelHeader1.Controls.Add(this.lookUpEdit11);
             this.panelHeader1.Controls.Add(this.lookUpEdit10);
             this.panelHeader1.Controls.Add(this.lookUpEdit8);
@@ -817,6 +818,24 @@
             this.panelHeader1.Name = "panelHeader1";
             this.panelHeader1.Size = new System.Drawing.Size(877, 412);
             this.panelHeader1.TabIndex = 0;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(368, 50);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(0, 19);
+            this.label23.TabIndex = 82;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(214, 339);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(0, 19);
+            this.label22.TabIndex = 81;
             // 
             // label21
             // 
@@ -1028,30 +1047,6 @@
             this.lookUpEdit13.Size = new System.Drawing.Size(258, 26);
             this.lookUpEdit13.TabIndex = 68;
             this.lookUpEdit13.EditValueChanged += new System.EventHandler(this.lookUpEdit13_EditValueChanged);
-            // 
-            // lookUpEdit12
-            // 
-            this.lookUpEdit12.Location = new System.Drawing.Point(218, 335);
-            this.lookUpEdit12.Name = "lookUpEdit12";
-            this.lookUpEdit12.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lookUpEdit12.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.lookUpEdit12.Properties.Appearance.Options.UseFont = true;
-            this.lookUpEdit12.Properties.Appearance.Options.UseForeColor = true;
-            this.lookUpEdit12.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lookUpEdit12.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.lookUpEdit12.Properties.AppearanceDropDownHeader.ForeColor = System.Drawing.Color.Black;
-            this.lookUpEdit12.Properties.AppearanceDropDownHeader.Options.UseForeColor = true;
-            this.lookUpEdit12.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit12.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DM016004", "Name")});
-            this.lookUpEdit12.Properties.NullText = "";
-            this.lookUpEdit12.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            this.lookUpEdit12.Properties.ShowHeader = false;
-            this.lookUpEdit12.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lookUpEdit12.Size = new System.Drawing.Size(258, 26);
-            this.lookUpEdit12.TabIndex = 67;
-            this.lookUpEdit12.EditValueChanged += new System.EventHandler(this.lookUpEdit12_EditValueChanged);
             // 
             // lookUpEdit11
             // 
@@ -1373,7 +1368,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit13.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit12.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit11.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit10.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit8.Properties)).EndInit();
@@ -1441,7 +1435,6 @@
         private System.Windows.Forms.Label label16;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit7;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit13;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit12;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit11;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit10;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit8;
@@ -1482,5 +1475,7 @@
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl1;
         private System.Windows.Forms.Label label21;
         private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
     }
 }

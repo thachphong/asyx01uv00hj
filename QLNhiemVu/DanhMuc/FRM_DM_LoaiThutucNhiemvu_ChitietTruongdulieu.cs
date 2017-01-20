@@ -3,6 +3,7 @@ using DevExpress.XtraEditors;
 using Newtonsoft.Json;
 using QLNhiemVu.FRMModel;
 using QLNhiemvu_DBEntities;
+using QLNhiemVu_Defines;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,15 +47,15 @@ namespace QLNhiemVu.DanhMuc
             currentState = "NORMAL";
 
             LoadKieutruong();
-            LoadList();
+            LoadList(false);
         }
 
         private void LoadKieutruong()
         {
-            lookUpEdit3.Properties.DataSource = AllDefine.dm_loaithutuc_truongdulieu_kieutruong;
+            lookUpEdit3.Properties.DataSource = All.dm_loaithutuc_truongdulieu_kieutruong;
             lookUpEdit3.Properties.DisplayMember = "Description";
             lookUpEdit3.Properties.ValueMember = "ID";
-            lookUpEdit3.Properties.BestFitRowCount = AllDefine.dm_loaithutuc_truongdulieu_kieutruong.Count;
+            lookUpEdit3.Properties.BestFitRowCount = All.dm_loaithutuc_truongdulieu_kieutruong.Count;
             lookUpEdit3.Refresh();
         }
 
@@ -75,7 +76,7 @@ namespace QLNhiemVu.DanhMuc
             List<Guid> listChecked = GetIDChecked();
             if (listChecked == null)
             {
-                AllDefine.Show_message("Vui lòng chọn trước khi xóa!");
+                All.Show_message("Vui lòng chọn trước khi xóa!");
                 return;
             }
 
@@ -84,17 +85,17 @@ namespace QLNhiemVu.DanhMuc
                 APIResponseData result = Helpers.ThutucNhiemvu_Truongdulieu.Delete(listChecked);
                 if (result == null)
                 {
-                    AllDefine.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
+                    All.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
                 }
                 else if (result.ErrorCode == 0)
                 {
-                    AllDefine.Show_message("Xóa thành công " + listChecked.Count + " Trường dữ liệu đã chọn!");
+                    All.Show_message("Xóa thành công " + listChecked.Count + " Trường dữ liệu đã chọn!");
                     currentState = "NORMAL";
-                    LoadList();
+                    LoadList(false);
                 }
                 else
                 {
-                    AllDefine.Show_message("Error code " + result.ErrorCode + ": " + result.Message);
+                    All.Show_message("Error code " + result.ErrorCode + ": " + result.Message);
                 }
             }
         }
@@ -121,6 +122,15 @@ namespace QLNhiemVu.DanhMuc
             SetDetailFormEnable(true);
         }
 
+        void RefreshNewData(DM_LoaiThutucNhiemvu_Truongdulieu obj)
+        {
+            if (currentList == null) currentList = new List<DM_LoaiThutucNhiemvu_Truongdulieu>();
+
+            DM_LoaiThutucNhiemvu_Truongdulieu current = currentList.FirstOrDefault(o => o.DM016201 == obj.DM016201);
+            if (current == null) currentList.Insert(0, obj);
+            else current = obj;
+        }
+
         void btn_capnhat_Click(object sender, EventArgs e)
         {
             if (currentState == "NORMAL") return;
@@ -131,7 +141,7 @@ namespace QLNhiemVu.DanhMuc
 
             if (obj == null)
             {
-                AllDefine.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
+                All.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
                 return;
             }
 
@@ -140,17 +150,18 @@ namespace QLNhiemVu.DanhMuc
                 APIResponseData result = Helpers.ThutucNhiemvu_Truongdulieu.Create(obj);
                 if (result == null)
                 {
-                    AllDefine.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
+                    All.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
                 }
                 else if (result.ErrorCode == 0)
                 {
-                    AllDefine.Show_message("Thêm mới thành công Trường dữ liệu: " + obj.DM016205);
+                    All.Show_message("Thêm mới thành công Trường dữ liệu: " + obj.DM016205);
                     currentState = "NORMAL";
+                    RefreshNewData(JsonConvert.DeserializeObject<DM_LoaiThutucNhiemvu_Truongdulieu>(result.Data.ToString()));
                     LoadList();
                 }
                 else
                 {
-                    AllDefine.Show_message("Error code " + result.ErrorCode + ": " + result.Message);
+                    All.Show_message("Error code " + result.ErrorCode + ": " + result.Message);
                 }
             }
             else
@@ -158,17 +169,18 @@ namespace QLNhiemVu.DanhMuc
                 APIResponseData result = Helpers.ThutucNhiemvu_Truongdulieu.Update(obj);
                 if (result == null)
                 {
-                    AllDefine.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
+                    All.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
                 }
                 else if (result.ErrorCode == 0)
                 {
-                    AllDefine.Show_message("Cập nhật thành công Trường dữ liệu: " + obj.DM016205);
+                    All.Show_message("Cập nhật thành công Trường dữ liệu: " + obj.DM016205);
                     currentState = "NORMAL";
+                    RefreshNewData(JsonConvert.DeserializeObject<DM_LoaiThutucNhiemvu_Truongdulieu>(result.Data.ToString()));
                     LoadList();
                 }
                 else
                 {
-                    AllDefine.Show_message("Error code " + result.ErrorCode + ": " + result.Message);
+                    All.Show_message("Error code " + result.ErrorCode + ": " + result.Message);
                     if (result.ErrorCode == -1)
                         LoadList();
                 }
@@ -191,9 +203,9 @@ namespace QLNhiemVu.DanhMuc
                 obj.DM016213 = textEdit7.Text;
                 obj.DM016214 = int.Parse(textEdit9.Text);
                 obj.DM016215 = checkEdit2.Checked ? '1' : '0';
-                obj.DM016217 = currentState == "NEW" ? AllDefine.gs_user_id : currentDataSelected.DM016217;
+                obj.DM016217 = currentState == "NEW" ? All.gs_user_id : currentDataSelected.DM016217;
                 obj.DM016218 = currentState == "NEW" ? DateTime.Now : currentDataSelected.DM016218;
-                obj.DM016219 = AllDefine.gs_user_id;
+                obj.DM016219 = All.gs_user_id;
                 obj.DM016220 = DateTime.Now;
                 obj.DM016216 = lookUpEdit1.EditValue == null ? Guid.Empty : Guid.Parse(lookUpEdit1.EditValue.ToString());
 
@@ -210,49 +222,49 @@ namespace QLNhiemVu.DanhMuc
         {//HERE
             if (textEdit1.Text.Trim() == string.Empty)
             {
-                AllDefine.Show_message("Vui lòng nhập Mã Trường dữ liệu!");
+                All.Show_message("Vui lòng nhập Mã Trường dữ liệu!");
                 textEdit1.Focus();
                 return false;
             }
 
             if (textEdit2.Text.Trim() == string.Empty)
             {
-                AllDefine.Show_message("Vui lòng nhập Tên Trường dữ liệu!");
+                All.Show_message("Vui lòng nhập Tên Trường dữ liệu!");
                 textEdit2.Focus();
                 return false;
             }
 
             if (textEdit3.Text.Trim() == string.Empty)
             {
-                AllDefine.Show_message("Vui lòng nhập Tên Trường hiển thị!");
+                All.Show_message("Vui lòng nhập Tên Trường hiển thị!");
                 textEdit3.Focus();
                 return false;
             }
 
             if (textEdit9.Text.Trim() == string.Empty)
             {
-                AllDefine.Show_message("Vui lòng nhập Sắp xếp!");
+                All.Show_message("Vui lòng nhập Sắp xếp!");
                 textEdit9.Focus();
                 return false;
             }
             try { int check = int.Parse(textEdit9.Text); }
             catch
             {
-                AllDefine.Show_message("Vui lòng nhập Sắp xếp kiểu số nguyên!");
+                All.Show_message("Vui lòng nhập Sắp xếp kiểu số nguyên!");
                 textEdit9.Focus();
                 return false;
             }
 
             if (textEdit4.Text.Trim() == string.Empty)
             {
-                AllDefine.Show_message("Vui lòng nhập Độ rộng các cột!");
+                All.Show_message("Vui lòng nhập Độ rộng các cột!");
                 textEdit4.Focus();
                 return false;
             }
             try { int check = int.Parse(textEdit4.Text); }
             catch
             {
-                AllDefine.Show_message("Vui lòng nhập Độ rộng các cột kiểu số nguyên!");
+                All.Show_message("Vui lòng nhập Độ rộng các cột kiểu số nguyên!");
                 textEdit4.Focus();
                 return false;
             }
@@ -262,7 +274,7 @@ namespace QLNhiemVu.DanhMuc
             {
                 if (textEdit5.Text.Trim() == string.Empty)
                 {
-                    AllDefine.Show_message("Vui lòng nhập Điều kiện dữ liệu phù hợp!");
+                    All.Show_message("Vui lòng nhập Điều kiện dữ liệu phù hợp!");
                     textEdit5.Focus();
                     return false;
                 }
@@ -272,7 +284,7 @@ namespace QLNhiemVu.DanhMuc
                     try { JsonConvert.DeserializeObject<DM_LoaiThutucNhiemvu_Truongdulieu_LookupData>(textEdit5.Text.Trim()); }
                     catch
                     {
-                        AllDefine.Show_message("Vui lòng nhập Điều kiện dữ liệu phù hợp!");
+                        All.Show_message("Vui lòng nhập Điều kiện dữ liệu phù hợp!");
                         ShowChildForm_Lookup();
                         return false;
                     }
@@ -328,9 +340,11 @@ namespace QLNhiemVu.DanhMuc
             }
         }
 
-        private void LoadList()
+        private void LoadList(bool refresh = true)
         {
-            currentList = Helpers.ThutucNhiemvu_Truongdulieu.GetList();
+            currentList = !refresh ?
+                Helpers.ThutucNhiemvu_Truongdulieu.GetList() :
+                currentList;
 
             gridControl1.DataSource = currentList;
             gridControl1.RefreshDataSource();

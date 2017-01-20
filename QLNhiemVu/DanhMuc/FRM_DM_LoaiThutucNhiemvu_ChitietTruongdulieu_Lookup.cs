@@ -1,6 +1,7 @@
 ﻿using DBAccess;
 using QLNhiemVu.FRMModel;
 using QLNhiemvu_DBEntities;
+using QLNhiemVu_Defines;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,10 +16,10 @@ namespace QLNhiemVu.DanhMuc
 {
     public partial class FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup : BaseForm_Data
     {
-        FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu frm = null;
-        DM_LoaiThutucNhiemvu_Truongdulieu_LookupData currentData = null;
+        public DM_LoaiThutucNhiemvu_Truongdulieu_LookupData currentData = null;
         string currentTable = string.Empty;
         public string currentState = "NORMAL";
+        public string formType = string.Empty;
 
         public FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup()
         {
@@ -27,8 +28,8 @@ namespace QLNhiemVu.DanhMuc
 
         private void FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh_Load(object sender, EventArgs e)
         {
-            frm = (FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu)Application.OpenForms["FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu"];
-            if (frm == null) this.Dispose();
+            //frm = (FRM_DM_ThuTuc_NhiemVu)Application.OpenForms["FRM_DM_ThuTuc_NhiemVu"];
+            //if (frm == null) this.Dispose();
 
             panelHeader1.alignCenter(panelHeader1.Parent);
 
@@ -46,7 +47,7 @@ namespace QLNhiemVu.DanhMuc
 
         private void LoadConditionCombines()
         {
-            List<string> list = AllDefine.dm_loaithutuc_truongdulieu_lookup_formulas;
+            List<string> list = All.dm_loaithutuc_truongdulieu_lookup_formulas;
             lookUpEdit8.Properties.DataSource = list;
             lookUpEdit8.Properties.BestFitRowCount = list == null ? 0 : list.Count;
             lookUpEdit8.Refresh();
@@ -58,7 +59,7 @@ namespace QLNhiemVu.DanhMuc
 
         private void LoadFormulas()
         {
-            List<string> list = AllDefine.dm_loaithutuc_truongdulieu_lookup_conditioncombines;
+            List<string> list = All.dm_loaithutuc_truongdulieu_lookup_conditioncombines;
             lookUpEdit9.Properties.DataSource = list;
             lookUpEdit9.Properties.BestFitRowCount = list == null ? 0 : list.Count;
             lookUpEdit9.Refresh();
@@ -108,7 +109,7 @@ namespace QLNhiemVu.DanhMuc
 
         private void FillValues()
         {
-            currentData = frm.CallBack_GetLookupData();
+            //currentData = frm.CallBack_GetLookupData();
             if (currentData == null) return;
 
             lookUpEdit1.EditValue = currentData.Table;
@@ -147,19 +148,19 @@ namespace QLNhiemVu.DanhMuc
         {
             if (lookUpEdit7.EditValue == null)
             {
-                AllDefine.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
+                All.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
                 lookUpEdit7.Focus();
                 return;
             }
             if (lookUpEdit8.EditValue == null)
             {
-                AllDefine.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
+                All.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
                 lookUpEdit8.Focus();
                 return;
             }
             if (textEdit1.Text.Trim() == Guid.Empty.ToString())
             {
-                AllDefine.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
+                All.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
                 textEdit1.Focus();
                 return;
             }
@@ -168,19 +169,19 @@ namespace QLNhiemVu.DanhMuc
             {
                 if (lookUpEdit11.EditValue == null || lookUpEdit11.EditValue.ToString().Trim() == string.Empty)
                 {
-                    AllDefine.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
+                    All.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
                     lookUpEdit11.Focus();
                     return;
                 }
                 if (lookUpEdit10.EditValue == null || lookUpEdit10.EditValue.ToString().Trim() == string.Empty)
                 {
-                    AllDefine.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
+                    All.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
                     lookUpEdit10.Focus();
                     return;
                 }
                 if (textEdit2.Text.Trim() == string.Empty)
                 {
-                    AllDefine.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
+                    All.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
                     textEdit2.Focus();
                     return;
                 }
@@ -209,13 +210,39 @@ namespace QLNhiemVu.DanhMuc
             currentData.ConditionCombination = lookUpEdit9.EditValue == null ? string.Empty : lookUpEdit9.EditValue.ToString();
             currentData.Table = lookUpEdit1.EditValue == null ? string.Empty : lookUpEdit1.EditValue.ToString();
 
-            frm.CallBack_UpdateLookupData(currentData, true);
+            if (formType == "1")
+            {
+                FRM_DM_ThuTuc_NhiemVu frm = (FRM_DM_ThuTuc_NhiemVu)Application.OpenForms["FRM_DM_ThuTuc_NhiemVu"];
+                frm.currentTruongdulieu_Lookupdata = currentData;
+                this.Close();
+                frm.CallBack_UpdateLookupData(true);
+            }
+            else
+            {
+                FRM_DM_ThuTuc_NhiemVu_Truongcon frm = (FRM_DM_ThuTuc_NhiemVu_Truongcon)Application.OpenForms["FRM_DM_ThuTuc_NhiemVu_Truongcon"];
+                frm.currentTruongdulieu_Lookupdata = currentData;
+                this.Close();
+                frm.CallBack_UpdateLookupData(true);
+            }
+
             this.Dispose();
         }
 
         private void btn_thoat_Click(object sender, EventArgs e)
         {
-            frm.CallBack_UpdateLookupData(null, false);
+            this.Close();
+
+            if (formType == "1")
+            {
+                FRM_DM_ThuTuc_NhiemVu frm = (FRM_DM_ThuTuc_NhiemVu)Application.OpenForms["FRM_DM_ThuTuc_NhiemVu"];
+                frm.CallBack_UpdateLookupData(false);
+            }
+            else
+            {
+                FRM_DM_ThuTuc_NhiemVu_Truongcon frm = (FRM_DM_ThuTuc_NhiemVu_Truongcon)Application.OpenForms["FRM_DM_ThuTuc_NhiemVu_Truongcon"];
+                frm.CallBack_UpdateLookupData(false);
+            }
+
             this.Dispose();
         }
 

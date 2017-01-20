@@ -377,7 +377,6 @@
             this.gridView1.OptionsBehavior.AutoPopulateColumns = false;
             this.gridView1.OptionsCustomization.AllowGroup = false;
             this.gridView1.OptionsDetail.ShowDetailTabs = false;
-            this.gridView1.OptionsMenu.EnableColumnMenu = false;
             this.gridView1.OptionsSelection.CheckBoxSelectorColumnWidth = 100;
             this.gridView1.OptionsView.ShowDetailButtons = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;

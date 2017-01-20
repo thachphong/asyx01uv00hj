@@ -1,7 +1,9 @@
 ﻿using DBAccess;
 using DevExpress.XtraEditors;
+using Newtonsoft.Json;
 using QLNhiemVu.FRMModel;
 using QLNhiemvu_DBEntities;
+using QLNhiemVu_Defines;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,7 +42,7 @@ namespace QLNhiemVu.DanhMuc
 
             LoadDonvi();
             LoadLoaiCapphep();
-            LoadList();
+            LoadList(false);
         }
 
         private void BindControlEvents()
@@ -60,7 +62,7 @@ namespace QLNhiemVu.DanhMuc
             List<Guid> listChecked = GetIDChecked();
             if (listChecked == null)
             {
-                AllDefine.Show_message("Vui lòng chọn trước khi xóa!");
+                All.Show_message("Vui lòng chọn trước khi xóa!");
                 return;
             }
 
@@ -69,17 +71,17 @@ namespace QLNhiemVu.DanhMuc
                 APIResponseData result = Helpers.ThutucNhiemvu.Delete(listChecked);
                 if (result == null)
                 {
-                    AllDefine.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
+                    All.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
                 }
                 else if (result.ErrorCode == 0)
                 {
-                    AllDefine.Show_message("Xóa thành công " + listChecked.Count + " Loại thủ tục nhiệm vụ đã chọn!");
+                    All.Show_message("Xóa thành công " + listChecked.Count + " Loại thủ tục nhiệm vụ đã chọn!");
                     currentState = "NORMAL";
-                    LoadList();
+                    LoadList(false);
                 }
                 else
                 {
-                    AllDefine.Show_message("Error code " + result.ErrorCode + ": " + result.Message);
+                    All.Show_message("Error code " + result.ErrorCode + ": " + result.Message);
                 }
             }
         }
@@ -106,6 +108,15 @@ namespace QLNhiemVu.DanhMuc
             SetDetailFormEnable(true);
         }
 
+        void RefreshNewData(DM_LoaiThutucNhiemvu obj)
+        {
+            if (currentList == null) currentList = new List<DM_LoaiThutucNhiemvu>();
+
+            DM_LoaiThutucNhiemvu current = currentList.FirstOrDefault(o => o.DM016001 == obj.DM016001);
+            if (current == null) currentList.Insert(0, obj);
+            else current = obj;
+        }
+
         void btn_capnhat_Click(object sender, EventArgs e)
         {
             if (currentState == "NORMAL") return;
@@ -116,7 +127,7 @@ namespace QLNhiemVu.DanhMuc
 
             if (obj == null)
             {
-                AllDefine.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
+                All.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
                 return;
             }
 
@@ -125,17 +136,18 @@ namespace QLNhiemVu.DanhMuc
                 APIResponseData result = Helpers.ThutucNhiemvu.Create(obj);
                 if (result == null)
                 {
-                    AllDefine.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
+                    All.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
                 }
                 else if (result.ErrorCode == 0)
                 {
-                    AllDefine.Show_message("Thêm mới thành công Loại thủ tục nhiệm vụ: " + obj.DM016003);
+                    All.Show_message("Thêm mới thành công Loại thủ tục nhiệm vụ: " + obj.DM016003);
                     currentState = "NORMAL";
+                    RefreshNewData(JsonConvert.DeserializeObject<DM_LoaiThutucNhiemvu>(result.Data.ToString()));
                     LoadList();
                 }
                 else
                 {
-                    AllDefine.Show_message("Error code " + result.ErrorCode + ": " + result.Message);
+                    All.Show_message("Error code " + result.ErrorCode + ": " + result.Message);
                 }
             }
             else
@@ -143,17 +155,18 @@ namespace QLNhiemVu.DanhMuc
                 APIResponseData result = Helpers.ThutucNhiemvu.Update(obj);
                 if (result == null)
                 {
-                    AllDefine.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
+                    All.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
                 }
                 else if (result.ErrorCode == 0)
                 {
-                    AllDefine.Show_message("Cập nhật thành công Loại thủ tục nhiệm vụ: " + obj.DM016003);
+                    All.Show_message("Cập nhật thành công Loại thủ tục nhiệm vụ: " + obj.DM016003);
                     currentState = "NORMAL";
+                    RefreshNewData(JsonConvert.DeserializeObject<DM_LoaiThutucNhiemvu>(result.Data.ToString()));
                     LoadList();
                 }
                 else
                 {
-                    AllDefine.Show_message("Error code " + result.ErrorCode + ": " + result.Message);
+                    All.Show_message("Error code " + result.ErrorCode + ": " + result.Message);
                     if (result.ErrorCode == -1)
                         LoadList();
                 }
@@ -170,9 +183,9 @@ namespace QLNhiemVu.DanhMuc
                 obj.DM016003 = textEdit1.Text;
                 obj.DM016004 = textEdit2.Text;
                 obj.DM016005 = char.Parse(lookUpEdit2.EditValue.ToString());
-                obj.DM016006 = currentState == "NEW" ? AllDefine.gs_user_id : currentDataSelected.DM016006;
+                obj.DM016006 = currentState == "NEW" ? All.gs_user_id : currentDataSelected.DM016006;
                 obj.DM016007 = currentState == "NEW" ? DateTime.Now : currentDataSelected.DM016007;
-                obj.DM016008 = AllDefine.gs_user_id;
+                obj.DM016008 = All.gs_user_id;
                 obj.DM016009 = DateTime.Now;
                 obj.DM016010 = checkEdit2.Checked ? '1' : '0';
                 obj.FieldSelecteds = currentListFields;
@@ -190,35 +203,35 @@ namespace QLNhiemVu.DanhMuc
         {
             if (lookUpEdit1.EditValue.ToString() == Guid.Empty.ToString())
             {
-                AllDefine.Show_message("Vui lòng chọn Đơn vị sử dụng chương trình!");
+                All.Show_message("Vui lòng chọn Đơn vị sử dụng chương trình!");
                 lookUpEdit1.Focus();
                 return false;
             }
 
             if (lookUpEdit2.EditValue.ToString().Trim() == string.Empty)
             {
-                AllDefine.Show_message("Vui lòng chọn Loại cấp phép!");
+                All.Show_message("Vui lòng chọn Loại cấp phép!");
                 lookUpEdit2.Focus();
                 return false;
             }
 
             if (textEdit1.Text.Trim() == string.Empty)
             {
-                AllDefine.Show_message("Vui lòng nhập Mã form!");
+                All.Show_message("Vui lòng nhập Mã form!");
                 textEdit1.Focus();
                 return false;
             }
 
             if (textEdit2.Text.Trim() == string.Empty)
             {
-                AllDefine.Show_message("Vui lòng nhập Tên form!");
+                All.Show_message("Vui lòng nhập Tên form!");
                 textEdit2.Focus();
                 return false;
             }
 
             if (checkEdit1.Checked && currentListFields == null)
             {
-                AllDefine.Show_message("Vui lòng nhập Chọn trường dữ liệu thẩm định!");
+                All.Show_message("Vui lòng nhập Chọn trường dữ liệu thẩm định!");
                 ShowChildForm();
                 return false;
             }
@@ -249,16 +262,16 @@ namespace QLNhiemVu.DanhMuc
 
         private void LoadLoaiCapphep()
         {
-            lookUpEdit2.Properties.DataSource = AllDefine.dm_loaithutuc_loaicapphep;
+            lookUpEdit2.Properties.DataSource = All.dm_loaithutuc_loaicapphep;
             lookUpEdit2.Properties.DisplayMember = "Description";
             lookUpEdit2.Properties.ValueMember = "ID";
-            lookUpEdit2.Properties.BestFitRowCount = AllDefine.dm_loaithutuc_loaicapphep.Count;
+            lookUpEdit2.Properties.BestFitRowCount = All.dm_loaithutuc_loaicapphep.Count;
             lookUpEdit2.Refresh();
         }
 
         private void LoadDonvi()
         {
-            List<DM_Donvi> list = new List<DM_Donvi>() { new DM_Donvi() { ID = AllDefine.gs_dv_quanly, Name = AllDefine.gs_ten_dv_quanly } };
+            List<DM_Donvi> list = new List<DM_Donvi>() { new DM_Donvi() { ID = All.gs_dv_quanly, Name = All.gs_ten_dv_quanly } };
             lookUpEdit1.Properties.DataSource = list;
             lookUpEdit1.Properties.DisplayMember = "Name";
             lookUpEdit1.Properties.ValueMember = "ID";
@@ -290,9 +303,11 @@ namespace QLNhiemVu.DanhMuc
             }
         }
 
-        private void LoadList()
+        private void LoadList(bool refresh = true)
         {
-            currentList = Helpers.ThutucNhiemvu.GetList();
+            currentList = !refresh ?
+                Helpers.ThutucNhiemvu.GetList() :
+                currentList;
 
             gridControl1.DataSource = currentList;
             gridControl1.RefreshDataSource();

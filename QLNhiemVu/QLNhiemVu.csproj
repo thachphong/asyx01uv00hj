@@ -85,6 +85,36 @@
     <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu.Designer.cs">
       <DependentUpon>FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhMuc\FRM_DM_ThuTuc_NhiemVu_Truongcon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_ThuTuc_NhiemVu_Truongcon.Designer.cs">
+      <DependentUpon>FRM_DM_ThuTuc_NhiemVu_Truongcon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_ThuTuc_NhiemVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_ThuTuc_NhiemVu.designer.cs">
+      <DependentUpon>FRM_DM_ThuTuc_NhiemVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_ThuTuc_NhiemVu_Cothienthi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_ThuTuc_NhiemVu_Cothienthi.Designer.cs">
+      <DependentUpon>FRM_DM_ThuTuc_NhiemVu_Cothienthi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_Phancong_Xemykien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_Phancong_Xemykien.Designer.cs">
+      <DependentUpon>FRM_TD_Phancong_Xemykien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_Phancong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_Phancong.Designer.cs">
+      <DependentUpon>FRM_TD_Phancong.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\FRM_TD_ThuchienNhiemvu_AttachedFiles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,11 +157,11 @@
     <Compile Include="DanhMuc\FRM_TD_ThuchienNhiemvu_Tab.Designer.cs">
       <DependentUpon>FRM_TD_ThuchienNhiemvu_Tab.cs</DependentUpon>
     </Compile>
-    <Compile Include="DanhMuc\FRM_TD_ThuchienNhiemvu_Huongdan.cs">
+    <Compile Include="DanhMuc\FRM_TD_Huongdan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DanhMuc\FRM_TD_ThuchienNhiemvu_Huongdan.Designer.cs">
-      <DependentUpon>FRM_TD_ThuchienNhiemvu_Huongdan.cs</DependentUpon>
+    <Compile Include="DanhMuc\FRM_TD_Huongdan.Designer.cs">
+      <DependentUpon>FRM_TD_Huongdan.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh.cs">
       <SubType>Form</SubType>
@@ -199,6 +229,7 @@
     <Compile Include="Log.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UF_Function.cs" />
     <Compile Include="User_Control\lblHeadTitle.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -238,6 +269,21 @@
     <EmbeddedResource Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu.resx">
       <DependentUpon>FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_DM_ThuTuc_NhiemVu_Truongcon.resx">
+      <DependentUpon>FRM_DM_ThuTuc_NhiemVu_Truongcon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_DM_ThuTuc_NhiemVu.resx">
+      <DependentUpon>FRM_DM_ThuTuc_NhiemVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_DM_ThuTuc_NhiemVu_Cothienthi.resx">
+      <DependentUpon>FRM_DM_ThuTuc_NhiemVu_Cothienthi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_TD_Phancong_Xemykien.resx">
+      <DependentUpon>FRM_TD_Phancong_Xemykien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_TD_Phancong.resx">
+      <DependentUpon>FRM_TD_Phancong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\FRM_TD_ThuchienNhiemvu_AttachedFiles.resx">
       <DependentUpon>FRM_TD_ThuchienNhiemvu_AttachedFiles.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,8 +305,8 @@
     <EmbeddedResource Include="DanhMuc\FRM_TD_ThuchienNhiemvu_Tab.resx">
       <DependentUpon>FRM_TD_ThuchienNhiemvu_Tab.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DanhMuc\FRM_TD_ThuchienNhiemvu_Huongdan.resx">
-      <DependentUpon>FRM_TD_ThuchienNhiemvu_Huongdan.cs</DependentUpon>
+    <EmbeddedResource Include="DanhMuc\FRM_TD_Huongdan.resx">
+      <DependentUpon>FRM_TD_Huongdan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh.resx">
       <DependentUpon>FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh.cs</DependentUpon>
@@ -332,6 +378,10 @@
     <ProjectReference Include="..\DBAccess\DBAccess.csproj">
       <Project>{b38f9235-22ee-41ef-b9c7-724c01060e0f}</Project>
       <Name>DBAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QLNhiemVu_Defines\QLNhiemVu_Defines.csproj">
+      <Project>{2b40368c-758b-4118-bace-485174e9f78b}</Project>
+      <Name>QLNhiemVu_Defines</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

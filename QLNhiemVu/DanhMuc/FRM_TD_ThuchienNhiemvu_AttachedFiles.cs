@@ -4,6 +4,7 @@ using DevExpress.XtraEditors;
 using Newtonsoft.Json;
 using QLNhiemVu.FRMModel;
 using QLNhiemvu_DBEntities;
+using QLNhiemVu_Defines;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -134,7 +135,7 @@ namespace QLNhiemVu.DanhMuc
                     APIResponseData result = JsonConvert.DeserializeObject<APIResponseData>(response);
                     if (result.ErrorCode != 0)
                     {
-                        AllDefine.Show_message("Error code " + result.ErrorCode + ": Lỗi không thể upload tệp!");
+                        All.Show_message("Error code " + result.ErrorCode + ": Lỗi không thể upload tệp!");
                         return;
                     }
                     else
