@@ -146,23 +146,26 @@ namespace QLNhiemVu.DanhMuc
 
         private void btn_capnhat_Click(object sender, EventArgs e)
         {
-            if (lookUpEdit7.EditValue == null)
+            if (lookUpEdit7.EditValue != null || lookUpEdit8.EditValue != null || textEdit1.Text.Trim() != string.Empty)
             {
-                All.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
-                lookUpEdit7.Focus();
-                return;
-            }
-            if (lookUpEdit8.EditValue == null)
-            {
-                All.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
-                lookUpEdit8.Focus();
-                return;
-            }
-            if (textEdit1.Text.Trim() == Guid.Empty.ToString())
-            {
-                All.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
-                textEdit1.Focus();
-                return;
+                if (lookUpEdit7.EditValue == null)
+                {
+                    All.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
+                    lookUpEdit7.Focus();
+                    return;
+                }
+                if (lookUpEdit8.EditValue == null)
+                {
+                    All.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
+                    lookUpEdit8.Focus();
+                    return;
+                }
+                if (textEdit1.Text.Trim() == string.Empty)
+                {
+                    All.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
+                    textEdit1.Focus();
+                    return;
+                }
             }
 
             if (lookUpEdit9.EditValue != null)

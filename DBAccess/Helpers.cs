@@ -97,7 +97,7 @@ namespace DBAccess
                     return null;
                 }
             }
-            public static List<DM_LoaiThutucNhiemvu> GetList()
+            public static List<DM_LoaiThutucNhiemvu> GetList(DM_LoaiThutucNhiemvu_Filter filter = null)
             {
                 try
                 {
@@ -105,7 +105,7 @@ namespace DBAccess
                     APIRequestData requestData = new APIRequestData()
                     {
                         Action = "getlist",
-                        Data = null
+                        Data = JsonConvert.SerializeObject(filter)
                     };
                     string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
 
@@ -405,6 +405,32 @@ namespace DBAccess
 
         public class ThutucNhiemvu_Truongdulieu
         {
+            public static List<DM_LoaiThutucNhiemvu_Truongdulieu> GetList(Guid parentId)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("loaithutuc_truongdulieu");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "getlist_children",
+                        Data = parentId.ToString()
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    APIResponseData result = ConvertFromString(response);
+                    if (result == null || result.ErrorCode != 0) return null;
+
+                    return result.Data == null ? null : JsonConvert.DeserializeObject<List<DM_LoaiThutucNhiemvu_Truongdulieu>>(result.Data.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
             public static List<DM_LoaiThutucNhiemvu_Truongdulieu> GetList_Root(Guid noidungId)
             {
                 try

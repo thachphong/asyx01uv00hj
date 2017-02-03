@@ -936,6 +936,8 @@
             // 
             this.memoEdit1.Location = new System.Drawing.Point(218, 271);
             this.memoEdit1.Name = "memoEdit1";
+            this.memoEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.memoEdit1.Properties.Appearance.Options.UseFont = true;
             this.memoEdit1.Size = new System.Drawing.Size(637, 58);
             this.memoEdit1.TabIndex = 76;
             // 

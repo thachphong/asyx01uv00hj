@@ -246,7 +246,7 @@
             this.lookUpEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEdit3.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DM020703", "Tên đối tượng")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DM014203", "DM014203")});
             this.lookUpEdit3.Properties.NullText = "";
             this.lookUpEdit3.Properties.ShowHeader = false;
             this.lookUpEdit3.Size = new System.Drawing.Size(206, 26);
@@ -290,7 +290,7 @@
             this.lookUpEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEdit6.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DM020703", "Tên đối tượng")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Description", "Description")});
             this.lookUpEdit6.Properties.NullText = "";
             this.lookUpEdit6.Properties.ShowHeader = false;
             this.lookUpEdit6.Size = new System.Drawing.Size(206, 26);
@@ -633,6 +633,7 @@
             this.gridView2.OptionsView.ShowDetailButtons = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView2_FocusedRowChanged);
+            this.gridView2.FocusedRowObjectChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventHandler(this.gridView2_FocusedRowObjectChanged);
             this.gridView2.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridView2_InvalidRowException);
             this.gridView2.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView2_ValidateRow);
             // 
@@ -766,6 +767,8 @@
             this.gridColumn17});
             this.gridView3.GridControl = this.gridControl3;
             this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsCustomization.AllowGroup = false;
+            this.gridView3.OptionsView.ShowDetailButtons = false;
             this.gridView3.OptionsView.ShowGroupPanel = false;
             this.gridView3.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView3_FocusedRowChanged);
             this.gridView3.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView3_ValidateRow);
@@ -864,6 +867,7 @@
             this.ledTruongdulieu_Kieutruong.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Description", "Name1")});
             this.ledTruongdulieu_Kieutruong.Name = "ledTruongdulieu_Kieutruong";
+            this.ledTruongdulieu_Kieutruong.NullText = "";
             this.ledTruongdulieu_Kieutruong.ShowFooter = false;
             this.ledTruongdulieu_Kieutruong.ShowHeader = false;
             // 

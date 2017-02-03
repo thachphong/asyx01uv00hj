@@ -48,6 +48,7 @@ namespace QLNhiemVu.DanhMuc
                     return;
                 }
             }
+            lblHeadTitle1.Text = currentThutucNhiemvu.DM016004;
             label22.Text = currentThutucNhiemvu.DM016004;
             this.Text = currentThutucNhiemvu.DM016004;
 
@@ -503,7 +504,7 @@ namespace QLNhiemVu.DanhMuc
 
                         if (obj.Kieutruong == 9)
                         {
-                            if (obj.Children == null || obj.Children.Count(o => o.DM016804.Trim() == string.Empty) > 0)
+                            if (obj.Children == null || obj.Children.Count(o => o.Batbuocnhap && o.DM016804.Trim() == string.Empty) > 0)
                             {
                                 All.Show_message("Vui lòng nhập đầy đủ các trường dữ liệu chi tiết!");
                                 return false;

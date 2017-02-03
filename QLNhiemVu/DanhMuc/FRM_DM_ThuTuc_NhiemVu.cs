@@ -64,7 +64,7 @@ namespace QLNhiemVu.DanhMuc
             LoadDonvi();
             LoadPhamviThuTuc();
             LoadLoaiThutuc_Trinhduyet();
-            LoadList_Master();
+            //LoadList_Master();
 
             SetDetailFormEnable(false);
             MenuItem_them_d1.Image = imageCollection1.Images[0];
@@ -79,6 +79,12 @@ namespace QLNhiemVu.DanhMuc
 
             btn_truongdulieu_kieutruong.Click += btn_truongdulieu_kieutruong_Click;
             btn_truongdulieu_truongcon.Click += btn_truongdulieu_truongcon_Click;
+            uC_Find1.btn_tim.Click += btn_tim_Click;
+        }
+
+        void btn_tim_Click(object sender, EventArgs e)
+        {
+            LoadList_Master();
         }
 
         void btn_noidung_cauhinh_Click(object sender, EventArgs e)
@@ -181,7 +187,12 @@ namespace QLNhiemVu.DanhMuc
 
         private void LoadList_Master()
         {
-            currentList = Helpers.ThutucNhiemvu.GetList();
+            DM_LoaiThutucNhiemvu_Filter filter = new DM_LoaiThutucNhiemvu_Filter();
+            filter.Ten = textEdit5.Text.Trim();
+            filter.Phamvisudung = lookUpEdit6.EditValue == null ? '0' : char.Parse(lookUpEdit6.EditValue.ToString());
+            filter.Loai = lookUpEdit3.EditValue == null ? Guid.Empty : Guid.Parse(lookUpEdit3.EditValue.ToString());
+
+            currentList = Helpers.ThutucNhiemvu.GetList(filter);
 
             gridControl1.DataSource = currentList;
             gridControl1.RefreshDataSource();
@@ -208,11 +219,16 @@ namespace QLNhiemVu.DanhMuc
             m_phamvi_thutuc_lk.Properties.ValueMember = "ID";
             m_phamvi_thutuc_lk.Properties.BestFitRowCount = All.dm_loaithutuc_loaicapphep.Count;
             m_phamvi_thutuc_lk.Refresh();
+
             L_loaithutuc_lk.DataSource = All.dm_loaithutuc_loaicapphep;
             L_loaithutuc_lk.DisplayMember = "Description";
             L_loaithutuc_lk.ValueMember = "ID";
             L_loaithutuc_lk.BestFitRowCount = All.dm_loaithutuc_loaicapphep.Count;
 
+            lookUpEdit6.Properties.DataSource = All.dm_loaithutuc_loaicapphep;
+            lookUpEdit6.Properties.DisplayMember = "Description";
+            lookUpEdit6.Properties.ValueMember = "ID";
+            lookUpEdit6.Properties.BestFitRowCount = All.dm_loaithutuc_loaicapphep.Count;
         }
         private void LoadLoaiThutuc_Trinhduyet()
         {
@@ -223,6 +239,11 @@ namespace QLNhiemVu.DanhMuc
             m_loai_thutuc_lk.Properties.BestFitRowCount = list == null ? 0 : list.Count;
             m_loai_thutuc_lk.Refresh();
 
+            lookUpEdit3.Properties.DataSource = list;
+            lookUpEdit3.Properties.DisplayMember = "DM014203";
+            lookUpEdit3.Properties.ValueMember = "DM014201";
+            lookUpEdit3.Properties.BestFitRowCount = list == null ? 0 : list.Count;
+            lookUpEdit3.Refresh();
         }
         private void SetDetailFormEnable(bool isEnable)
         {
@@ -535,6 +556,7 @@ namespace QLNhiemVu.DanhMuc
             currentDataTable = UF_Function.ToDataTable(currentNoidungs);
             gridControl2.DataSource = currentDataTable;
             gridView2.OptionsDetail.ShowDetailTabs = false;
+            gridControl2.RefreshDataSource();
         }
 
         private void load_list_3()
@@ -544,6 +566,7 @@ namespace QLNhiemVu.DanhMuc
             gridControl3.DataSource = dt;
             gridView3.BestFitColumns();
             gridView3.OptionsDetail.ShowDetailTabs = false;
+            gridControl3.RefreshDataSource();
         }
 
         private void MenuItem_them_d1_Click(object sender, EventArgs e)
@@ -770,11 +793,17 @@ namespace QLNhiemVu.DanhMuc
                 return;
             }
 
-            currentNoidungId = (Guid)gridView2.GetFocusedDataRow().ItemArray[0];
-            if (gridView2.GetFocusedDataRow().ItemArray[15] == DBNull.Value)
-                currentTruongdulieus = null;
-            else
-                currentTruongdulieus = (List<DM_LoaiThutucNhiemvu_Truongdulieu>)gridView2.GetFocusedDataRow().ItemArray[16];
+            DataRow dr = gridView2.GetFocusedDataRow();
+
+            if (dr != null)
+            {
+                currentNoidungId = (Guid)dr.ItemArray[0];
+                if (gridView2.GetFocusedDataRow().ItemArray[15] == DBNull.Value)
+                    currentTruongdulieus = null;
+                else
+                    currentTruongdulieus = (List<DM_LoaiThutucNhiemvu_Truongdulieu>)gridView2.GetFocusedDataRow().ItemArray[16];
+            }
+            else currentTruongdulieus = null;
 
             load_list_3();
             //}
@@ -894,12 +923,14 @@ namespace QLNhiemVu.DanhMuc
             string kieutruong = gridView3.GetRowCellValue(rowselect, "DM016207").ToString();
             if (kieutruong != "9") return;
 
-            List<DM_LoaiThutucNhiemvu_Truongdulieu> list = gridView3.GetRowCellValue(rowselect, "DsTruongcon") == DBNull.Value ? null : (List<DM_LoaiThutucNhiemvu_Truongdulieu>)gridView3.GetRowCellValue(rowselect, "DsTruongcon");
+            //List<DM_LoaiThutucNhiemvu_Truongdulieu> list = gridView3.GetRowCellValue(rowselect, "DsTruongcon") == DBNull.Value ? null : (List<DM_LoaiThutucNhiemvu_Truongdulieu>)gridView3.GetRowCellValue(rowselect, "DsTruongcon");
 
             FRM_DM_ThuTuc_NhiemVu_Truongcon frm = new FRM_DM_ThuTuc_NhiemVu_Truongcon();
+            frm.currentState = _status_detail_2;
             frm.currentNoidung = currentNoidungs.FirstOrDefault(o => o.DM016101 == currentNoidungId);
             frm.currentNoidungId = currentNoidungId;
-            frm.currentList = list;
+            //frm.currentList = list;
+            frm.truongchaId = (Guid)gridView3.GetRowCellValue(rowselect, "DM016201");
             frm.Show();
             this.Enabled = false;
         }
@@ -944,19 +975,24 @@ namespace QLNhiemVu.DanhMuc
                 return;
             }
 
-            string kieutruong = gridView3.GetFocusedDataRow().ItemArray[4].ToString().Trim();
-            string data = gridView3.GetFocusedDataRow().ItemArray[7].ToString().Trim();
+            DataRow dr = gridView3.GetFocusedDataRow();
 
-            if (string.IsNullOrEmpty(data))
+            if (dr != null)
             {
-                currentTruongdulieu_Lookupdata = null;
-            }
-            else
-            {
-                if (kieutruong == "8")
-                    currentTruongdulieu_Lookupdata = JsonConvert.DeserializeObject<DM_LoaiThutucNhiemvu_Truongdulieu_LookupData>(data);
-                //else if (kieutruong == "9")
-                //    currentTruongdulieu_Children = JsonConvert.DeserializeObject<List<Guid>>(data);
+                string kieutruong = dr.ItemArray[4].ToString().Trim();
+                string data = dr.ItemArray[7].ToString().Trim();
+
+                if (string.IsNullOrEmpty(data))
+                {
+                    currentTruongdulieu_Lookupdata = null;
+                }
+                else
+                {
+                    if (kieutruong == "8")
+                        currentTruongdulieu_Lookupdata = JsonConvert.DeserializeObject<DM_LoaiThutucNhiemvu_Truongdulieu_LookupData>(data);
+                    //else if (kieutruong == "9")
+                    //    currentTruongdulieu_Children = JsonConvert.DeserializeObject<List<Guid>>(data);
+                }
             }
         }
 
@@ -974,7 +1010,7 @@ namespace QLNhiemVu.DanhMuc
             string congthuctinh = view.GetRowCellValue(rowselect, "DM016213").ToString();
             string sapxep = view.GetRowCellValue(rowselect, "DM016214").ToString();
 
-            if ((maso + ten + tenhienthi + kieutruong + dorong + congthuctinh + sapxep).Length == 0)
+            if ((maso + ten + tenhienthi + kieutruong + dorong + sapxep).Length == 0)
             {
                 _status_detail_2 = "NORMAL";
                 gridView3.DeleteRow(gridView3.FocusedRowHandle);
@@ -1007,11 +1043,11 @@ namespace QLNhiemVu.DanhMuc
                 All.Show_message("Bạn phải nhập Độ rộng!");
                 return;
             }
-            if (congthuctinh.Length == 0)
-            {
-                All.Show_message("Bạn phải nhập Công thức tính!");
-                return;
-            }
+            //if (congthuctinh.Length == 0)
+            //{
+            //    All.Show_message("Bạn phải nhập Công thức tính!");
+            //    return;
+            //}
             if (sapxep.Length == 0)
             {
                 All.Show_message("Bạn phải nhập Sắp xếp!");
@@ -1083,6 +1119,24 @@ namespace QLNhiemVu.DanhMuc
             frm.currentState = currentState;
             frm.Show();
             frm.Focus();
+        }
+
+        private void gridView2_FocusedRowObjectChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventArgs e)
+        {
+            currentRowSelected_D1 = e.FocusedRowHandle;
+            if (currentRowSelected_D1 < 0)
+            {
+                currentNoidungTruongdulieus = null;
+                return;
+            }
+
+            currentNoidungId = (Guid)gridView2.GetFocusedDataRow().ItemArray[0];
+            if (gridView2.GetFocusedDataRow().ItemArray[15] == DBNull.Value)
+                currentTruongdulieus = null;
+            else
+                currentTruongdulieus = (List<DM_LoaiThutucNhiemvu_Truongdulieu>)gridView2.GetFocusedDataRow().ItemArray[16];
+
+            load_list_3();
         }
     }
 

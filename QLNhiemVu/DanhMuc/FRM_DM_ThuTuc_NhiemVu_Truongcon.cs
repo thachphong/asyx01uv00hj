@@ -23,11 +23,13 @@ namespace QLNhiemVu.DanhMuc
         public Guid currentNoidungId = Guid.Empty;
         public List<DM_LoaiThutucNhiemvu_Truongdulieu> currentList = null;
         private int currentRowSelected_D2 = 0;
-        private string _status_detail_2 = "NORMAL";
+        public string currentState = "NORMAL";
+        public string _status_detail_2 = "NORMAL";
         private DataTable currentDataTable = null;
         public DM_LoaiThutucNhiemvu_Noidung currentNoidung = null;
         private static string currentNoidungLookupData = string.Empty;
         public DM_LoaiThutucNhiemvu_Truongdulieu_LookupData currentTruongdulieu_Lookupdata = null;
+        public Guid truongchaId = Guid.Empty;
 
         public FRM_DM_ThuTuc_NhiemVu_Truongcon()
         {
@@ -40,13 +42,15 @@ namespace QLNhiemVu.DanhMuc
             if (frm == null) this.Dispose();
 
             panelHeader1.alignCenter(panelHeader1.Parent);
-
-            LoadList();
-
             gridView3.OptionsBehavior.Editable = false;
             LoadGridData();
 
+            LoadList();
+
             btn_truongdulieu_kieutruong.Click += btn_truongdulieu_kieutruong_Click;
+
+            if (currentState != "NORMAL")
+                gridControl3.ContextMenuStrip = contextMenuStrip1;
         }
 
         void btn_truongdulieu_kieutruong_Click(object sender, EventArgs e)
@@ -85,10 +89,12 @@ namespace QLNhiemVu.DanhMuc
 
         private void LoadList()
         {
+            currentList = Helpers.ThutucNhiemvu_Truongdulieu.GetList(truongchaId);
             DataTable dt = UF_Function.ToDataTable(currentList);
             gridControl3.DataSource = dt;
-            gridControl3.RefreshDataSource();
             gridView3.BestFitColumns();
+            gridView3.OptionsDetail.ShowDetailTabs = false;
+            gridControl3.RefreshDataSource();
         }
 
         private void btn_capnhat_Click(object sender, EventArgs e)
@@ -114,20 +120,24 @@ namespace QLNhiemVu.DanhMuc
                 return;
             }
 
-            string kieutruong = gridView3.GetFocusedDataRow().ItemArray[4].ToString().Trim();
-            string data = gridView3.GetFocusedDataRow().ItemArray[7].ToString().Trim();
+            DataRow dr = gridView3.GetFocusedDataRow();
+            if (dr != null)
+            {
+                string kieutruong = dr.ItemArray[4].ToString().Trim();
+                string data = dr.ItemArray[7].ToString().Trim();
 
-            if (string.IsNullOrEmpty(data))
-            {
-                //currentTruongdulieu_Children = null;
-                currentTruongdulieu_Lookupdata = null;
-            }
-            else
-            {
-                if (kieutruong == "8")
-                    currentTruongdulieu_Lookupdata = JsonConvert.DeserializeObject<DM_LoaiThutucNhiemvu_Truongdulieu_LookupData>(data);
-                //else if (kieutruong == "9")
-                //    currentTruongdulieu_Children = JsonConvert.DeserializeObject<List<Guid>>(data);
+                if (string.IsNullOrEmpty(data))
+                {
+                    //currentTruongdulieu_Children = null;
+                    currentTruongdulieu_Lookupdata = null;
+                }
+                else
+                {
+                    if (kieutruong == "8")
+                        currentTruongdulieu_Lookupdata = JsonConvert.DeserializeObject<DM_LoaiThutucNhiemvu_Truongdulieu_LookupData>(data);
+                    //else if (kieutruong == "9")
+                    //    currentTruongdulieu_Children = JsonConvert.DeserializeObject<List<Guid>>(data);
+                }
             }
         }
 
@@ -263,7 +273,7 @@ namespace QLNhiemVu.DanhMuc
                 obj.DM016218 = DateTime.Now;
                 obj.DM016219 = All.gs_user_id;
                 obj.DM016220 = DateTime.Now;
-                obj.DM016216 = view.GetRowCellValue(rowselect, "DM016216") == DBNull.Value ? Guid.Empty : Guid.Parse(view.GetRowCellValue(rowselect, "DM016216").ToString());
+                obj.DM016216 = view.GetRowCellValue(rowselect, "DM016216") == DBNull.Value ? truongchaId : Guid.Parse(view.GetRowCellValue(rowselect, "DM016216").ToString());
                 obj.NoidungId = currentNoidungId;
 
                 return obj;

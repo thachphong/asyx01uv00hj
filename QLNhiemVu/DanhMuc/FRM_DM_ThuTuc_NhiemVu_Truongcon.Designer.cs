@@ -34,7 +34,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelHeader1 = new QLNhiemVu.panelHeader();
             this.btn_thoat = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_capnhat = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.gridControl3 = new DevExpress.XtraGrid.GridControl();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -82,10 +81,9 @@
             // panelHeader1
             // 
             this.panelHeader1.Controls.Add(this.btn_thoat);
-            this.panelHeader1.Controls.Add(this.btn_capnhat);
             this.panelHeader1.Location = new System.Drawing.Point(26, 3);
             this.panelHeader1.Name = "panelHeader1";
-            this.panelHeader1.Size = new System.Drawing.Size(203, 36);
+            this.panelHeader1.Size = new System.Drawing.Size(101, 36);
             this.panelHeader1.TabIndex = 0;
             // 
             // btn_thoat
@@ -94,25 +92,12 @@
             this.btn_thoat.Appearance.Options.UseFont = true;
             this.btn_thoat.Image = ((System.Drawing.Image)(resources.GetObject("btn_thoat.Image")));
             this.btn_thoat.ImageIndex = 4;
-            this.btn_thoat.Location = new System.Drawing.Point(104, 3);
+            this.btn_thoat.Location = new System.Drawing.Point(3, 3);
             this.btn_thoat.Name = "btn_thoat";
             this.btn_thoat.Size = new System.Drawing.Size(95, 29);
             this.btn_thoat.TabIndex = 91;
-            this.btn_thoat.Text = "Hủy";
+            this.btn_thoat.Text = "Đóng";
             this.btn_thoat.Click += new System.EventHandler(this.btn_thoat_Click);
-            // 
-            // btn_capnhat
-            // 
-            this.btn_capnhat.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_capnhat.Appearance.Options.UseFont = true;
-            this.btn_capnhat.Image = ((System.Drawing.Image)(resources.GetObject("btn_capnhat.Image")));
-            this.btn_capnhat.ImageIndex = 7;
-            this.btn_capnhat.Location = new System.Drawing.Point(3, 3);
-            this.btn_capnhat.Name = "btn_capnhat";
-            this.btn_capnhat.Size = new System.Drawing.Size(95, 29);
-            this.btn_capnhat.TabIndex = 89;
-            this.btn_capnhat.Text = "Lưu";
-            this.btn_capnhat.Click += new System.EventHandler(this.btn_capnhat_Click);
             // 
             // groupControl1
             // 
@@ -315,18 +300,21 @@
             this.thêmToolStripMenuItem.Name = "thêmToolStripMenuItem";
             this.thêmToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.thêmToolStripMenuItem.Text = "Thêm";
+            this.thêmToolStripMenuItem.Click += new System.EventHandler(this.MenuItem_them_d2_Click);
             // 
             // sửaToolStripMenuItem
             // 
             this.sửaToolStripMenuItem.Name = "sửaToolStripMenuItem";
             this.sửaToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.sửaToolStripMenuItem.Text = "Sửa";
+            this.sửaToolStripMenuItem.Click += new System.EventHandler(this.MenuItem_sua_d2_Click);
             // 
             // xóaToolStripMenuItem
             // 
             this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
             this.xóaToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.xóaToolStripMenuItem.Text = "Xóa";
+            this.xóaToolStripMenuItem.Click += new System.EventHandler(this.MenuItem_xoa_d2_Click);
             // 
             // FRM_DM_ThuTuc_NhiemVu_Truongcon
             // 
@@ -365,7 +353,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private panelHeader panelHeader1;
-        public DevExpress.XtraEditors.SimpleButton btn_capnhat;
         public DevExpress.XtraEditors.SimpleButton btn_thoat;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraGrid.GridControl gridControl3;
