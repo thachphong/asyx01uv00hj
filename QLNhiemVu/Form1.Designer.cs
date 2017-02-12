@@ -37,6 +37,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton8 = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,6 +108,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.simpleButton8);
             this.groupBox1.Controls.Add(this.simpleButton11);
             this.groupBox1.Controls.Add(this.simpleButton7);
             this.groupBox1.Controls.Add(this.simpleButton1);
@@ -140,6 +142,17 @@
             this.simpleButton7.Text = "DM - Loại Thủ tục nhiệm vụ";
             this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
             // 
+            // simpleButton8
+            // 
+            this.simpleButton8.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.simpleButton8.Appearance.Options.UseFont = true;
+            this.simpleButton8.Location = new System.Drawing.Point(68, 168);
+            this.simpleButton8.Name = "simpleButton8";
+            this.simpleButton8.Size = new System.Drawing.Size(238, 34);
+            this.simpleButton8.TabIndex = 12;
+            this.simpleButton8.Text = "Thẩm định";
+            this.simpleButton8.Click += new System.EventHandler(this.simpleButton8_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,6 +182,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
         private DevExpress.XtraEditors.SimpleButton simpleButton11;
+        private DevExpress.XtraEditors.SimpleButton simpleButton8;
     }
 }
 

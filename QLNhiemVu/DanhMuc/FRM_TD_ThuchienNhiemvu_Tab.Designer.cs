@@ -122,7 +122,6 @@
             this.Name = "FRM_TD_ThuchienNhiemvu_Tab";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FRM_TD_ThuchienNhiemvu_Tab";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.FRM_TD_ThuchienNhiemvu_Tab_Load);
             this.panel1.ResumeLayout(false);
             this.panelHeader1.ResumeLayout(false);

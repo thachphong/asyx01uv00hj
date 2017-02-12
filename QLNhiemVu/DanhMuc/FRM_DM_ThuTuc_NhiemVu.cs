@@ -529,8 +529,8 @@ namespace QLNhiemVu.DanhMuc
         }
         public void btn_huongdan_Click(object sender, EventArgs e)
         {
-            FRM_TD_Huongdan frm = new FRM_TD_Huongdan();
-            frm.currentList = currentDataSelected.DsHuongdan;
+            if (currentDataSelected == null) return;
+            FRM_DM_LoaiThutucNhiemvu_Huongdan frm = new FRM_DM_LoaiThutucNhiemvu_Huongdan(currentDataSelected.DM016001);
             frm.Show();
             frm.Focus();
         }
@@ -790,20 +790,22 @@ namespace QLNhiemVu.DanhMuc
             if (currentRowSelected_D1 < 0)
             {
                 currentNoidungTruongdulieus = null;
-                return;
+                currentNoidungId = Guid.Empty;
             }
-
-            DataRow dr = gridView2.GetFocusedDataRow();
-
-            if (dr != null)
+            else
             {
-                currentNoidungId = (Guid)dr.ItemArray[0];
-                if (gridView2.GetFocusedDataRow().ItemArray[15] == DBNull.Value)
-                    currentTruongdulieus = null;
-                else
-                    currentTruongdulieus = (List<DM_LoaiThutucNhiemvu_Truongdulieu>)gridView2.GetFocusedDataRow().ItemArray[16];
+                DataRow dr = gridView2.GetFocusedDataRow();
+
+                if (dr != null)
+                {
+                    currentNoidungId = (Guid)dr.ItemArray[0];
+                    if (gridView2.GetFocusedDataRow().ItemArray[15] == DBNull.Value)
+                        currentTruongdulieus = null;
+                    else
+                        currentTruongdulieus = (List<DM_LoaiThutucNhiemvu_Truongdulieu>)gridView2.GetFocusedDataRow().ItemArray[16];
+                }
+                else currentTruongdulieus = null;
             }
-            else currentTruongdulieus = null;
 
             load_list_3();
             //}
@@ -954,6 +956,7 @@ namespace QLNhiemVu.DanhMuc
         {
             this.Enabled = false;
             FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup frm = new FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup();
+            frm.formType = "1";
             frm.currentData = currentTruongdulieu_Lookupdata;
             frm.currentState = _status_detail_2;
             frm.Show();
@@ -1127,14 +1130,16 @@ namespace QLNhiemVu.DanhMuc
             if (currentRowSelected_D1 < 0)
             {
                 currentNoidungTruongdulieus = null;
-                return;
+                currentNoidungId = Guid.Empty;
             }
-
-            currentNoidungId = (Guid)gridView2.GetFocusedDataRow().ItemArray[0];
-            if (gridView2.GetFocusedDataRow().ItemArray[15] == DBNull.Value)
-                currentTruongdulieus = null;
             else
-                currentTruongdulieus = (List<DM_LoaiThutucNhiemvu_Truongdulieu>)gridView2.GetFocusedDataRow().ItemArray[16];
+            {
+                currentNoidungId = (Guid)gridView2.GetFocusedDataRow().ItemArray[0];
+                if (gridView2.GetFocusedDataRow().ItemArray[15] == DBNull.Value)
+                    currentTruongdulieus = null;
+                else
+                    currentTruongdulieus = (List<DM_LoaiThutucNhiemvu_Truongdulieu>)gridView2.GetFocusedDataRow().ItemArray[16];
+            }
 
             load_list_3();
         }

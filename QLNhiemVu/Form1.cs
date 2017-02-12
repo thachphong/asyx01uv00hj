@@ -58,5 +58,11 @@ namespace QLNhiemVu
             FRM_TD_Phancong frm = new FRM_TD_Phancong();
             frm.Show();
         }
+
+        private void simpleButton8_Click(object sender, EventArgs e)
+        {
+            FRM_TD_Thamdinh frm = new FRM_TD_Thamdinh();
+            frm.Show();
+        }
     }
 }

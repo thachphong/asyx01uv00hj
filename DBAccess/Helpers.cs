@@ -899,6 +899,32 @@ namespace DBAccess
                 }
             }
 
+            public static List<TD_ThuchienNhiemvu> GetList_For_Thamdinh(TD_Thamdinh_Filter filter)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thuchiennhiemvu");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "getlist_for_thamdinh",
+                        Data = JsonConvert.SerializeObject(filter)
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    APIResponseData result = ConvertFromString(response);
+                    if (result == null || result.ErrorCode != 0) return null;
+
+                    return result.Data == null ? null : JsonConvert.DeserializeObject<List<TD_ThuchienNhiemvu>>(result.Data.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
             public static List<TD_ThuchienNhiemvu_Cothienthi> GenerateListColumns()
             {
                 try
@@ -1066,6 +1092,160 @@ namespace DBAccess
                 }
             }
         }
+        #endregion
+
+        #region Trinhduyet_Thamdinh
+
+        public class TrinhduyetThamdinh
+        {
+            public static List<TD_Thamdinh_Duyet_Truongdulieu> GetList_Truongdulieu(Guid noidungId, Guid tdDuyetId, Guid tdNhiemvuId)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thamdinh");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "getlist_truongdulieu",
+                        Data = JsonConvert.SerializeObject(new List<Guid>() { noidungId, tdDuyetId, tdNhiemvuId })
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    APIResponseData result = ConvertFromString(response);
+                    if (result == null || result.ErrorCode != 0) return null;
+
+                    return result.Data == null ? null : JsonConvert.DeserializeObject<List<TD_Thamdinh_Duyet_Truongdulieu>>(result.Data.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
+            public static List<TD_Thamdinh_Duyet> GetList_Duyet(TD_Thamdinh_Duyet_Filter filter)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thamdinh");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "getlist_duyet",
+                        Data = JsonConvert.SerializeObject(filter)
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    APIResponseData result = ConvertFromString(response);
+                    if (result == null || result.ErrorCode != 0) return null;
+
+                    return result.Data == null ? null : JsonConvert.DeserializeObject<List<TD_Thamdinh_Duyet>>(result.Data.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
+            //public static List<TD_Thamdinh_Duyet_Truongdulieu> GetList_Duyet_Truongdulieu(Guid noidungId, Guid tdnhiemvuId)
+            //{
+            //    try
+            //    {
+            //        string url = CreateRequestUrl("trinhduyet_thuchiennhiemvu");
+            //        APIRequestData requestData = new APIRequestData()
+            //        {
+            //            Action = "getlist_truongdulieu",
+            //            Data = JsonConvert.SerializeObject(new List<Guid>() { noidungId, tdnhiemvuId })
+            //        };
+            //        string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+            //        if (string.IsNullOrEmpty(response)) return null;
+
+            //        APIResponseData result = ConvertFromString(response);
+            //        if (result == null || result.ErrorCode != 0) return null;
+
+            //        return result.Data == null ? null : JsonConvert.DeserializeObject<List<TD_ThuchienNhiemvu_Truongdulieu>>(result.Data.ToString());
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Log.write(ex);
+            //        return null;
+            //    }
+            //}
+
+            public static APIResponseData Create_Duyet(TD_Thamdinh_Duyet obj)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thamdinh");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "create_duyet",
+                        Data = JsonConvert.SerializeObject(obj)
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    return ConvertFromString(response);
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
+            public static APIResponseData Update_Duyet(TD_Thamdinh_Duyet obj)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thamdinh");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "update_duyet",
+                        Data = JsonConvert.SerializeObject(obj)
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    return ConvertFromString(response);
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
+            public static APIResponseData Delete_Duyet(List<Guid> list)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thamdinh");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "delete_duyet",
+                        Data = JsonConvert.SerializeObject(list)
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    return ConvertFromString(response);
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+        }
+
         #endregion
     }
 }

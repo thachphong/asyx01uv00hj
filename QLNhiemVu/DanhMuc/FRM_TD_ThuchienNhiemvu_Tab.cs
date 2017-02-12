@@ -20,7 +20,9 @@ namespace QLNhiemVu.DanhMuc
     public partial class FRM_TD_ThuchienNhiemvu_Tab : BaseForm_Data
     {
         FRM_TD_ThuchienNhiemvu frm = null;
+        FRM_TD_Thamdinh_Duyet frm_Thamdinh = null;
         public TD_ThuchienNhiemvu_Truongdulieu currentField = null;
+        public TD_Thamdinh_Duyet_Truongdulieu currentField_Thamdinh = null;
         public string currentState = "NORMAL";
         public FRM_TD_ThuchienNhiemvu_Tab()
         {
@@ -30,7 +32,8 @@ namespace QLNhiemVu.DanhMuc
         private void FRM_TD_ThuchienNhiemvu_Tab_Load(object sender, EventArgs e)
         {
             frm = (FRM_TD_ThuchienNhiemvu)Application.OpenForms["FRM_TD_ThuchienNhiemvu"];
-            if (frm == null) this.Dispose();
+            frm_Thamdinh = (FRM_TD_Thamdinh_Duyet)Application.OpenForms["FRM_TD_Thamdinh_Duyet"];
+            if (frm == null && frm_Thamdinh == null) this.Dispose();
 
             panelHeader1.alignCenter(panelHeader1.Parent);
 
@@ -46,9 +49,17 @@ namespace QLNhiemVu.DanhMuc
         {
             xtraScrollableControl1.Controls.Clear();
 
-            List<TD_ThuchienNhiemvu_Truongdulieu> fields = currentField.Children;
-
-            panelHeader panelHeaderFields = GenerateDynamicFields(fields, currentState);
+            panelHeader panelHeaderFields = null;
+            if (currentField != null)
+            {
+                List<TD_ThuchienNhiemvu_Truongdulieu> fields = currentField.Children;
+                panelHeaderFields = GenerateDynamicFields(fields, currentState);
+            }
+            else
+            {
+                List<TD_Thamdinh_Duyet_Truongdulieu> fields = currentField_Thamdinh.Children;
+                panelHeaderFields = GenerateDynamicFields_Thamdinh(fields, currentState);
+            }
 
             if (panelHeaderFields != null)
             {
@@ -59,68 +70,142 @@ namespace QLNhiemVu.DanhMuc
 
         private void btn_capnhat_Click(object sender, EventArgs e)
         {
-            foreach (TD_ThuchienNhiemvu_Truongdulieu obj in currentField.Children)
+            if (currentField != null)
             {
-                string ctrId = "ctrValue_" + obj.DM016801.ToString();
-                Control ctrValue = xtraScrollableControl1.Controls.Find(ctrId, true).FirstOrDefault();
-                if (ctrValue == null) continue;
+                #region TD_Nhiemvu
 
-                switch (obj.Kieutruong)
+                foreach (TD_ThuchienNhiemvu_Truongdulieu obj in currentField.Children)
                 {
-                    case 1:
-                        obj.DM016804 = ((TextEdit)ctrValue).Text.Trim();
-                        break;
-                    case 2:
-                        obj.DM016804 = ((TextEdit)ctrValue).Text.Trim();
-                        break;
-                    case 3:
-                        obj.DM016804 = ((CheckEdit)ctrValue).Checked ? "1" : "0";
-                        break;
-                    case 4:
-                        obj.DM016804 = ((DateEdit)ctrValue).DateTime.ToString();
-                        break;
-                    case 5:
-                        TimeEdit ctrTime = (TimeEdit)xtraScrollableControl1.Controls.Find("ctr_" + obj.DM016801.ToString() + "_Time", true).FirstOrDefault();
-                        DateEdit ctrDate = (DateEdit)xtraScrollableControl1.Controls.Find("ctr_" + obj.DM016801.ToString() + "_Date", true).FirstOrDefault();
-                        DateTime moment = new DateTime(ctrDate.DateTime.Year, ctrDate.DateTime.Month, ctrDate.DateTime.Day, ctrTime.Time.Hour, ctrTime.Time.Minute, ctrTime.Time.Second);
-                        obj.DM016804 = moment.ToString();
-                        break;
-                    case 6:
-                        obj.DM016804 = ((TimeEdit)ctrValue).Time.ToString();
-                        break;
-                    case 7:
-                        obj.DM016804 = ((MemoEdit)ctrValue).Text.Trim();
-                        break;
-                    case 8:
-                        LookUpEdit lue = ((LookUpEdit)ctrValue);
-                        obj.DM016804 = lue.EditValue == null ? string.Empty : lue.EditValue.ToString();
-                        break;
-                    case 10:
-                        ctrValue = xtraScrollableControl1.Controls.Find("ctr_" + obj.DM016801.ToString() + "_Path", true).FirstOrDefault();
-                        string filePath = ((TextEdit)ctrValue).Text.Trim();
+                    string ctrId = "ctrValue_" + obj.DM016801.ToString();
+                    Control ctrValue = xtraScrollableControl1.Controls.Find(ctrId, true).FirstOrDefault();
+                    if (ctrValue == null) continue;
 
-                        string uri = Helpers.CreateRequestUrl_UploadFile();
-                        uri += "&n=td_thuchiennhiemvu_tepdinhkem&fn=" + DateTime.Now.Ticks.ToString();
-                        string response = WebUtils.Request_UploadFile(uri, filePath);
-                        APIResponseData result = JsonConvert.DeserializeObject<APIResponseData>(response);
-                        if (result.ErrorCode != 0)
-                        {
-                            All.Show_message("Error code " + result.ErrorCode + ": Lỗi không thể upload tệp!");
-                            return;
-                        }
-                        obj.DM016804 = result.Data.ToString();
-                        break;
-                    default: break;
+                    switch (obj.Kieutruong)
+                    {
+                        case 1:
+                            obj.DM016804 = ((TextEdit)ctrValue).Text.Trim();
+                            break;
+                        case 2:
+                            obj.DM016804 = ((TextEdit)ctrValue).Text.Trim();
+                            break;
+                        case 3:
+                            obj.DM016804 = ((CheckEdit)ctrValue).Checked ? "1" : "0";
+                            break;
+                        case 4:
+                            obj.DM016804 = ((DateEdit)ctrValue).DateTime.ToString();
+                            break;
+                        case 5:
+                            TimeEdit ctrTime = (TimeEdit)xtraScrollableControl1.Controls.Find("ctr_" + obj.DM016801.ToString() + "_Time", true).FirstOrDefault();
+                            DateEdit ctrDate = (DateEdit)xtraScrollableControl1.Controls.Find("ctr_" + obj.DM016801.ToString() + "_Date", true).FirstOrDefault();
+                            DateTime moment = new DateTime(ctrDate.DateTime.Year, ctrDate.DateTime.Month, ctrDate.DateTime.Day, ctrTime.Time.Hour, ctrTime.Time.Minute, ctrTime.Time.Second);
+                            obj.DM016804 = moment.ToString();
+                            break;
+                        case 6:
+                            obj.DM016804 = ((TimeEdit)ctrValue).Time.ToString();
+                            break;
+                        case 7:
+                            obj.DM016804 = ((MemoEdit)ctrValue).Text.Trim();
+                            break;
+                        case 8:
+                            LookUpEdit lue = ((LookUpEdit)ctrValue);
+                            obj.DM016804 = lue.EditValue == null ? string.Empty : lue.EditValue.ToString();
+                            break;
+                        case 10:
+                            ctrValue = xtraScrollableControl1.Controls.Find("ctr_" + obj.DM016801.ToString() + "_Path", true).FirstOrDefault();
+                            string filePath = ((TextEdit)ctrValue).Text.Trim();
+
+                            string uri = Helpers.CreateRequestUrl_UploadFile();
+                            uri += "&n=td_thuchiennhiemvu_tepdinhkem&fn=" + DateTime.Now.Ticks.ToString();
+                            string response = WebUtils.Request_UploadFile(uri, filePath);
+                            APIResponseData result = JsonConvert.DeserializeObject<APIResponseData>(response);
+                            if (result.ErrorCode != 0)
+                            {
+                                All.Show_message("Error code " + result.ErrorCode + ": Lỗi không thể upload tệp!");
+                                return;
+                            }
+                            obj.DM016804 = result.Data.ToString();
+                            break;
+                        default: break;
+                    }
                 }
+                frm.CallBack_UpdateField(currentField, true);
+
+                #endregion
+            }
+            else
+            {
+                #region TD_Thamdinh
+
+                foreach (TD_Thamdinh_Duyet_Truongdulieu obj in currentField_Thamdinh.Children)
+                {
+                    string ctrId = "ctrValue_" + obj.DM017201.ToString() + "_Thamdinh";
+                    Control ctrValue = xtraScrollableControl1.Controls.Find(ctrId, true).FirstOrDefault();
+                    if (ctrValue == null) continue;
+
+                    switch (obj.Kieutruong)
+                    {
+                        case 1:
+                            obj.DM017204 = ((TextEdit)ctrValue).Text.Trim();
+                            break;
+                        case 2:
+                            obj.DM017204 = ((TextEdit)ctrValue).Text.Trim();
+                            break;
+                        case 3:
+                            obj.DM017204 = ((CheckEdit)ctrValue).Checked ? "1" : "0";
+                            break;
+                        case 4:
+                            obj.DM017204 = ((DateEdit)ctrValue).DateTime.ToString();
+                            break;
+                        case 5:
+                            TimeEdit ctrTime = (TimeEdit)xtraScrollableControl1.Controls.Find("ctr_" + obj.DM017201.ToString() + "_Time_Thamdinh", true).FirstOrDefault();
+                            DateEdit ctrDate = (DateEdit)xtraScrollableControl1.Controls.Find("ctr_" + obj.DM017201.ToString() + "_Date_Thamdinh", true).FirstOrDefault();
+                            DateTime moment = new DateTime(ctrDate.DateTime.Year, ctrDate.DateTime.Month, ctrDate.DateTime.Day, ctrTime.Time.Hour, ctrTime.Time.Minute, ctrTime.Time.Second);
+                            obj.DM017204 = moment.ToString();
+                            break;
+                        case 6:
+                            obj.DM017204 = ((TimeEdit)ctrValue).Time.ToString();
+                            break;
+                        case 7:
+                            obj.DM017204 = ((MemoEdit)ctrValue).Text.Trim();
+                            break;
+                        case 8:
+                            LookUpEdit lue = ((LookUpEdit)ctrValue);
+                            obj.DM017204 = lue.EditValue == null ? string.Empty : lue.EditValue.ToString();
+                            break;
+                        case 10:
+                            ctrValue = xtraScrollableControl1.Controls.Find("ctr_" + obj.DM017201.ToString() + "_Path_Thamdinh", true).FirstOrDefault();
+                            string filePath = ((TextEdit)ctrValue).Text.Trim();
+
+                            string uri = Helpers.CreateRequestUrl_UploadFile();
+                            uri += "&n=td_thamdinh_duyet_tepdinhkem&fn=" + DateTime.Now.Ticks.ToString();
+                            string response = WebUtils.Request_UploadFile(uri, filePath);
+                            APIResponseData result = JsonConvert.DeserializeObject<APIResponseData>(response);
+                            if (result.ErrorCode != 0)
+                            {
+                                All.Show_message("Error code " + result.ErrorCode + ": Lỗi không thể upload tệp!");
+                                return;
+                            }
+                            obj.DM017204 = result.Data.ToString();
+                            break;
+                        default: break;
+                    }
+                }
+
+                frm_Thamdinh.CallBack_UpdateField(currentField_Thamdinh, true);
+
+                #endregion
             }
 
-            frm.CallBack_UpdateField(currentField, true);
             this.Dispose();
         }
 
         private void btn_thoat_Click(object sender, EventArgs e)
         {
-            frm.CallBack_UpdateField(null, false);
+            if (frm != null)
+                frm.CallBack_UpdateField(null, false);
+            else
+                frm_Thamdinh.CallBack_UpdateField(null, false);
+
             this.Dispose();
         }
     }

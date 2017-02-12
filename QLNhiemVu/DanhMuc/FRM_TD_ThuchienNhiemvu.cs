@@ -491,7 +491,8 @@ namespace QLNhiemVu.DanhMuc
             }
             else
             {
-                var list = tempFields.Where(o => o.Batbuocnhap);
+                PrepareDetail();
+                var list = tempFields.Where(o => o.Batbuocnhap || o.Kieutruong == 9);
                 if (list.Count() > 0)
                 {
                     foreach (TD_ThuchienNhiemvu_Truongdulieu obj in list)

@@ -155,7 +155,7 @@ namespace QLNhiemVu.DanhMuc
             string congthuctinh = view.GetRowCellValue(rowselect, "DM016213").ToString();
             string sapxep = view.GetRowCellValue(rowselect, "DM016214").ToString();
 
-            if ((maso + ten + tenhienthi + kieutruong + dorong + congthuctinh + sapxep).Length == 0)
+            if ((maso + ten + tenhienthi + kieutruong + dorong + sapxep).Length == 0)
             {
                 _status_detail_2 = "NORMAL";
                 gridView3.DeleteRow(gridView3.FocusedRowHandle);
@@ -188,11 +188,11 @@ namespace QLNhiemVu.DanhMuc
                 All.Show_message("Bạn phải nhập Độ rộng!");
                 return;
             }
-            if (congthuctinh.Length == 0)
-            {
-                All.Show_message("Bạn phải nhập Công thức tính!");
-                return;
-            }
+            //if (congthuctinh.Length == 0)
+            //{
+            //    All.Show_message("Bạn phải nhập Công thức tính!");
+            //    return;
+            //}
             if (sapxep.Length == 0)
             {
                 All.Show_message("Bạn phải nhập Sắp xếp!");

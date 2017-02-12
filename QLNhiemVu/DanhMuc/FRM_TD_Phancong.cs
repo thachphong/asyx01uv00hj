@@ -346,6 +346,8 @@ namespace QLNhiemVu.DanhMuc
             TD_ThuchienNhiemvu current = currentList.FirstOrDefault(o => o.DM016701 == obj.DM017002);
             if (current == null) return;
 
+            if (current.DsPhancong == null) current.DsPhancong = new List<TD_Phancong>();
+
             TD_Phancong pc = current.DsPhancong.FirstOrDefault(o => o.DM017001 == obj.DM017001);
             if (pc == null) current.DsPhancong.Insert(0, obj);
             else pc = obj;

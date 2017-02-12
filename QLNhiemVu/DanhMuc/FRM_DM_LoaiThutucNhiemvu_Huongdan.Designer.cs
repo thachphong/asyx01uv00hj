@@ -35,17 +35,17 @@
             this.lblHeadTitle1 = new QLNhiemVu.lblHeadTitle();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.panelHeader3 = new QLNhiemVu.panelHeader();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.m_maloi_lk = new DevExpress.XtraEditors.LookUpEdit();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btn_chonfile = new DevExpress.XtraEditors.SimpleButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.m_tiep_dinhkem = new DevExpress.XtraEditors.TextEdit();
+            this.m_loai_huondan = new DevExpress.XtraEditors.LookUpEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.m_ten_huongdan = new DevExpress.XtraEditors.TextEdit();
             this.label1 = new System.Windows.Forms.Label();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.label11 = new System.Windows.Forms.Label();
+            this.m_ma_huongdan = new DevExpress.XtraEditors.TextEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
@@ -76,11 +76,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             this.panelHeader3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_maloi_lk.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_tiep_dinhkem.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_loai_huondan.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_ten_huongdan.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_ma_huongdan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
@@ -155,32 +155,65 @@
             // 
             // panelHeader3
             // 
-            this.panelHeader3.Controls.Add(this.simpleButton1);
+            this.panelHeader3.Controls.Add(this.m_maloi_lk);
+            this.panelHeader3.Controls.Add(this.label5);
+            this.panelHeader3.Controls.Add(this.btn_chonfile);
             this.panelHeader3.Controls.Add(this.label4);
-            this.panelHeader3.Controls.Add(this.textEdit3);
-            this.panelHeader3.Controls.Add(this.lookUpEdit2);
-            this.panelHeader3.Controls.Add(this.lookUpEdit1);
+            this.panelHeader3.Controls.Add(this.m_tiep_dinhkem);
+            this.panelHeader3.Controls.Add(this.m_loai_huondan);
             this.panelHeader3.Controls.Add(this.label3);
             this.panelHeader3.Controls.Add(this.label2);
-            this.panelHeader3.Controls.Add(this.textEdit2);
+            this.panelHeader3.Controls.Add(this.m_ten_huongdan);
             this.panelHeader3.Controls.Add(this.label1);
-            this.panelHeader3.Controls.Add(this.textEdit1);
-            this.panelHeader3.Controls.Add(this.label11);
+            this.panelHeader3.Controls.Add(this.m_ma_huongdan);
             this.panelHeader3.Location = new System.Drawing.Point(26, 30);
             this.panelHeader3.Name = "panelHeader3";
             this.panelHeader3.Size = new System.Drawing.Size(971, 113);
             this.panelHeader3.TabIndex = 0;
             // 
-            // simpleButton1
+            // m_maloi_lk
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(500, 79);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(24, 26);
-            this.simpleButton1.TabIndex = 93;
-            this.simpleButton1.Text = "...";
-            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            this.m_maloi_lk.Location = new System.Drawing.Point(688, 47);
+            this.m_maloi_lk.Name = "m_maloi_lk";
+            this.m_maloi_lk.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_maloi_lk.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.m_maloi_lk.Properties.Appearance.Options.UseFont = true;
+            this.m_maloi_lk.Properties.Appearance.Options.UseForeColor = true;
+            this.m_maloi_lk.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_maloi_lk.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
+            this.m_maloi_lk.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.m_maloi_lk.Properties.AppearanceDropDown.Options.UseForeColor = true;
+            this.m_maloi_lk.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.m_maloi_lk.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SYS03", "SYS03")});
+            this.m_maloi_lk.Properties.NullText = "";
+            this.m_maloi_lk.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            this.m_maloi_lk.Properties.ShowHeader = false;
+            this.m_maloi_lk.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.m_maloi_lk.Size = new System.Drawing.Size(269, 26);
+            this.m_maloi_lk.TabIndex = 95;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(557, 50);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 19);
+            this.label5.TabIndex = 94;
+            this.label5.Text = "Mã thông báo lỗi";
+            // 
+            // btn_chonfile
+            // 
+            this.btn_chonfile.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.btn_chonfile.Appearance.Options.UseFont = true;
+            this.btn_chonfile.Location = new System.Drawing.Point(500, 79);
+            this.btn_chonfile.Name = "btn_chonfile";
+            this.btn_chonfile.Size = new System.Drawing.Size(24, 26);
+            this.btn_chonfile.TabIndex = 93;
+            this.btn_chonfile.Text = "...";
+            this.btn_chonfile.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // label4
             // 
@@ -192,67 +225,40 @@
             this.label4.TabIndex = 44;
             this.label4.Text = "Tệp đính kèm";
             // 
-            // textEdit3
+            // m_tiep_dinhkem
             // 
-            this.textEdit3.Location = new System.Drawing.Point(225, 79);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit3.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.textEdit3.Properties.Appearance.Options.UseFont = true;
-            this.textEdit3.Properties.Appearance.Options.UseForeColor = true;
-            this.textEdit3.Properties.ReadOnly = true;
-            this.textEdit3.Size = new System.Drawing.Size(269, 26);
-            this.textEdit3.TabIndex = 43;
+            this.m_tiep_dinhkem.Location = new System.Drawing.Point(225, 79);
+            this.m_tiep_dinhkem.Name = "m_tiep_dinhkem";
+            this.m_tiep_dinhkem.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_tiep_dinhkem.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.m_tiep_dinhkem.Properties.Appearance.Options.UseFont = true;
+            this.m_tiep_dinhkem.Properties.Appearance.Options.UseForeColor = true;
+            this.m_tiep_dinhkem.Properties.ReadOnly = true;
+            this.m_tiep_dinhkem.Size = new System.Drawing.Size(269, 26);
+            this.m_tiep_dinhkem.TabIndex = 43;
             // 
-            // lookUpEdit2
+            // m_loai_huondan
             // 
-            this.lookUpEdit2.Location = new System.Drawing.Point(225, 47);
-            this.lookUpEdit2.Name = "lookUpEdit2";
-            this.lookUpEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lookUpEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.lookUpEdit2.Properties.Appearance.Options.UseFont = true;
-            this.lookUpEdit2.Properties.Appearance.Options.UseForeColor = true;
-            this.lookUpEdit2.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lookUpEdit2.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
-            this.lookUpEdit2.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.lookUpEdit2.Properties.AppearanceDropDown.Options.UseForeColor = true;
-            this.lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.m_loai_huondan.Location = new System.Drawing.Point(225, 47);
+            this.m_loai_huondan.Name = "m_loai_huondan";
+            this.m_loai_huondan.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_loai_huondan.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.m_loai_huondan.Properties.Appearance.Options.UseFont = true;
+            this.m_loai_huondan.Properties.Appearance.Options.UseForeColor = true;
+            this.m_loai_huondan.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_loai_huondan.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
+            this.m_loai_huondan.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.m_loai_huondan.Properties.AppearanceDropDown.Options.UseForeColor = true;
+            this.m_loai_huondan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit2.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            this.m_loai_huondan.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Description", "Description")});
-            this.lookUpEdit2.Properties.NullText = "";
-            this.lookUpEdit2.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            this.lookUpEdit2.Properties.ShowHeader = false;
-            this.lookUpEdit2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lookUpEdit2.Size = new System.Drawing.Size(269, 26);
-            this.lookUpEdit2.TabIndex = 1;
-            // 
-            // lookUpEdit1
-            // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(225, 15);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lookUpEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.lookUpEdit1.Properties.Appearance.Options.UseFont = true;
-            this.lookUpEdit1.Properties.Appearance.Options.UseForeColor = true;
-            this.lookUpEdit1.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lookUpEdit1.Properties.AppearanceDropDown.ForeColor = System.Drawing.Color.Black;
-            this.lookUpEdit1.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.lookUpEdit1.Properties.AppearanceDropDown.Options.UseForeColor = true;
-            this.lookUpEdit1.Properties.AppearanceDropDownHeader.ForeColor = System.Drawing.Color.Black;
-            this.lookUpEdit1.Properties.AppearanceDropDownHeader.Options.UseForeColor = true;
-            this.lookUpEdit1.Properties.AppearanceFocused.ForeColor = System.Drawing.Color.Black;
-            this.lookUpEdit1.Properties.AppearanceFocused.Options.UseForeColor = true;
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DM016004", "Name")});
-            this.lookUpEdit1.Properties.NullText = "";
-            this.lookUpEdit1.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            this.lookUpEdit1.Properties.ShowHeader = false;
-            this.lookUpEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lookUpEdit1.Size = new System.Drawing.Size(269, 26);
-            this.lookUpEdit1.TabIndex = 0;
+            this.m_loai_huondan.Properties.NullText = "";
+            this.m_loai_huondan.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            this.m_loai_huondan.Properties.ShowHeader = false;
+            this.m_loai_huondan.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.m_loai_huondan.Size = new System.Drawing.Size(269, 26);
+            this.m_loai_huondan.TabIndex = 1;
             // 
             // label3
             // 
@@ -268,53 +274,43 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(593, 50);
+            this.label2.Location = new System.Drawing.Point(557, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 19);
             this.label2.TabIndex = 41;
             this.label2.Text = "Tên hướng dẫn";
             // 
-            // textEdit2
+            // m_ten_huongdan
             // 
-            this.textEdit2.Location = new System.Drawing.Point(706, 47);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit2.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Properties.Appearance.Options.UseForeColor = true;
-            this.textEdit2.Size = new System.Drawing.Size(236, 26);
-            this.textEdit2.TabIndex = 3;
+            this.m_ten_huongdan.Location = new System.Drawing.Point(688, 15);
+            this.m_ten_huongdan.Name = "m_ten_huongdan";
+            this.m_ten_huongdan.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_ten_huongdan.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.m_ten_huongdan.Properties.Appearance.Options.UseFont = true;
+            this.m_ten_huongdan.Properties.Appearance.Options.UseForeColor = true;
+            this.m_ten_huongdan.Size = new System.Drawing.Size(269, 26);
+            this.m_ten_huongdan.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(596, 18);
+            this.label1.Location = new System.Drawing.Point(35, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 19);
             this.label1.TabIndex = 39;
             this.label1.Text = "Mã hướng dẫn";
             // 
-            // textEdit1
+            // m_ma_huongdan
             // 
-            this.textEdit1.Location = new System.Drawing.Point(706, 15);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
-            this.textEdit1.Size = new System.Drawing.Size(236, 26);
-            this.textEdit1.TabIndex = 2;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(26, 18);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(155, 19);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Loại thủ tục nhiệm vụ";
+            this.m_ma_huongdan.Location = new System.Drawing.Point(225, 15);
+            this.m_ma_huongdan.Name = "m_ma_huongdan";
+            this.m_ma_huongdan.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_ma_huongdan.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.m_ma_huongdan.Properties.Appearance.Options.UseFont = true;
+            this.m_ma_huongdan.Properties.Appearance.Options.UseForeColor = true;
+            this.m_ma_huongdan.Size = new System.Drawing.Size(269, 26);
+            this.m_ma_huongdan.TabIndex = 2;
             // 
             // groupControl1
             // 
@@ -596,11 +592,11 @@
             this.groupControl2.ResumeLayout(false);
             this.panelHeader3.ResumeLayout(false);
             this.panelHeader3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_maloi_lk.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_tiep_dinhkem.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_loai_huondan.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_ten_huongdan.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.m_ma_huongdan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
@@ -641,14 +637,12 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private DevExpress.XtraEditors.CheckEdit checkEdit1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit m_ma_huongdan;
         private System.Windows.Forms.Label label2;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.TextEdit m_ten_huongdan;
         private System.Windows.Forms.Label label3;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.LookUpEdit m_loai_huondan;
         private User_Control.UC_MenuBtn uC_MenuBtn1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
@@ -656,9 +650,10 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label4;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.TextEdit m_tiep_dinhkem;
+        private DevExpress.XtraEditors.SimpleButton btn_chonfile;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
-
+        private DevExpress.XtraEditors.LookUpEdit m_maloi_lk;
+        private System.Windows.Forms.Label label5;
     }
 }

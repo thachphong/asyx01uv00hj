@@ -246,6 +246,7 @@
             this.ledTruongdulieu_Kieutruong.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Description", "Name1")});
             this.ledTruongdulieu_Kieutruong.Name = "ledTruongdulieu_Kieutruong";
+            this.ledTruongdulieu_Kieutruong.NullText = "";
             this.ledTruongdulieu_Kieutruong.ShowFooter = false;
             this.ledTruongdulieu_Kieutruong.ShowHeader = false;
             // 

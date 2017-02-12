@@ -115,6 +115,18 @@
     <Compile Include="DanhMuc\FRM_TD_Phancong.Designer.cs">
       <DependentUpon>FRM_TD_Phancong.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhMuc\FRM_TD_Thamdinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_Thamdinh.Designer.cs">
+      <DependentUpon>FRM_TD_Thamdinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_Thamdinh_Duyet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_Thamdinh_Duyet.Designer.cs">
+      <DependentUpon>FRM_TD_Thamdinh_Duyet.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\FRM_TD_ThuchienNhiemvu_AttachedFiles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -230,6 +242,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UF_Function.cs" />
+    <Compile Include="User_Control\CB_Thamdinh_Duyet_Chitiet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Control\I_UC_Thamdinh_Duyet_Chitiet.cs" />
     <Compile Include="User_Control\lblHeadTitle.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -260,6 +276,30 @@
     <Compile Include="User_Control\UC_MenuBtn.Designer.cs">
       <DependentUpon>UC_MenuBtn.cs</DependentUpon>
     </Compile>
+    <Compile Include="User_Control\UC_Thamdinh_Duyet_Thamdinhvatrinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Control\UC_Thamdinh_Duyet_Thamdinhvatrinh.Designer.cs">
+      <DependentUpon>UC_Thamdinh_Duyet_Thamdinhvatrinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\UC_Thamdinh_Duyet_Yeucaubosung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Control\UC_Thamdinh_Duyet_Yeucaubosung.Designer.cs">
+      <DependentUpon>UC_Thamdinh_Duyet_Yeucaubosung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\UC_Thamdinh_Duyet_Tralaihoso.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Control\UC_Thamdinh_Duyet_Tralaihoso.Designer.cs">
+      <DependentUpon>UC_Thamdinh_Duyet_Tralaihoso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_Control\UC_Thamdinh_Duyet_Xinykien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Control\UC_Thamdinh_Duyet_Xinykien.Designer.cs">
+      <DependentUpon>UC_Thamdinh_Duyet_Xinykien.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DanhMuc\FRM_CN_TVB.resx">
       <DependentUpon>FRM_CN_TVB.cs</DependentUpon>
     </EmbeddedResource>
@@ -283,6 +323,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\FRM_TD_Phancong.resx">
       <DependentUpon>FRM_TD_Phancong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_TD_Thamdinh.resx">
+      <DependentUpon>FRM_TD_Thamdinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_TD_Thamdinh_Duyet.resx">
+      <DependentUpon>FRM_TD_Thamdinh_Duyet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\FRM_TD_ThuchienNhiemvu_AttachedFiles.resx">
       <DependentUpon>FRM_TD_ThuchienNhiemvu_AttachedFiles.cs</DependentUpon>
@@ -359,6 +405,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User_Control\UC_MenuBtn.resx">
       <DependentUpon>UC_MenuBtn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Control\UC_Thamdinh_Duyet_Thamdinhvatrinh.resx">
+      <DependentUpon>UC_Thamdinh_Duyet_Thamdinhvatrinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Control\UC_Thamdinh_Duyet_Yeucaubosung.resx">
+      <DependentUpon>UC_Thamdinh_Duyet_Yeucaubosung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Control\UC_Thamdinh_Duyet_Tralaihoso.resx">
+      <DependentUpon>UC_Thamdinh_Duyet_Tralaihoso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Control\UC_Thamdinh_Duyet_Xinykien.resx">
+      <DependentUpon>UC_Thamdinh_Duyet_Xinykien.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

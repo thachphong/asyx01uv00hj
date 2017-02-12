@@ -27,9 +27,12 @@ namespace QLNhiemVu.DanhMuc
         private static DM_Huongdan currentDataSelected = null;
         private static string currentState = "NORMAL";
         private static string filePath = string.Empty;
-        public FRM_DM_LoaiThutucNhiemvu_Huongdan()
+        private static Guid _loaithutuc_nhiemvu = Guid.Empty;
+        private static bool _upload_flg = false;
+        public FRM_DM_LoaiThutucNhiemvu_Huongdan(Guid loaithutuc_huongdan)
         {
             InitializeComponent();
+            _loaithutuc_nhiemvu = loaithutuc_huongdan;
         }
 
         private void FRM_DM_Huongdan_Load(object sender, EventArgs e)
@@ -47,9 +50,10 @@ namespace QLNhiemVu.DanhMuc
 
             currentState = "NORMAL";
 
-            LoadThutuc();
+            //LoadThutuc();
+            Load_ThongBao();
             LoadHuongdan();
-            LoadList(false);
+            LoadList();
         }
 
         private void BindControlEvents()
@@ -84,7 +88,7 @@ namespace QLNhiemVu.DanhMuc
                 {
                     All.Show_message("Xóa thành công " + listChecked.Count + " Hướng dẫn đã chọn!");
                     currentState = "NORMAL";
-                    LoadList(false);
+                    LoadList();
                 }
                 else
                 {
@@ -113,15 +117,7 @@ namespace QLNhiemVu.DanhMuc
             uC_MenuBtn1.set_status_menu(currentState, currentList == null ? 0 : currentList.Count);
             AssignDetailFormValue(currentDataSelected);
             SetDetailFormEnable(true);
-        }
-
-        void RefreshNewData(DM_Huongdan obj)
-        {
-            if (currentList == null) currentList = new List<DM_Huongdan>();
-
-            DM_Huongdan current = currentList.FirstOrDefault(o => o.DM016301 == obj.DM016301);
-            if (current == null) currentList.Insert(0, obj);
-            else current = obj;
+            _upload_flg = false;
         }
 
         void btn_capnhat_Click(object sender, EventArgs e)
@@ -149,7 +145,6 @@ namespace QLNhiemVu.DanhMuc
                 {
                     All.Show_message("Thêm mới thành công Hướng dẫn: " + obj.DM016303);
                     currentState = "NORMAL";
-                    RefreshNewData(JsonConvert.DeserializeObject<DM_Huongdan>(result.Data.ToString()));
                     LoadList();
                 }
                 else
@@ -168,7 +163,6 @@ namespace QLNhiemVu.DanhMuc
                 {
                     All.Show_message("Cập nhật thành công Hướng dẫn: " + obj.DM016303);
                     currentState = "NORMAL";
-                    RefreshNewData(JsonConvert.DeserializeObject<DM_Huongdan>(result.Data.ToString()));
                     LoadList();
                 }
                 else
@@ -186,20 +180,21 @@ namespace QLNhiemVu.DanhMuc
             {
                 DM_Huongdan obj = new DM_Huongdan();
                 obj.DM016301 = currentState == "NEW" ? Guid.NewGuid() : currentDataSelected.DM016301;
-                obj.DM016302 = Guid.Parse(lookUpEdit1.EditValue.ToString());
-                obj.DM016303 = textEdit1.Text;
-                obj.DM016304 = textEdit2.Text;
-                obj.DM016305 = char.Parse(lookUpEdit2.EditValue.ToString());
+                obj.DM016302 = _loaithutuc_nhiemvu;
+                obj.DM016303 = m_ma_huongdan.Text;
+                obj.DM016304 = m_ten_huongdan.Text;
+                obj.DM016305 = char.Parse(m_loai_huondan.EditValue.ToString());
                 obj.DM016306 = currentState == "NEW" ? All.gs_user_id : currentDataSelected.DM016306;
                 obj.DM016307 = currentState == "NEW" ? DateTime.Now : currentDataSelected.DM016307;
                 obj.DM016308 = All.gs_user_id;
                 obj.DM016309 = DateTime.Now;
+                obj.DM016311 = Guid.Parse(m_maloi_lk.EditValue.ToString());
 
-                if (textEdit3.Text.Trim() != string.Empty)
+                if (m_tiep_dinhkem.Text.Trim() != string.Empty && _upload_flg)
                 {
                     string uri = Helpers.CreateRequestUrl_UploadFile();
                     uri += "&n=loaithutucnhiemvu_huongdan&fn=" + obj.DM016301.ToString();
-                    string response = WebUtils.Request_UploadFile(uri, textEdit3.Text.Trim());
+                    string response = WebUtils.Request_UploadFile(uri, m_tiep_dinhkem.Text.Trim());
                     APIResponseData result = JsonConvert.DeserializeObject<APIResponseData>(response);
                     if (result.ErrorCode != 0)
                     {
@@ -225,38 +220,38 @@ namespace QLNhiemVu.DanhMuc
 
         private bool ValidateDetailForm()
         {
-            if (lookUpEdit1.EditValue.ToString() == Guid.Empty.ToString())
-            {
-                All.Show_message("Vui lòng chọn Loại thủ tục nhiệm vụ!");
-                lookUpEdit1.Focus();
-                return false;
-            }
+            //if (m_maloi_lk.EditValue.ToString() == Guid.Empty.ToString())
+            //{
+            //    All.Show_message("Vui lòng chọn Loại thủ tục nhiệm vụ!");
+            //    m_maloi_lk.Focus();
+            //    return false;
+            //}
 
-            if (lookUpEdit2.EditValue.ToString().Trim() == string.Empty)
+            if (m_loai_huondan.EditValue.ToString().Trim() == string.Empty)
             {
                 All.Show_message("Vui lòng chọn Loại hướng dẫn!");
-                lookUpEdit2.Focus();
+                m_loai_huondan.Focus();
                 return false;
             }
 
-            if (textEdit1.Text.Trim() == string.Empty)
+            if (m_ma_huongdan.Text.Trim() == string.Empty)
             {
                 All.Show_message("Vui lòng nhập Mã hướng dẫn!");
-                textEdit1.Focus();
+                m_ma_huongdan.Focus();
                 return false;
             }
 
-            if (textEdit2.Text.Trim() == string.Empty)
+            if (m_ten_huongdan.Text.Trim() == string.Empty)
             {
                 All.Show_message("Vui lòng nhập Tên hướng dẫn!");
-                textEdit2.Focus();
+                m_ten_huongdan.Focus();
                 return false;
             }
 
-            if (currentState == "NEW" && textEdit3.Text.Trim() == string.Empty)
+            if (currentState == "NEW" && m_tiep_dinhkem.Text.Trim() == string.Empty)
             {
                 All.Show_message("Vui lòng chọn tệp nội dung hướng dẫn!");
-                simpleButton1.PerformClick();
+                btn_chonfile.PerformClick();
             }
 
             return true;
@@ -281,24 +276,25 @@ namespace QLNhiemVu.DanhMuc
             uC_MenuBtn1.set_status_menu(currentState, 0);
             AssignDetailFormValue(null);
             SetDetailFormEnable(true);
+            _upload_flg = false;
         }
 
         private void LoadHuongdan()
         {
-            lookUpEdit2.Properties.DataSource = All.dm_loaithutuc_loaihuongdan;
-            lookUpEdit2.Properties.DisplayMember = "Description";
-            lookUpEdit2.Properties.ValueMember = "ID";
-            lookUpEdit2.Properties.BestFitRowCount = All.dm_loaithutuc_loaihuongdan.Count;
-            lookUpEdit2.Refresh();
+            m_loai_huondan.Properties.DataSource = All.dm_loaithutuc_loaihuongdan;
+            m_loai_huondan.Properties.DisplayMember = "Description";
+            m_loai_huondan.Properties.ValueMember = "ID";
+            m_loai_huondan.Properties.BestFitRowCount = All.dm_loaithutuc_loaihuongdan.Count;
+            m_loai_huondan.Refresh();
         }
 
         private void LoadThutuc()
         {
             List<DM_LoaiThutucNhiemvu> list = Helpers.ThutucNhiemvu.GetList();
-            lookUpEdit1.Properties.DataSource = list;
-            lookUpEdit1.Properties.DisplayMember = "DM016004";
-            lookUpEdit1.Properties.ValueMember = "DM016001";
-            lookUpEdit1.Properties.BestFitRowCount = list.Count;
+            m_maloi_lk.Properties.DataSource = list;
+            m_maloi_lk.Properties.DisplayMember = "DM016004";
+            m_maloi_lk.Properties.ValueMember = "DM016001";
+            m_maloi_lk.Properties.BestFitRowCount = list.Count;
         }
 
         bool performChecked = true;
@@ -326,11 +322,9 @@ namespace QLNhiemVu.DanhMuc
             }
         }
 
-        private void LoadList(bool refresh = true)
+        private void LoadList()
         {
-            currentList = !refresh ?
-                Helpers.ThutucNhiemvu_Huongdan.GetList(Guid.Empty) :
-                currentList;
+            currentList = Helpers.ThutucNhiemvu_Huongdan.GetList(_loaithutuc_nhiemvu);
 
             gridControl1.DataSource = currentList;
             gridControl1.RefreshDataSource();
@@ -365,33 +359,43 @@ namespace QLNhiemVu.DanhMuc
 
         private void SetDetailFormEnable(bool isEnable)
         {
-            lookUpEdit1.ReadOnly = !isEnable;
-            lookUpEdit2.ReadOnly = !isEnable;
-            textEdit1.ReadOnly = !isEnable;
-            textEdit2.ReadOnly = !isEnable;
+            m_maloi_lk.ReadOnly = !isEnable;
+            m_loai_huondan.ReadOnly = !isEnable;
+            m_ma_huongdan.ReadOnly = !isEnable;
+            m_ten_huongdan.ReadOnly = !isEnable;
 
             groupControl1.Enabled = !isEnable;
 
             if (isEnable)
-                lookUpEdit1.Focus();
+                m_ma_huongdan.Focus();
         }
 
         private void AssignDetailFormValue(DM_Huongdan data)
         {
-            lookUpEdit1.EditValue = data == null ? Guid.Empty : data.DM016302;
-            lookUpEdit2.EditValue = data == null ? ' ' : data.DM016305;
-            textEdit1.Text = data == null ? string.Empty : data.DM016303;
-            textEdit2.Text = data == null ? string.Empty : data.DM016304;
-            textEdit3.Text = data == null ? string.Empty : data.DM016310;
+            m_maloi_lk.EditValue = data == null ? Guid.Empty : data.DM016311;
+            m_loai_huondan.EditValue = data == null ? ' ' : data.DM016305;
+            m_ma_huongdan.Text = data == null ? string.Empty : data.DM016303;
+            m_ten_huongdan.Text = data == null ? string.Empty : data.DM016304;
+            m_tiep_dinhkem.Text = data == null ? string.Empty : data.DM016310;
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                textEdit3.Text = openFileDialog1.FileName;
+                m_tiep_dinhkem.Text = openFileDialog1.FileName;
                 string path = openFileDialog1.FileName;
+                _upload_flg = true;
             }
+        }
+        private void Load_ThongBao()
+        {
+            
+            List<DM_ThongBao> list= Helpers.ThongBao.GetList();
+            m_maloi_lk.Properties.DataSource = list;
+            m_maloi_lk.Properties.DisplayMember = "SYS03";
+            m_maloi_lk.Properties.ValueMember = "SYS01";
+            m_maloi_lk.Properties.BestFitRowCount = list.Count;
         }
     }
 }
