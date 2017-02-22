@@ -99,7 +99,7 @@ namespace QLNhiemVu.DanhMuc
             //LoadTrangthaiHoso();
         }
 
-        private void LoadPhongbanbophan()
+        private void LoadThutucNhiemvu()
         {
             List<DM_LoaiThutucNhiemvu> list = Helpers.ThutucNhiemvu.GetList();
 
@@ -109,7 +109,7 @@ namespace QLNhiemVu.DanhMuc
             lookUpEdit10.Properties.BestFitRowCount = list == null ? 0 : list.Count;
         }
 
-        private void LoadThutucNhiemvu()
+        private void LoadPhongbanbophan()
         {
             List<TD_Thamdinh_Duyet_Phongban> list = new List<TD_Thamdinh_Duyet_Phongban>() {
                 new TD_Thamdinh_Duyet_Phongban(){ ID=All.gs_dv_quanly, Name=All.gs_ten_dv_quanly},

@@ -23,7 +23,7 @@ namespace QLNhiemVu.DanhMuc
         private static string donvisudungName = All.gs_ten_dv_quanly;
         private static Guid nguoisudungID = All.gs_user_id;
         private static string nguoisudungName = All.gs_user_name;
-        private static string MaForm = "1";
+        private static string MaForm = "4";
         private static List<TD_DonviQuanly> DsDonviCapduoi = null;
 
         private static List<TD_ThuchienNhiemvu> currentList = null;
@@ -33,6 +33,7 @@ namespace QLNhiemVu.DanhMuc
         private static string currentState = "NORMAL";
 
         private static DM_LoaiThutucNhiemvu currentThutucNhiemvu = null;
+        public List<TD_DonviQuanly> DsDonvinhanVB = null;
 
         public FRM_TD_Phancong()
         {
@@ -211,6 +212,7 @@ namespace QLNhiemVu.DanhMuc
         {
             List<TD_DonviQuanly> list = Helpers.Trinhduyet.GetList_DonviQuanly();
             DsDonviCapduoi = list;//Dành cho test
+            DsDonvinhanVB = list;//Dành cho test
             lookUpEdit2.Properties.DataSource = list;
             lookUpEdit2.Properties.DisplayMember = "DM030105";
             lookUpEdit2.Properties.ValueMember = "DM030101";
@@ -435,6 +437,8 @@ namespace QLNhiemVu.DanhMuc
                 obj.DM017010 = currentState == "NEW" ? DateTime.Now : currentPhancong.DM017010;
                 obj.DM017011 = All.gs_user_id;
                 obj.DM017012 = DateTime.Now;
+
+                obj.DsDonvinhanVB = DsDonvinhanVB;
 
                 return obj;
             }
@@ -679,9 +683,12 @@ namespace QLNhiemVu.DanhMuc
         private void AssignDetailFormValue(TD_ThuchienNhiemvu data)
         {
             TD_Phancong pc = null;
+            DsDonvinhanVB = null;
+
             if (data != null && data.DsPhancong != null)
             {
                 pc = data.DsPhancong.OrderByDescending(o => o.DM017006).FirstOrDefault();
+                DsDonvinhanVB = pc.DsDonvinhanVB;
             }
 
             lookUpEdit14.EditValue = pc == null ? '0' : pc.DM017003;
@@ -736,14 +743,20 @@ namespace QLNhiemVu.DanhMuc
             if (lookUpEdit14.EditValue.ToString() == "1") //Lãnh đạo cùng cấp
             {
                 label12.Text = "Người nhận tiếp theo";
+                lookUpEdit10.Visible = true;
+                simpleButton2.Visible = false;
             }
             else if (lookUpEdit14.EditValue.ToString() == "2") //Đơn vị cấp dưới
             {
                 label12.Text = "Đơn vị nhận";
+                lookUpEdit10.Visible = false;
+                simpleButton2.Visible = true;
             }
             else //Chuyển chuyên viên
             {
                 label12.Text = "Chuyên viên nhận";
+                lookUpEdit10.Visible = true;
+                simpleButton2.Visible = false;
             }
         }
 
@@ -755,17 +768,33 @@ namespace QLNhiemVu.DanhMuc
 
             if (phamviId == '2')
             {
-                foreach (TD_DonviQuanly dv in DsDonviCapduoi)
-                    result.Add(new TD_Phancong_DoituongNhanVB(dv));
+                if (DsDonviCapduoi != null)
+                    foreach (TD_DonviQuanly dv in DsDonviCapduoi)
+                        result.Add(new TD_Phancong_DoituongNhanVB(dv));
             }
             else
             {
                 List<TD_Nguoiky> dsNK = Helpers.Trinhduyet.GetList_Nhansu(nguoisudungID, phamviId, '0');
-                foreach (TD_Nguoiky nk in dsNK)
-                    result.Add(new TD_Phancong_DoituongNhanVB(nk));
+                if (dsNK != null)
+                    foreach (TD_Nguoiky nk in dsNK)
+                        result.Add(new TD_Phancong_DoituongNhanVB(nk));
             }
 
             return result.Count == 0 ? null : result;
+        }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            FRM_TD_Phancong_DonvinhanVB frm = new FRM_TD_Phancong_DonvinhanVB();
+            frm.currentList = DsDonviCapduoi;
+            frm.currentListSelected = DsDonvinhanVB;
+            frm.Show();
+        }
+
+        public void CallBack_UpdateDsDonvinhanVB()
+        {
+            this.Enabled = true;
+            this.Focus();
         }
     }
 }

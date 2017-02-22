@@ -16,6 +16,9 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using Newtonsoft.Json;
 using QLNhiemVu_Defines;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraEditors.Repository;
 namespace QLNhiemVu.DanhMuc
 {
     public partial class FRM_DM_ThuTuc_NhiemVu : BaseForm_Data
@@ -272,6 +275,25 @@ namespace QLNhiemVu.DanhMuc
             uC_MenuBtn1.btn_sua.Click += btn_sua_Click;
             uC_MenuBtn1.btn_xoa.Click += btn_xoa_Click;
             uC_Help1.btn_main.Click += btn_huongdan_Click;
+
+            ledTruongdulieu_Kieutruong.EditValueChanged += ledTruongdulieu_Kieutruong_EditValueChanged;
+        }
+
+        void ledTruongdulieu_Kieutruong_EditValueChanged(object sender, EventArgs e)
+        {
+            //string id = ((LookUpEdit)sender).EditValue.ToString();
+
+            //GridViewInfo gridviewInfo = (GridViewInfo)gridView3.GetViewInfo();
+            //GridCellInfo cellInfo = gridviewInfo.GetGridCellInfo(gridView3.FocusedRowHandle, gridColumn17);
+
+            //if (id == "9")
+            //{
+            //    ((RepositoryItemButtonEdit)cellInfo.Editor).Buttons[0].Visible = true;
+            //}
+            //else
+            //{
+            //    ((RepositoryItemButtonEdit)cellInfo.Editor).Buttons[0].Visible = false;
+            //}
         }
         void btn_them_Click(object sender, EventArgs e)
         {
@@ -1039,6 +1061,11 @@ namespace QLNhiemVu.DanhMuc
             if (kieutruong.Length == 0)
             {
                 All.Show_message("Bạn phải chọn Kiểu trường!");
+                return;
+            }
+            if (kieutruong == "8" && currentTruongdulieu_Lookupdata == null)
+            {
+                All.Show_message("Bạn phải chọn Điều kiện dữ liệu!");
                 return;
             }
             if (dorong.Length == 0)

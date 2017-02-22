@@ -85,6 +85,12 @@
     <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu.Designer.cs">
       <DependentUpon>FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhMuc\FRM_TD_Phancong_DonvinhanVB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_Phancong_DonvinhanVB.Designer.cs">
+      <DependentUpon>FRM_TD_Phancong_DonvinhanVB.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\FRM_DM_ThuTuc_NhiemVu_Truongcon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,18 @@
     <Compile Include="DanhMuc\FRM_TD_Phancong.Designer.cs">
       <DependentUpon>FRM_TD_Phancong.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhMuc\FRM_TD_Pheduyet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_Pheduyet.Designer.cs">
+      <DependentUpon>FRM_TD_Pheduyet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_Pheduyet_DuyetThamdinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_Pheduyet_DuyetThamdinh.Designer.cs">
+      <DependentUpon>FRM_TD_Pheduyet_DuyetThamdinh.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\FRM_TD_Thamdinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +144,18 @@
     </Compile>
     <Compile Include="DanhMuc\FRM_TD_Thamdinh_Duyet.Designer.cs">
       <DependentUpon>FRM_TD_Thamdinh_Duyet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_PheduyetNhiemvuTuVBCosan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_PheduyetNhiemvuTuVBCosan.Designer.cs">
+      <DependentUpon>FRM_TD_PheduyetNhiemvuTuVBCosan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_PheduyetVB_AttachedFiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_TD_PheduyetVB_AttachedFiles.Designer.cs">
+      <DependentUpon>FRM_TD_PheduyetVB_AttachedFiles.cs</DependentUpon>
     </Compile>
     <Compile Include="DanhMuc\FRM_TD_ThuchienNhiemvu_AttachedFiles.cs">
       <SubType>Form</SubType>
@@ -309,6 +339,9 @@
     <EmbeddedResource Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu.resx">
       <DependentUpon>FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_TD_Phancong_DonvinhanVB.resx">
+      <DependentUpon>FRM_TD_Phancong_DonvinhanVB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\FRM_DM_ThuTuc_NhiemVu_Truongcon.resx">
       <DependentUpon>FRM_DM_ThuTuc_NhiemVu_Truongcon.cs</DependentUpon>
     </EmbeddedResource>
@@ -324,11 +357,23 @@
     <EmbeddedResource Include="DanhMuc\FRM_TD_Phancong.resx">
       <DependentUpon>FRM_TD_Phancong.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_TD_Pheduyet.resx">
+      <DependentUpon>FRM_TD_Pheduyet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_TD_Pheduyet_DuyetThamdinh.resx">
+      <DependentUpon>FRM_TD_Pheduyet_DuyetThamdinh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\FRM_TD_Thamdinh.resx">
       <DependentUpon>FRM_TD_Thamdinh.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\FRM_TD_Thamdinh_Duyet.resx">
       <DependentUpon>FRM_TD_Thamdinh_Duyet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_TD_PheduyetNhiemvuTuVBCosan.resx">
+      <DependentUpon>FRM_TD_PheduyetNhiemvuTuVBCosan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_TD_PheduyetVB_AttachedFiles.resx">
+      <DependentUpon>FRM_TD_PheduyetVB_AttachedFiles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\FRM_TD_ThuchienNhiemvu_AttachedFiles.resx">
       <DependentUpon>FRM_TD_ThuchienNhiemvu_AttachedFiles.cs</DependentUpon>

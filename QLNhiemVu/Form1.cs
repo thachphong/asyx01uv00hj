@@ -23,27 +23,9 @@ namespace QLNhiemVu
             frm.Show();
         }
 
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            FRM_PC_CQ frm = new FRM_PC_CQ();
-            frm.Show();
-        }
-
-        private void simpleButton3_Click(object sender, EventArgs e)
-        {
-            FRM_PC_PB frm = new FRM_PC_PB();
-            frm.Show();
-        }
-
-        private void simpleButton4_Click(object sender, EventArgs e)
-        {
-            FRM_ThamDinh frm = new FRM_ThamDinh();
-            frm.Show();
-        }
-
         private void simpleButton5_Click(object sender, EventArgs e)
         {
-            FRM_CN_TVB frm = new FRM_CN_TVB();
+            FRM_TD_PheduyetNhiemvuTuVBCosan frm = new FRM_TD_PheduyetNhiemvuTuVBCosan();
             frm.Show();
         }
 
@@ -62,6 +44,12 @@ namespace QLNhiemVu
         private void simpleButton8_Click(object sender, EventArgs e)
         {
             FRM_TD_Thamdinh frm = new FRM_TD_Thamdinh();
+            frm.Show();
+        }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            FRM_TD_Pheduyet frm = new FRM_TD_Pheduyet();
             frm.Show();
         }
     }

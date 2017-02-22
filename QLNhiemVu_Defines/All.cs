@@ -51,7 +51,7 @@ namespace QLNhiemVu_Defines
             new TD_Phancong_Phamvi(){ ID='2', Description="Phân công cho đơn vị cấp dưới"},
             new TD_Phancong_Phamvi(){ ID='3', Description="Chuyển chuyên viên thực hiện"}
         };
-        public static List<TD_Phancong_Thamquyen> td_phancong_thamquyen= new List<TD_Phancong_Thamquyen>() { 
+        public static List<TD_Phancong_Thamquyen> td_phancong_thamquyen = new List<TD_Phancong_Thamquyen>() { 
             new TD_Phancong_Thamquyen(){ ID='1', Description="Báo cáo của văn phòng cơ quan"},
             new TD_Phancong_Thamquyen(){ ID='2', Description="Phân công của thủ trưởng cơ quan"},
             new TD_Phancong_Thamquyen(){ ID='3', Description="Phân công của lãnh đạo phụ trách"},

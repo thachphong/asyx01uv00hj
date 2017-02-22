@@ -118,13 +118,13 @@ namespace QLNhiemVu.DanhMuc
             lookUpEdit4.EditValue = currentData.ColumnDisplayName;
             lookUpEdit5.EditValue = currentData.ColumnDisplayExtend1;
             lookUpEdit6.EditValue = currentData.ColumnDisplayExtend2;
-            lookUpEdit7.EditValue = currentData.Condition1 == null ? string.Empty : currentData.Condition1.ColumnName;
-            lookUpEdit8.EditValue = currentData.Condition1 == null ? string.Empty : currentData.Condition1.Condition;
+            lookUpEdit7.EditValue = currentData.Condition1 == null ? null : currentData.Condition1.ColumnName;
+            lookUpEdit8.EditValue = currentData.Condition1 == null ? null : currentData.Condition1.Condition;
             textEdit1.Text = currentData.Condition1 == null ? string.Empty : currentData.Condition1.Value;
-            lookUpEdit11.EditValue = currentData.Condition2 == null ? string.Empty : currentData.Condition2.ColumnName;
-            lookUpEdit10.EditValue = currentData.Condition2 == null ? string.Empty : currentData.Condition2.Condition;
+            lookUpEdit11.EditValue = currentData.Condition2 == null ? null : currentData.Condition2.ColumnName;
+            lookUpEdit10.EditValue = currentData.Condition2 == null ? null : currentData.Condition2.Condition;
             textEdit2.Text = currentData.Condition2 == null ? string.Empty : currentData.Condition2.Value;
-            lookUpEdit9.EditValue = currentData.ConditionCombination;
+            lookUpEdit9.EditValue = (currentData.Condition1 != null && currentData.Condition2 != null) ? currentData.ConditionCombination : null;
 
             if (currentData.ConditionCombination.Trim() != string.Empty)
             {
@@ -146,7 +146,9 @@ namespace QLNhiemVu.DanhMuc
 
         private void btn_capnhat_Click(object sender, EventArgs e)
         {
-            if (lookUpEdit7.EditValue != null || lookUpEdit8.EditValue != null || textEdit1.Text.Trim() != string.Empty)
+            if (lookUpEdit7.EditValue != null ||
+                lookUpEdit8.EditValue != null ||
+                textEdit1.Text.Trim() != string.Empty)
             {
                 if (lookUpEdit7.EditValue == null)
                 {
@@ -168,15 +170,15 @@ namespace QLNhiemVu.DanhMuc
                 }
             }
 
-            if (lookUpEdit9.EditValue != null)
+            if (lookUpEdit9.EditValue != null && lookUpEdit7.EditValue.ToString().Trim() != string.Empty)
             {
-                if (lookUpEdit11.EditValue == null || lookUpEdit11.EditValue.ToString().Trim() == string.Empty)
+                if (lookUpEdit11.EditValue == null)
                 {
                     All.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
                     lookUpEdit11.Focus();
                     return;
                 }
-                if (lookUpEdit10.EditValue == null || lookUpEdit10.EditValue.ToString().Trim() == string.Empty)
+                if (lookUpEdit10.EditValue == null)
                 {
                     All.Show_message("Vui lòng chọn điều kiện lọc dữ liệu!");
                     lookUpEdit10.Focus();
@@ -212,6 +214,9 @@ namespace QLNhiemVu.DanhMuc
                 };
             currentData.ConditionCombination = lookUpEdit9.EditValue == null ? string.Empty : lookUpEdit9.EditValue.ToString();
             currentData.Table = lookUpEdit1.EditValue == null ? string.Empty : lookUpEdit1.EditValue.ToString();
+
+            if (currentData.Table == string.Empty) currentData = null;
+            //if (currentData.ColumnSave == string.Empty) currentData = null;
 
             if (formType == "1")
             {
