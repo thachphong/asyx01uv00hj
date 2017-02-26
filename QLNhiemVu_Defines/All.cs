@@ -13,6 +13,34 @@ namespace QLNhiemVu_Defines
     {
         #region Bổ sung
 
+        public static List<TD_ThuchienNhiemvu_Cothienthi> const_static_column_phancong = new List<TD_ThuchienNhiemvu_Cothienthi>() { 
+            new TD_ThuchienNhiemvu_Cothienthi()
+            { 
+                DisplayName = "Người chuyển VB đến",
+                IsChecked = false,
+                ColumnName = "Nguoitao",
+            },
+            new TD_ThuchienNhiemvu_Cothienthi()
+            { 
+                DisplayName = "Ngày chuyển",
+                IsChecked = false,
+                ColumnName = "DM016707",
+            },
+            new TD_ThuchienNhiemvu_Cothienthi()
+            { 
+                DisplayName = "Xem các ý kiến trước",
+                IsChecked = false,
+                ColumnName = "Xemykien",
+            },
+            new TD_ThuchienNhiemvu_Cothienthi()
+            { 
+                
+                DisplayName = "Trạng thái",
+                IsChecked = false,
+                ColumnName = "Trangthai",
+            },
+        };
+
         public static List<DM_LoaiThutucNhiemvu_LoaiCapphep> dm_loaithutuc_loaicapphep = new List<DM_LoaiThutucNhiemvu_LoaiCapphep>() { 
             new DM_LoaiThutucNhiemvu_LoaiCapphep(){ ID='1', Description="Tất cả"},
             new DM_LoaiThutucNhiemvu_LoaiCapphep(){ ID='2', Description="Đơn vị sử dụng chương trình cụ thể"},

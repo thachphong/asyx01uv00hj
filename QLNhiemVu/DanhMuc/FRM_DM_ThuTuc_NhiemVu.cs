@@ -369,6 +369,8 @@ namespace QLNhiemVu.DanhMuc
                         LoadList_Master();
                 }
             }
+
+            uC_Help1.btn_main.Enabled = true;
             SetDetailFormEnable(true);
             uC_MenuBtn1.set_status_menu(currentState, currentList == null ? 0 : currentList.Count);
             set_enable_groupControl("A");

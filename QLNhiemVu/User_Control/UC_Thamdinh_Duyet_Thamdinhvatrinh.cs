@@ -24,6 +24,8 @@ namespace QLNhiemVu.User_Control
         private static List<TD_Thamdinh_Duyet_Truongdulieu> tempFields = null;
         private static List<TD_ThuchienNhiemvu_Truongdulieu> tempFields_Nhiemvu = null;
         private static bool isEditing = false;
+        private static TD_Thamdinh_Duyet currentDuyet = null;
+
         public UC_Thamdinh_Duyet_Thamdinhvatrinh()
         {
             InitializeComponent();
@@ -44,14 +46,16 @@ namespace QLNhiemVu.User_Control
             lookUpEdit11.Properties.BestFitRowCount = list == null ? 0 : list.Count;
         }
 
-        public void AssignData(TD_Thamdinh_Duyet objData)
+        public void AssignData(TD_Thamdinh_Duyet objData, bool replaceCurrent = true)
         {
+            if (replaceCurrent)
+                currentDuyet = objData;
+
             textEdit2.Text = objData == null ? string.Empty : objData.DM017111;
             dateEdit3.DateTime = objData == null ? DateTime.Now : objData.DM017112;
             lookUpEdit11.EditValue = objData == null ? Guid.Empty : objData.DM017113;
             textEdit5.Text = objData == null ? string.Empty : ((List<TD_Nguoiky>)lookUpEdit11.Properties.DataSource).FirstOrDefault(o => o.DM030401 == Guid.Parse(lookUpEdit11.EditValue.ToString())).Chucvu;
             textEdit4.Text = objData == null ? string.Empty : objData.DM017114;
-            textEdit7.Text = objData == null ? string.Empty : objData.DM017119;
             textEdit6.Text = objData == null ? string.Empty : objData.DM017118;
 
             xtraScrollableControl2.Controls.Clear();
@@ -64,6 +68,7 @@ namespace QLNhiemVu.User_Control
                 MemoEdit memoEdit = new MemoEdit();
                 memoEdit.Name = "mmeText";
                 memoEdit.Dock = DockStyle.Fill;
+                memoEdit.Font = All.Font_control;
                 if (frm.TD_Nhiemvu != null) memoEdit.Text = frm.TD_Nhiemvu.DM016715;
                 memoEdit.ReadOnly = frm.currentState == "NORMAL";
                 xtraScrollableControl2.Controls.Add(memoEdit);
@@ -71,6 +76,7 @@ namespace QLNhiemVu.User_Control
                 MemoEdit memoEdit_Thamdinh = new MemoEdit();
                 memoEdit_Thamdinh.Name = "mmeText_Thamdinh";
                 memoEdit_Thamdinh.Dock = DockStyle.Fill;
+                memoEdit_Thamdinh.Font = All.Font_control;
                 if (objData != null) memoEdit_Thamdinh.Text = objData.DM017121;
                 //memoEdit_Thamdinh.ReadOnly = !isEditing;
                 xtraScrollableControl3.Controls.Add(memoEdit_Thamdinh);
@@ -145,7 +151,7 @@ namespace QLNhiemVu.User_Control
             objData.DM017112 = dateEdit3.DateTime;
             objData.DM017113 = Guid.Parse(lookUpEdit11.EditValue.ToString());
             objData.DM017114 = textEdit4.Text;
-            objData.DM017119 = textEdit7.Text;
+            objData.DM017119 = string.Empty;
             objData.DM017118 = textEdit6.Text;
 
             MemoEdit mmeText = (MemoEdit)xtraScrollableControl3.Controls.Find("mmeText_Thamdinh", true).FirstOrDefault();
@@ -229,6 +235,20 @@ namespace QLNhiemVu.User_Control
         {
             simpleButton3.Enabled = false;
             groupControl3.Visible = true;
+        }
+
+        private void lookUpEdit13_EditValueChanged(object sender, EventArgs e)
+        {
+            DM_LoaiThutucNhiemvu_Noidung noidung = (DM_LoaiThutucNhiemvu_Noidung)lookUpEdit13.GetSelectedDataRow();
+            TD_Thamdinh_Duyet current = currentDuyet.ListDiffBy_Noidung.FirstOrDefault(o => o.DM017122 == noidung.DM016101);
+            AssignData(current, false);
+        }
+
+        private void lookUpEdit13_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            DM_LoaiThutucNhiemvu_Noidung noidung = (DM_LoaiThutucNhiemvu_Noidung)lookUpEdit13.GetSelectedDataRow();
+            TD_Thamdinh_Duyet current = currentDuyet.ListDiffBy_Noidung.FirstOrDefault(o => o.DM017122 == noidung.DM016101);
+            FillData(ref current);
         }
     }
 }

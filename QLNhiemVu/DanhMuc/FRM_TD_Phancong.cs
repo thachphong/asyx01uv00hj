@@ -101,6 +101,8 @@ namespace QLNhiemVu.DanhMuc
             {
                 if (!cot.IsChecked) continue;
 
+                if (All.const_static_column_phancong.FirstOrDefault(o => o.ColumnName.ToLower() == cot.ColumnName.ToLower()) != null) continue;
+
                 GridColumn colDyn = new GridColumn()
                 {
                     Caption = cot.DisplayName,
@@ -113,21 +115,40 @@ namespace QLNhiemVu.DanhMuc
                 gridView1.Columns.Add(colDyn);
             }
 
-            GridColumn col = new GridColumn()
+            foreach (TD_ThuchienNhiemvu_Cothienthi cot in All.const_static_column_phancong)
             {
-                Caption = "Xem ý kiến",
-                Width = 100,
-                ColumnEdit = new RepositoryItemButtonEdit()
+                if (cot.ColumnName.ToLower() == "xemykien")
                 {
-                    TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor,
-                },
-                Visible = true,
-            };
-            col.OptionsColumn.FixedWidth = true;
-            col.OptionsColumn.AllowEdit = true;
-            col.OptionsColumn.AllowFocus = true;
-            col.ColumnEdit.Click += ColumnEdit_Click;
-            gridView1.Columns.Add(col);
+                    GridColumn col = new GridColumn()
+                    {
+                        Caption = "Xem ý kiến",
+                        Width = 100,
+                        ColumnEdit = new RepositoryItemButtonEdit()
+                        {
+                            TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor,
+                        },
+                        Visible = true,
+                    };
+                    col.OptionsColumn.FixedWidth = true;
+                    col.OptionsColumn.AllowEdit = true;
+                    col.OptionsColumn.AllowFocus = true;
+                    col.ColumnEdit.Click += ColumnEdit_Click;
+                    gridView1.Columns.Add(col);
+                }
+                else
+                {
+                    GridColumn colDyn = new GridColumn()
+                    {
+                        Caption = cot.DisplayName,
+                        FieldName = cot.ColumnName,
+                        UnboundType = DevExpress.Data.UnboundColumnType.Object,
+                        Visible = true,
+                    };
+                    colDyn.OptionsColumn.AllowEdit = false;
+                    colDyn.OptionsColumn.AllowFocus = false;
+                    gridView1.Columns.Add(colDyn);
+                }
+            }
 
             gridView1.RefreshEditor(false);
         }

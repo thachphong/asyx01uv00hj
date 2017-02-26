@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRM_TD_Phancong));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
@@ -71,18 +71,18 @@
             this.uC_MenuBtn1 = new QLNhiemVu.User_Control.UC_MenuBtn();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.panelHeader2 = new QLNhiemVu.panelHeader();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
             this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
+            this.lookUpEdit10 = new DevExpress.XtraEditors.LookUpEdit();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.lookUpEdit14 = new DevExpress.XtraEditors.LookUpEdit();
             this.label21 = new System.Windows.Forms.Label();
-            this.lookUpEdit10 = new DevExpress.XtraEditors.LookUpEdit();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -119,8 +119,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit14.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit10.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit14.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -232,7 +232,7 @@
             // 
             this.repositoryItemButtonEdit1.AutoHeight = false;
             this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
             this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             // 
@@ -672,6 +672,18 @@
             this.panelHeader2.Size = new System.Drawing.Size(1033, 141);
             this.panelHeader2.TabIndex = 1;
             // 
+            // simpleButton2
+            // 
+            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.simpleButton2.Appearance.Options.UseFont = true;
+            this.simpleButton2.ImageList = this.imageCollection1;
+            this.simpleButton2.Location = new System.Drawing.Point(688, 11);
+            this.simpleButton2.Name = "simpleButton2";
+            this.simpleButton2.Size = new System.Drawing.Size(43, 26);
+            this.simpleButton2.TabIndex = 114;
+            this.simpleButton2.Text = "...";
+            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            // 
             // dateEdit2
             // 
             this.dateEdit2.EditValue = null;
@@ -708,6 +720,8 @@
             // 
             this.memoEdit1.Location = new System.Drawing.Point(226, 76);
             this.memoEdit1.Name = "memoEdit1";
+            this.memoEdit1.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.memoEdit1.Properties.Appearance.Options.UseFont = true;
             this.memoEdit1.Size = new System.Drawing.Size(668, 58);
             this.memoEdit1.TabIndex = 114;
             // 
@@ -718,6 +732,29 @@
             this.pictureEdit2.Size = new System.Drawing.Size(119, 122);
             this.pictureEdit2.TabIndex = 111;
             this.pictureEdit2.Visible = false;
+            // 
+            // lookUpEdit10
+            // 
+            this.lookUpEdit10.Location = new System.Drawing.Point(688, 12);
+            this.lookUpEdit10.Name = "lookUpEdit10";
+            this.lookUpEdit10.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit10.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.lookUpEdit10.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit10.Properties.Appearance.Options.UseForeColor = true;
+            this.lookUpEdit10.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit10.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lookUpEdit10.Properties.AppearanceDropDownHeader.ForeColor = System.Drawing.Color.Black;
+            this.lookUpEdit10.Properties.AppearanceDropDownHeader.Options.UseForeColor = true;
+            this.lookUpEdit10.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit10.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Description", "Name")});
+            this.lookUpEdit10.Properties.NullText = "";
+            this.lookUpEdit10.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            this.lookUpEdit10.Properties.ShowHeader = false;
+            this.lookUpEdit10.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lookUpEdit10.Size = new System.Drawing.Size(206, 26);
+            this.lookUpEdit10.TabIndex = 108;
             // 
             // label10
             // 
@@ -793,41 +830,6 @@
             this.label21.TabIndex = 84;
             this.label21.Text = "Phạm vi phân công tiếp theo";
             // 
-            // lookUpEdit10
-            // 
-            this.lookUpEdit10.Location = new System.Drawing.Point(688, 12);
-            this.lookUpEdit10.Name = "lookUpEdit10";
-            this.lookUpEdit10.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lookUpEdit10.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.lookUpEdit10.Properties.Appearance.Options.UseFont = true;
-            this.lookUpEdit10.Properties.Appearance.Options.UseForeColor = true;
-            this.lookUpEdit10.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lookUpEdit10.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.lookUpEdit10.Properties.AppearanceDropDownHeader.ForeColor = System.Drawing.Color.Black;
-            this.lookUpEdit10.Properties.AppearanceDropDownHeader.Options.UseForeColor = true;
-            this.lookUpEdit10.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit10.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Description", "Name")});
-            this.lookUpEdit10.Properties.NullText = "";
-            this.lookUpEdit10.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
-            this.lookUpEdit10.Properties.ShowHeader = false;
-            this.lookUpEdit10.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lookUpEdit10.Size = new System.Drawing.Size(206, 26);
-            this.lookUpEdit10.TabIndex = 108;
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.ImageList = this.imageCollection1;
-            this.simpleButton2.Location = new System.Drawing.Point(688, 11);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(43, 26);
-            this.simpleButton2.TabIndex = 114;
-            this.simpleButton2.Text = "...";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
-            // 
             // FRM_TD_Phancong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -877,8 +879,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit14.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit10.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit14.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

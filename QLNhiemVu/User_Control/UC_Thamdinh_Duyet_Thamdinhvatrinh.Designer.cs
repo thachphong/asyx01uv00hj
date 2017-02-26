@@ -52,8 +52,8 @@
             this.xtraScrollableControl3 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.xtraScrollableControl2 = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.textEdit7 = new DevExpress.XtraEditors.TextEdit();
             this.label3 = new System.Windows.Forms.Label();
+            this.lookUpEdit13 = new DevExpress.XtraEditors.LookUpEdit();
             this.xtraScrollableControl1.SuspendLayout();
             this.panelHeader1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
@@ -69,7 +69,7 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit13.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -88,12 +88,12 @@
             // 
             // panelHeader1
             // 
+            this.panelHeader1.Controls.Add(this.lookUpEdit13);
             this.panelHeader1.Controls.Add(this.simpleButton3);
             this.panelHeader1.Controls.Add(this.simpleButton2);
             this.panelHeader1.Controls.Add(this.groupControl3);
             this.panelHeader1.Controls.Add(this.groupControl1);
             this.panelHeader1.Controls.Add(this.groupControl2);
-            this.panelHeader1.Controls.Add(this.textEdit7);
             this.panelHeader1.Controls.Add(this.label3);
             this.panelHeader1.Location = new System.Drawing.Point(4, 4);
             this.panelHeader1.Name = "panelHeader1";
@@ -353,17 +353,6 @@
             this.xtraScrollableControl2.Size = new System.Drawing.Size(745, 153);
             this.xtraScrollableControl2.TabIndex = 0;
             // 
-            // textEdit7
-            // 
-            this.textEdit7.Location = new System.Drawing.Point(138, 14);
-            this.textEdit7.Name = "textEdit7";
-            this.textEdit7.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit7.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.textEdit7.Properties.Appearance.Options.UseFont = true;
-            this.textEdit7.Properties.Appearance.Options.UseForeColor = true;
-            this.textEdit7.Size = new System.Drawing.Size(614, 26);
-            this.textEdit7.TabIndex = 105;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -373,6 +362,31 @@
             this.label3.Size = new System.Drawing.Size(123, 19);
             this.label3.TabIndex = 104;
             this.label3.Text = "Nội dung chi tiết";
+            // 
+            // lookUpEdit13
+            // 
+            this.lookUpEdit13.Location = new System.Drawing.Point(138, 14);
+            this.lookUpEdit13.Name = "lookUpEdit13";
+            this.lookUpEdit13.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit13.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.lookUpEdit13.Properties.Appearance.Options.UseFont = true;
+            this.lookUpEdit13.Properties.Appearance.Options.UseForeColor = true;
+            this.lookUpEdit13.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit13.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lookUpEdit13.Properties.AppearanceDropDownHeader.ForeColor = System.Drawing.Color.Black;
+            this.lookUpEdit13.Properties.AppearanceDropDownHeader.Options.UseForeColor = true;
+            this.lookUpEdit13.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit13.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DM016104", "Name")});
+            this.lookUpEdit13.Properties.NullText = "";
+            this.lookUpEdit13.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            this.lookUpEdit13.Properties.ShowHeader = false;
+            this.lookUpEdit13.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lookUpEdit13.Size = new System.Drawing.Size(612, 26);
+            this.lookUpEdit13.TabIndex = 111;
+            this.lookUpEdit13.EditValueChanged += new System.EventHandler(this.lookUpEdit13_EditValueChanged);
+            this.lookUpEdit13.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.lookUpEdit13_EditValueChanging);
             // 
             // UC_Thamdinh_Duyet_Thamdinhvatrinh
             // 
@@ -399,7 +413,7 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit13.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -427,10 +441,10 @@
         private System.Windows.Forms.Label label13;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
-        private DevExpress.XtraEditors.TextEdit textEdit7;
         private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl3;
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl2;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit13;
 
     }
 }

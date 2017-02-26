@@ -35,7 +35,7 @@ namespace QLNhiemVu.User_Control
             lookUpEdit11.Properties.BestFitRowCount = list == null ? 0 : list.Count;
         }
 
-        public void AssignData(TD_Thamdinh_Duyet objData)
+        public void AssignData(TD_Thamdinh_Duyet objData, bool replaceCurrent = true)
         {
             textEdit2.Text = objData == null ? string.Empty : objData.DM017111;
             dateEdit3.DateTime = objData == null ? DateTime.Now : objData.DM017112;

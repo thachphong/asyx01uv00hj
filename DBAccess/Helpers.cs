@@ -849,6 +849,52 @@ namespace DBAccess
                 }
             }
 
+            public static APIResponseData Create(List<TD_ThuchienNhiemvu> list)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thuchiennhiemvu");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "create_list",
+                        Data = JsonConvert.SerializeObject(list)
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    return ConvertFromString(response);
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
+            public static APIResponseData Update(List<TD_ThuchienNhiemvu> list)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thuchiennhiemvu");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "update_list",
+                        Data = JsonConvert.SerializeObject(list)
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    return ConvertFromString(response);
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
             public static APIResponseData Delete(List<Guid> list)
             {
                 try
@@ -1307,6 +1353,52 @@ namespace DBAccess
                     {
                         Action = "delete_duyet",
                         Data = JsonConvert.SerializeObject(list)
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    return ConvertFromString(response);
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
+            public static APIResponseData Create_Duyet(List<TD_Thamdinh_Duyet> obj)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thamdinh");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "create_duyet_list",
+                        Data = JsonConvert.SerializeObject(obj)
+                    };
+                    string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
+
+                    if (string.IsNullOrEmpty(response)) return null;
+
+                    return ConvertFromString(response);
+                }
+                catch (Exception ex)
+                {
+                    Log.write(ex);
+                    return null;
+                }
+            }
+
+            public static APIResponseData Update_Duyet(List<TD_Thamdinh_Duyet> obj)
+            {
+                try
+                {
+                    string url = CreateRequestUrl("trinhduyet_thamdinh");
+                    APIRequestData requestData = new APIRequestData()
+                    {
+                        Action = "update_duyet_list",
+                        Data = JsonConvert.SerializeObject(obj)
                     };
                     string response = Decided.Libs.WebUtils.Request_POST(url, JsonConvert.SerializeObject(requestData));
 

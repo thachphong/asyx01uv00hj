@@ -207,6 +207,7 @@
             this.checkEdit1.Properties.Caption = "";
             this.checkEdit1.Size = new System.Drawing.Size(16, 19);
             this.checkEdit1.TabIndex = 4;
+            this.checkEdit1.Visible = false;
             this.checkEdit1.CheckedChanged += new System.EventHandler(this.checkEdit1_CheckedChanged);
             // 
             // gridControl1
@@ -281,8 +282,6 @@
             this.gridColumn10.OptionsColumn.ShowCaption = false;
             this.gridColumn10.OptionsFilter.AllowAutoFilter = false;
             this.gridColumn10.OptionsFilter.AllowFilter = false;
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 0;
             this.gridColumn10.Width = 30;
             // 
             // repositoryItemCheckEdit1
@@ -366,7 +365,7 @@
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.OptionsColumn.AllowFocus = false;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 2;
+            this.gridColumn5.VisibleIndex = 1;
             this.gridColumn5.Width = 306;
             // 
             // gridColumn18
@@ -377,7 +376,7 @@
             this.gridColumn18.OptionsColumn.AllowEdit = false;
             this.gridColumn18.OptionsColumn.AllowFocus = false;
             this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 1;
+            this.gridColumn18.VisibleIndex = 0;
             // 
             // gridColumn19
             // 
@@ -1048,6 +1047,7 @@
             this.lookUpEdit13.Size = new System.Drawing.Size(258, 26);
             this.lookUpEdit13.TabIndex = 68;
             this.lookUpEdit13.EditValueChanged += new System.EventHandler(this.lookUpEdit13_EditValueChanged);
+            this.lookUpEdit13.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.lookUpEdit13_EditValueChanging);
             // 
             // lookUpEdit11
             // 

@@ -30,9 +30,11 @@ namespace QLNhiemVu.DanhMuc
         private static string currentState = "NORMAL";
         private static string tepDinhkem = string.Empty;
         private static DM_LoaiThutucNhiemvu_Noidung currentNoidung = null;
+        private static DM_LoaiThutucNhiemvu_Noidung previousNoidung = null;
         private static List<TD_ThuchienNhiemvu_Truongdulieu> tempFields = null;
         private static DM_LoaiThutucNhiemvu currentThutucNhiemvu = null;
         private static Guid createdID = Guid.Empty;
+        private static List<TD_ThuchienNhiemvu> currentNewList = null;
         public FRM_TD_ThuchienNhiemvu()
         {
             InitializeComponent();
@@ -191,7 +193,10 @@ namespace QLNhiemVu.DanhMuc
 
         void btn_xoa_Click(object sender, EventArgs e)
         {
-            List<Guid> listChecked = GetIDChecked();
+            TD_ThuchienNhiemvu selected = (TD_ThuchienNhiemvu)gridView1.GetFocusedRow();
+            if (selected == null) return;
+
+            List<Guid> listChecked = new List<Guid>() { selected.DM016701 };
             if (listChecked == null)
             {
                 All.Show_message("Vui lòng chọn trước khi xóa!");
@@ -266,19 +271,19 @@ namespace QLNhiemVu.DanhMuc
             createdID = Guid.Empty;
             if (currentState == "NEW")
             {
-                APIResponseData result = Helpers.TrinhduyetThuchienNhiemvu.Create(obj);
+                APIResponseData result = Helpers.TrinhduyetThuchienNhiemvu.Create(currentNewList);
                 if (result == null)
                 {
                     All.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
                 }
                 else if (result.ErrorCode == 0)
                 {
-                    All.Show_message("Thêm mới thành công Trình duyệt Thực hiện nhiệm vụ: " + obj.DM016706);
+                    All.Show_message("Thêm mới thành công Trình duyệt Thực hiện nhiệm vụ!");
                     currentState = "NORMAL";
-                    TD_ThuchienNhiemvu newObj = JsonConvert.DeserializeObject<TD_ThuchienNhiemvu>(result.Data.ToString());
-                    RefreshNewData(newObj);
-                    createdID = newObj.DM016701;
-                    LoadList();
+                    //TD_ThuchienNhiemvu newObj = JsonConvert.DeserializeObject<TD_ThuchienNhiemvu>(result.Data.ToString());
+                    //RefreshNewData(newObj);
+                    //createdID = newObj.DM016701;
+                    LoadList(false);
                 }
                 else
                 {
@@ -287,23 +292,23 @@ namespace QLNhiemVu.DanhMuc
             }
             else
             {
-                APIResponseData result = Helpers.TrinhduyetThuchienNhiemvu.Update(obj);
+                APIResponseData result = Helpers.TrinhduyetThuchienNhiemvu.Update(currentNewList);
                 if (result == null)
                 {
                     All.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
                 }
                 else if (result.ErrorCode == 0)
                 {
-                    All.Show_message("Cập nhật thành công Nhiệm vụ: " + obj.DM016706);
+                    All.Show_message("Cập nhật thành công Nhiệm vụ!");
                     currentState = "NORMAL";
-                    RefreshNewData(JsonConvert.DeserializeObject<TD_ThuchienNhiemvu>(result.Data.ToString()));
-                    LoadList();
+                    //RefreshNewData(JsonConvert.DeserializeObject<TD_ThuchienNhiemvu>(result.Data.ToString()));
+                    LoadList(false);
                 }
                 else
                 {
                     All.Show_message("Error code " + result.ErrorCode + ": " + result.Message);
                     if (result.ErrorCode == -1)
-                        LoadList();
+                        LoadList(false);
                 }
             }
         }
@@ -650,6 +655,8 @@ namespace QLNhiemVu.DanhMuc
 
         private void AssignDetailFormValue(TD_ThuchienNhiemvu data)
         {
+            currentNewList = data == null ? null : data.ListDiffBy_Noidung;
+
             lookUpEdit6.EditValue = data == null ? DateTime.Now.Year : data.DM016703;
             lookUpEdit7.EditValue = data == null ? Guid.Empty : data.MaPhanloaiNhiemvu;
             lookUpEdit8.EditValue = data == null ? Guid.Empty : data.DM016705;
@@ -743,7 +750,26 @@ namespace QLNhiemVu.DanhMuc
         {
             //Nội dung
             currentNoidung = (DM_LoaiThutucNhiemvu_Noidung)lookUpEdit13.GetSelectedDataRow();
-            GenerateContents();
+            TD_ThuchienNhiemvu current = currentNewList == null ? null : currentNewList.FirstOrDefault(o => o.DM016713 == currentNoidung.DM016101);
+            if (current != null) AssignDetailFormValue(current);
+            else
+                GenerateContents();
+        }
+
+        private void lookUpEdit13_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            if (!ValidateDetailForm())
+            {
+                e.Cancel = true;
+                return;
+            }
+
+            TD_ThuchienNhiemvu current = PrepareDetail();
+
+            if (currentNewList == null) currentNewList = new List<TD_ThuchienNhiemvu>();
+            TD_ThuchienNhiemvu obj = currentNewList.FirstOrDefault(o => o.DM016713 == current.DM016713);
+            if (obj != null) obj = current;
+            else currentNewList.Add(current);
         }
 
         private void GenerateContents()
@@ -756,6 +782,7 @@ namespace QLNhiemVu.DanhMuc
                 MemoEdit memoEdit = new MemoEdit();
                 memoEdit.Name = "mmeText";
                 memoEdit.Dock = DockStyle.Fill;
+                memoEdit.Font = All.Font_control;
                 if (currentDataSelected != null) memoEdit.Text = currentDataSelected.DM016715;
                 memoEdit.ReadOnly = currentState == "NORMAL";
                 xtraScrollableControl1.Controls.Add(memoEdit);

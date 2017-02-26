@@ -29,6 +29,7 @@ namespace QLNhiemVu.DanhMuc
         //private static DM_LoaiThutucNhiemvu currentThutucNhiemvu = null;
         public string currentState = "NORMAL";
         private static List<TD_Thamdinh_Duyet> currentList = null;
+        private static List<TD_Thamdinh_Duyet> currentNewList = null;
         private static TD_Thamdinh_Duyet currentDataSelected = null;
         private static int currentRowSelected = -1;
         private static Control iControl = null;
@@ -323,33 +324,80 @@ namespace QLNhiemVu.DanhMuc
             else current = obj;
         }
 
+        private bool ValidateDetailForm()
+        {
+            if (lookUpEdit1.EditValue.ToString() == Guid.Empty.ToString())
+            {
+                All.Show_message("Vui lòng chọn Phòng ban!");
+                lookUpEdit1.Focus();
+                return false;
+            }
+
+            if (lookUpEdit7.EditValue.ToString() == Guid.Empty.ToString())
+            {
+                All.Show_message("Vui lòng chọn Phân loại!");
+                lookUpEdit7.Focus();
+                return false;
+            }
+
+            if (lookUpEdit8.EditValue.ToString() == Guid.Empty.ToString())
+            {
+                All.Show_message("Vui lòng chọn Danh mục Nhiệm vụ!");
+                lookUpEdit8.Focus();
+                return false;
+            }
+
+            if (lookUpEdit10.EditValue.ToString() == Guid.Empty.ToString())
+            {
+                All.Show_message("Vui lòng chọn Phân loại Thủ tục!");
+                lookUpEdit10.Focus();
+                return false;
+            }
+
+            if (textEdit2.Text.Trim() == string.Empty)
+            {
+                All.Show_message("Vui lòng nhập Số văn bản!");
+                textEdit2.Focus();
+                return false;
+            }
+
+            if (dateEdit3.EditValue == null)
+            {
+                All.Show_message("Vui lòng chọn Ngày!");
+                dateEdit3.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
         void btn_capnhat_Click(object sender, EventArgs e)
         {
             if (currentState == "NORMAL") return;
 
             //if (!ValidateDetailForm()) return;
 
-            TD_Thamdinh_Duyet obj = PrepareDetail();
+            //TD_Thamdinh_Duyet obj = PrepareDetail();
 
-            if (obj == null)
-            {
-                All.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
-                return;
-            }
+            //if (obj == null)
+            //{
+            //    All.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
+            //    return;
+            //}
 
             if (currentState == "NEW")
             {
-                APIResponseData result = Helpers.TrinhduyetThamdinh.Create_Duyet(obj);
+                APIResponseData result = Helpers.TrinhduyetThamdinh.Create_Duyet(currentNewList);
                 if (result == null)
                 {
                     All.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
                 }
                 else if (result.ErrorCode == 0)
                 {
-                    All.Show_message("Thêm mới thành công Duyệt thẩm định: " + obj.DM017105);
+                    All.Show_message("Thêm mới thành công Duyệt thẩm định!");
                     currentState = "NORMAL";
-                    RefreshNewData(JsonConvert.DeserializeObject<TD_Thamdinh_Duyet>(result.Data.ToString()));
-                    LoadList();
+                    //RefreshNewData(JsonConvert.DeserializeObject<TD_Thamdinh_Duyet>(result.Data.ToString()));
+                    LoadList(false);
                 }
                 else
                 {
@@ -358,23 +406,23 @@ namespace QLNhiemVu.DanhMuc
             }
             else
             {
-                APIResponseData result = Helpers.TrinhduyetThamdinh.Update_Duyet(obj);
+                APIResponseData result = Helpers.TrinhduyetThamdinh.Update_Duyet(currentNewList);
                 if (result == null)
                 {
                     All.Show_message("Có lỗi trong quá trình cập nhật dữ liệu!");
                 }
                 else if (result.ErrorCode == 0)
                 {
-                    All.Show_message("Cập nhật thành công Duyệt thẩm định: " + obj.DM017105);
+                    All.Show_message("Cập nhật thành công Duyệt thẩm định!");
                     currentState = "NORMAL";
-                    RefreshNewData(JsonConvert.DeserializeObject<TD_Thamdinh_Duyet>(result.Data.ToString()));
-                    LoadList();
+                    //RefreshNewData(JsonConvert.DeserializeObject<TD_Thamdinh_Duyet>(result.Data.ToString()));
+                    LoadList(false);
                 }
                 else
                 {
                     All.Show_message("Error code " + result.ErrorCode + ": " + result.Message);
                     if (result.ErrorCode == -1)
-                        LoadList();
+                        LoadList(false);
                 }
             }
         }
@@ -693,6 +741,8 @@ namespace QLNhiemVu.DanhMuc
 
         private void AssignDetailFormValue(TD_Thamdinh_Duyet data)
         {
+            currentNewList = data.ListDiffBy_Noidung;
+
             lookUpEdit6.EditValue = data == null ? DateTime.Now.Year : data.DM017103;
             lookUpEdit7.EditValue = data == null ? Guid.Empty : data.MaPhanloaiNhiemvu;
             lookUpEdit8.EditValue = data == null ? Guid.Empty : data.DM017104;
