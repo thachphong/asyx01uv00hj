@@ -741,7 +741,7 @@ namespace QLNhiemVu.DanhMuc
 
         private void AssignDetailFormValue(TD_Thamdinh_Duyet data)
         {
-            currentNewList = data.ListDiffBy_Noidung;
+            currentNewList = data == null ? null : data.ListDiffBy_Noidung;
 
             lookUpEdit6.EditValue = data == null ? DateTime.Now.Year : data.DM017103;
             lookUpEdit7.EditValue = data == null ? Guid.Empty : data.MaPhanloaiNhiemvu;

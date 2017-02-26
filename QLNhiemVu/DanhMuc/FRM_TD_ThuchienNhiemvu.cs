@@ -481,7 +481,7 @@ namespace QLNhiemVu.DanhMuc
                 return false;
             }
 
-            if (lookUpEdit13.EditValue.ToString() == Guid.Empty.ToString())
+            if (lookUpEdit13.EditValue == null || lookUpEdit13.EditValue.ToString() == Guid.Empty.ToString())
             {
                 All.Show_message("Vui lòng chọn Nội dung Nhiệm vụ!");
                 lookUpEdit13.Focus();
@@ -706,7 +706,7 @@ namespace QLNhiemVu.DanhMuc
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            checkEdit1.Checked = false;
+            //checkEdit1.Checked = false;
             LoadList(false);
         }
 
@@ -758,6 +758,9 @@ namespace QLNhiemVu.DanhMuc
 
         private void lookUpEdit13_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
+            currentNoidung = (DM_LoaiThutucNhiemvu_Noidung)lookUpEdit13.GetSelectedDataRow();
+            if (currentNoidung == null) return;
+
             if (!ValidateDetailForm())
             {
                 e.Cancel = true;
