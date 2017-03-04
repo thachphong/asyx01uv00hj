@@ -19,8 +19,7 @@ namespace QLNhiemVu.DanhMuc
 {
     public partial class FRM_DM_ThuTuc_NhiemVu_Truongcon : BaseForm_Data
     {
-        FRM_DM_ThuTuc_NhiemVu frm = null;
-        public Guid currentNoidungId = Guid.Empty;
+        FRM_DM_Thutuc frm = null;
         public List<DM_LoaiThutucNhiemvu_Truongdulieu> currentList = null;
         private int currentRowSelected_D2 = 0;
         public string currentState = "NORMAL";
@@ -38,7 +37,7 @@ namespace QLNhiemVu.DanhMuc
 
         private void FRM_DM_ThuTuc_NhiemVu_Truongcon_Load(object sender, EventArgs e)
         {
-            frm = (FRM_DM_ThuTuc_NhiemVu)Application.OpenForms["FRM_DM_ThuTuc_NhiemVu"];
+            frm = (FRM_DM_Thutuc)Application.OpenForms["FRM_DM_Thutuc"];
             if (frm == null) this.Dispose();
 
             panelHeader1.alignCenter(panelHeader1.Parent);
@@ -56,7 +55,6 @@ namespace QLNhiemVu.DanhMuc
         void btn_truongdulieu_kieutruong_Click(object sender, EventArgs e)
         {
             DataRow data = gridView3.GetFocusedDataRow();
-            //Guid id = Guid.Parse(data.ItemArray[0].ToString());
             string kieutruong = data.ItemArray[4].ToString().Trim();
 
             if (kieutruong == "8")
@@ -69,6 +67,7 @@ namespace QLNhiemVu.DanhMuc
             this.Enabled = false;
             FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup frm = new FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu_Lookup();
             frm.currentData = currentTruongdulieu_Lookupdata;
+            frm.formType = "2";
             frm.currentState = _status_detail_2;
             frm.Show();
             frm.Focus();
@@ -128,15 +127,12 @@ namespace QLNhiemVu.DanhMuc
 
                 if (string.IsNullOrEmpty(data))
                 {
-                    //currentTruongdulieu_Children = null;
                     currentTruongdulieu_Lookupdata = null;
                 }
                 else
                 {
                     if (kieutruong == "8")
                         currentTruongdulieu_Lookupdata = JsonConvert.DeserializeObject<DM_LoaiThutucNhiemvu_Truongdulieu_LookupData>(data);
-                    //else if (kieutruong == "9")
-                    //    currentTruongdulieu_Children = JsonConvert.DeserializeObject<List<Guid>>(data);
                 }
             }
         }
@@ -188,11 +184,6 @@ namespace QLNhiemVu.DanhMuc
                 All.Show_message("Bạn phải nhập Độ rộng!");
                 return;
             }
-            //if (congthuctinh.Length == 0)
-            //{
-            //    All.Show_message("Bạn phải nhập Công thức tính!");
-            //    return;
-            //}
             if (sapxep.Length == 0)
             {
                 All.Show_message("Bạn phải nhập Sắp xếp!");
@@ -274,7 +265,7 @@ namespace QLNhiemVu.DanhMuc
                 obj.DM016219 = All.gs_user_id;
                 obj.DM016220 = DateTime.Now;
                 obj.DM016216 = view.GetRowCellValue(rowselect, "DM016216") == DBNull.Value ? truongchaId : Guid.Parse(view.GetRowCellValue(rowselect, "DM016216").ToString());
-                obj.NoidungId = currentNoidungId;
+                obj.NoidungId = currentNoidung.DM016101;
 
                 return obj;
             }

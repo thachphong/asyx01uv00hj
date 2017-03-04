@@ -31,7 +31,7 @@ namespace QLNhiemVu
 
         private void simpleButton7_Click(object sender, EventArgs e)
         {
-            FRM_DM_ThuTuc_NhiemVu frm = new FRM_DM_ThuTuc_NhiemVu();
+            FRM_DM_Thutuc frm = new FRM_DM_Thutuc();
             frm.Show();
         }
 

@@ -85,6 +85,18 @@
     <Compile Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu.Designer.cs">
       <DependentUpon>FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu.cs</DependentUpon>
     </Compile>
+    <Compile Include="DanhMuc\FRM_DM_Thutuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_Thutuc.Designer.cs">
+      <DependentUpon>FRM_DM_Thutuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_Thutuc_Saochep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\FRM_DM_Thutuc_Saochep.Designer.cs">
+      <DependentUpon>FRM_DM_Thutuc_Saochep.cs</DependentUpon>
+    </Compile>
     <Compile Include="DanhMuc\FRM_TD_Phancong_DonvinhanVB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +350,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu.resx">
       <DependentUpon>FRM_DM_LoaiThutucNhiemvu_ChitietTruongdulieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_DM_Thutuc.resx">
+      <DependentUpon>FRM_DM_Thutuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\FRM_DM_Thutuc_Saochep.resx">
+      <DependentUpon>FRM_DM_Thutuc_Saochep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DanhMuc\FRM_TD_Phancong_DonvinhanVB.resx">
       <DependentUpon>FRM_TD_Phancong_DonvinhanVB.cs</DependentUpon>

@@ -954,8 +954,6 @@ namespace QLNhiemVu.DanhMuc
             FRM_DM_ThuTuc_NhiemVu_Truongcon frm = new FRM_DM_ThuTuc_NhiemVu_Truongcon();
             frm.currentState = _status_detail_2;
             frm.currentNoidung = currentNoidungs.FirstOrDefault(o => o.DM016101 == currentNoidungId);
-            frm.currentNoidungId = currentNoidungId;
-            //frm.currentList = list;
             frm.truongchaId = (Guid)gridView3.GetRowCellValue(rowselect, "DM016201");
             frm.Show();
             this.Enabled = false;

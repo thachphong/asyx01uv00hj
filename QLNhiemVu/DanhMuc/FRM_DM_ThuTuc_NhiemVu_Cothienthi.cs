@@ -16,7 +16,7 @@ namespace QLNhiemVu.DanhMuc
 {
     public partial class FRM_DM_ThuTuc_NhiemVu_Cothienthi : BaseForm_Data
     {
-        FRM_DM_ThuTuc_NhiemVu frm = null;
+        FRM_DM_Thutuc frm = null;
         public List<TD_ThuchienNhiemvu_Cothienthi> currentList = null;
         public string currentState = "NORMAL";
         public FRM_DM_ThuTuc_NhiemVu_Cothienthi()
@@ -26,7 +26,7 @@ namespace QLNhiemVu.DanhMuc
 
         private void FRM_DM_ThuTuc_NhiemVu_Cothienthi_Load(object sender, EventArgs e)
         {
-            frm = (FRM_DM_ThuTuc_NhiemVu)Application.OpenForms["FRM_DM_ThuTuc_NhiemVu"];
+            frm = (FRM_DM_Thutuc)Application.OpenForms["FRM_DM_Thutuc"];
             if (frm == null) this.Dispose();
 
             panelHeader1.alignCenter(panelHeader1.Parent);
@@ -105,7 +105,7 @@ namespace QLNhiemVu.DanhMuc
                 });
             }
 
-            frm.dsCothienthi = dsCot;
+            frm.currentSelected_LoaiThutucNhiemvu_Cothienthi = dsCot;
             frm.Enabled = true;
             frm.Focus();
             this.Dispose();

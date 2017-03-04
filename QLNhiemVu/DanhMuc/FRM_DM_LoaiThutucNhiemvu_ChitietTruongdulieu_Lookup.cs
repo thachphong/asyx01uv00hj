@@ -28,9 +28,6 @@ namespace QLNhiemVu.DanhMuc
 
         private void FRM_DM_LoaiThutucNhiemvu_QuitrinhThamdinh_Load(object sender, EventArgs e)
         {
-            //frm = (FRM_DM_ThuTuc_NhiemVu)Application.OpenForms["FRM_DM_ThuTuc_NhiemVu"];
-            //if (frm == null) this.Dispose();
-
             panelHeader1.alignCenter(panelHeader1.Parent);
 
             LoadTables();
@@ -220,8 +217,8 @@ namespace QLNhiemVu.DanhMuc
 
             if (formType == "1")
             {
-                FRM_DM_ThuTuc_NhiemVu frm = (FRM_DM_ThuTuc_NhiemVu)Application.OpenForms["FRM_DM_ThuTuc_NhiemVu"];
-                frm.currentTruongdulieu_Lookupdata = currentData;
+                FRM_DM_Thutuc frm = (FRM_DM_Thutuc)Application.OpenForms["FRM_DM_Thutuc"];
+                frm.currentSelected_Truongdulieu_LookupData = currentData;
                 this.Close();
                 frm.CallBack_UpdateLookupData(true);
             }

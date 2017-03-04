@@ -148,6 +148,7 @@
             this.gridColumn16});
             this.gridView3.GridControl = this.gridControl3;
             this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsView.ShowDetailButtons = false;
             this.gridView3.OptionsView.ShowGroupPanel = false;
             this.gridView3.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView3_FocusedRowChanged);
             this.gridView3.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView3_ValidateRow);

@@ -188,7 +188,7 @@ namespace QLNhiemVu.DanhMuc
                 obj.DM016307 = currentState == "NEW" ? DateTime.Now : currentDataSelected.DM016307;
                 obj.DM016308 = All.gs_user_id;
                 obj.DM016309 = DateTime.Now;
-                obj.DM016311 = Guid.Parse(m_maloi_lk.EditValue.ToString());
+                obj.DM016311 = (m_maloi_lk.EditValue == null || m_maloi_lk.EditValue.ToString() == Guid.Empty.ToString()) ? Guid.Empty : Guid.Parse(m_maloi_lk.EditValue.ToString());
 
                 if (m_tiep_dinhkem.Text.Trim() != string.Empty && _upload_flg)
                 {
@@ -220,13 +220,6 @@ namespace QLNhiemVu.DanhMuc
 
         private bool ValidateDetailForm()
         {
-            //if (m_maloi_lk.EditValue.ToString() == Guid.Empty.ToString())
-            //{
-            //    All.Show_message("Vui lòng chọn Loại thủ tục nhiệm vụ!");
-            //    m_maloi_lk.Focus();
-            //    return false;
-            //}
-
             if (m_loai_huondan.EditValue.ToString().Trim() == string.Empty)
             {
                 All.Show_message("Vui lòng chọn Loại hướng dẫn!");
@@ -390,8 +383,8 @@ namespace QLNhiemVu.DanhMuc
         }
         private void Load_ThongBao()
         {
-            
-            List<DM_ThongBao> list= Helpers.ThongBao.GetList();
+
+            List<DM_ThongBao> list = Helpers.ThongBao.GetList();
             m_maloi_lk.Properties.DataSource = list;
             m_maloi_lk.Properties.DisplayMember = "SYS03";
             m_maloi_lk.Properties.ValueMember = "SYS01";
